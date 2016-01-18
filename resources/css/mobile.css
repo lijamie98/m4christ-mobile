@@ -1,0 +1,24 @@
+h1, h2, h3, h4, h5, h6, p, span,
+.mdl-layout-title, .mdl-layout__title,
+.mdl-navigation__link {
+    font-family: 'Microsoft YaHei UI', "Roboto", "Helvetica", "Arial", sans-serif;
+}
+
+.mdl-navigation__link {
+    font-weight: 200;
+    font-size: 18px;
+}
+
+.mdl-navigation__link:hover {
+    color: #222 !important;
+}
+
+.mdl-layout__drawer {
+    border: none !important;
+    width: 200px;
+}
+
+.mdl-layout--fixed-drawer:not(.is-small-screen) > .mdl-layout__header,
+.mdl-layout--fixed-drawer:not(.is-small-screen) > .mdl-layout__content {
+    margin-left: 200px !important;
+}

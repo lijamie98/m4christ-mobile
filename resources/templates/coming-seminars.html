@@ -1,0 +1,18 @@
+<div class="mdl-grid mdl-grid--no-spacing seminar-grid" ng-repeat="comingSeminarList in comingSeminars">
+
+    <div class="mdl-cell mdl-cell--7-col mdl-shadow--3dp">
+        <h4> {{ comingSeminarList.year }} </h4>
+    </div>
+
+    <div class="mdl-cell mdl-cell--12-col seminar-border" ng-repeat="comingSeminar in comingSeminarList.seminars">
+        <div class="seminar-item-text">
+            <span class="mdl-layout-title"> {{ comingSeminar.title }} </span>
+
+            <p> {{ comingSeminar.startDate | date }} - {{ comingSeminar.location }} </p>
+        </div>
+
+        <a href="#" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-color-text--primary">
+            <div>Open</div>
+        </a>
+    </div>
+</div>

@@ -1,0 +1,21 @@
+.home-grid .mdl-cell {
+    margin: 6px auto;
+    padding: 12px 12px 5px;
+}
+
+.home-grid .mdl-cell .mdl-layout__title, .home-grid p {
+    margin-bottom: 0px;
+}
+
+.home-grid hr {
+    margin: 2px 0 3px;
+}
+
+.home-grid button {
+    float: right;
+}
+
+.home-img {
+    float: left;
+    margin-right: 12px;
+}

@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>POC 1</title>
+</head>
+
+<style>
+    body {
+        font-family: "Roboto";
+        background-image: url(poc1.jpg);
+    }
+
+    .iframe-container {
+        position: fixed;
+        top: 0;
+        left: 0;
+
+        height: 100%;
+        width: 100%;
+
+        font-family: "Roboto", "Segoe UI", sans-serif;
+        background-color: rgba(0, 0, 0, 0.32);
+        z-index: 2147000;
+    }
+
+    .iframe-container .embed-container {
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        margin: auto;
+
+        height: calc(100vw - 108px);
+        width: calc(100vw - 108px);
+
+        max-height: calc(100% - 108px);
+        max-width: calc(100vh - 108px);
+
+        min-height: 212px;
+        min-width: 212px;
+
+        border-radius: 12px;
+        background-color: #fff;
+    }
+
+    .iframe-close {
+        position: absolute;
+        top: -18px;
+        right: -18px;
+
+        height: 36px;
+        width: 36px;
+        padding: 6px;
+        background-color: rgba(47, 47, 47, 1);
+
+        fill: #ccc;
+        border-radius: 50%;
+        cursor: pointer;
+        box-sizing: border-box;
+    }
+
+    .iframe-close:hover {
+        fill: #eee;
+        background-color: rgba(31, 31, 31, 1);
+    }
+
+    .iframe-close:active {
+        fill: #fff;
+        background-color: rgba(0, 0, 0, 1);
+    }
+
+    .embed-iframe {
+        position: absolute;
+        top: 16px;
+        left: 16px;
+
+        height: calc(100% - 32px);
+        width: calc(100% - 32px);
+
+        border: none;
+        display: none;
+
+        z-index: 5;
+    }
+
+    .iframe-loading {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        margin: auto;
+
+        height: 19px;
+        width: 70px;
+    }
+
+    .iframe-link {
+        color: #eee;
+    }
+</style>
+
+<body>
+
+<a class="iframe-link" href="http://m4christ.net">
+    <p>m4christ is epic</p>
+</a>
+
+<a class="iframe-link" href="https://www.youtube.com/embed/52i8f79Nd2U?autoplay=true">
+    <p>Hi... I go to utube!!!</p>
+</a>
+
+<a class="iframe-link" href="http://www.youtube.com/embed/86ZGXDwuw2E?autoplay=true">
+    <p>Hi... I go to utube 2!!!!!!!! INTEGERS !!!!</p>
+</a>
+
+<a class="iframe-link" href="http://player.youku.com/embed/XNzQ1NjI0ODQ4">
+    <p>Hi... I go to youku!!!!</p>
+</a>
+
+<a class="iframe-link" href="http://m4christ.net/web/embed_youku.jsp?vid=XNzQ1MDQ2MDYw">
+    <p>Hi... I go to youku 2!!!!!!!! INTEGERS!!!!</p>
+</a>
+
+<div class="iframe-container" style="display: none;">
+    <div class="embed-container">
+        <div class="iframe-close">
+            <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24">
+                <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/>
+                <path d="M0 0h24v24H0z" fill="none"/>
+            </svg>
+        </div>
+        <iframe class="embed-iframe" allowfullscreen allowtransparency=""></iframe>
+        <div class="iframe-loading">Loading...</div>
+    </div>
+</div>
+
+<script>
+
+    (function() {
+        var links = document.querySelectorAll(".iframe-link");
+
+        linksLength = links.length;
+
+        for (var i = 0; i < linksLength; i++) {
+            links[i].addEventListener("click", function (e) {
+                e.preventDefault();
+
+                open(this.href);
+            });
+        }
+
+        document.querySelector(".iframe-close").addEventListener("click", function () {
+            close();
+        });
+
+        function open(href) {
+
+            var iframe = document.querySelector(".embed-iframe");
+            iframe.src = href;
+
+            document.querySelector(".iframe-container").style.display = "block";
+
+            iframe.addEventListener("load", showIframe);
+
+            function showIframe() {
+
+                iframe.style.display = "block";
+
+                iframe.removeEventListener("load", showIframe);
+            }
+        }
+
+        function close() {
+            document.querySelector(".iframe-container").style.display = "none";
+
+            var iframe = document.querySelector(".embed-iframe");
+            iframe.src = "about:blank";
+
+            iframe.style.display = "none";
+        }
+    }());
+</script>
+
+</body>
+</html>
