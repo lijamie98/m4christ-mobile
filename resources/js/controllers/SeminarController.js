@@ -26,7 +26,7 @@ mainApp.controller("SeminarController", ["$scope", "$http", function ($scope, $h
 
                 console.info('[ ' + name + ' ]', response.data);
 
-                msg('[ ' + name + ' ] Retrieved ' + name + ' Succesfully');
+                msg('[ ' + name + ' ] Retrieved ' + name + ' Succesfully', 3000);
 
             }, function (response) {
 
@@ -67,3 +67,30 @@ mainApp.controller("SeminarController", ["$scope", "$http", function ($scope, $h
         templateUrl: '/resources/templates/past-seminars.html'
     };
 });
+
+window.onload = function () {
+    var mainContent = document.querySelector('.mdl-layout__content');
+
+    setTimeout(function () {
+        componentHandler.upgradeElement(document.getElementById('seminar-info-button'));
+    }, 250);
+
+    var topFab = document.getElementById('top-fab');
+
+    mainContent.addEventListener('scroll', function () {
+        if (this.scrollTop >= 150)
+            topFab.classList.add('active');
+        else
+            topFab.classList.remove('active');
+    });
+
+    function openSeminar() {
+        console.log('test');
+    }
+
+    window.openSeminar = openSeminar;
+
+    topFab.addEventListener('click', function () {
+        mainContent.scrollTop = 0;
+    });
+};

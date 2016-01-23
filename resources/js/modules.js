@@ -39,8 +39,5 @@ var mainApp = angular.module("mainApp", []).directive('css', function () {
         var dateString = year + " 年 " + month + " 月 " + day + " 日";
 
         return dateString;
-
-        //var _date = $filter('date')(new Date(input), 'dd/MM/yyyy');
-        //return _date.toUpperCase();
     };
 });

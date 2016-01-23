@@ -12,15 +12,16 @@
 
     <!-- MDL Resources -->
 
-    <link rel="stylesheet" href="/resources/css/material.min.css">
-    <link rel="stylesheet" href="/resources/css/material-grid.min.css">
+    <link rel="stylesheet" href="/material-design-lite/dist/material.min.css">
+    <link rel="stylesheet" href="/material-design-lite/dist/material-grid.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Roboto">
 
 </head>
 
-<body ng-app="mainApp">
+<body ng-app="mainApp" style="position: fixed;">
 
-<div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header" id="main-layout"
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header" id="main-layout"
      ng-controller="MainController">
 
     <!-- ==================
@@ -63,7 +64,7 @@
         <div class="page-content" ng-controller="SeminarController">
 
             <div class="mdl-tabs mdl-js-tabs seminar-tabs">
-                <div class="mdl-tabs__tab-bar mdl-color--indigo-700 mdl-shadow--4dp">
+                <div class="mdl-tabs__tab-bar mdl-color--indigo-600 mdl-shadow--4dp">
                     <a href="#seminar-info" class="mdl-tabs__tab is-active">講員介紹</a>
                     <a href="#seminar-past-seminars" class="mdl-tabs__tab">將來的講習會</a>
                     <a href="#tab3" class="mdl-tabs__tab">過去的講習會</a>
@@ -77,7 +78,12 @@
                 <div class="mdl-tabs__panel mdl-color--blue-grey-50" id="tab3">
                     <seminar-past-seminars></seminar-past-seminars>
                 </div>
+
             </div>
+
+            <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored" id="top-fab">
+                <i class="material-icons">vertical_align_top</i>
+            </button>
 
         </div>
 
@@ -103,7 +109,7 @@
 
 <!-- Setup -->
 
-<script src="/resources/js/material.min.js"></script>
+<script src="/material-design-lite/dist/material.min.js"></script>
 <link rel="stylesheet" type="text/css" href="/resources/css/mobile.css">
 <link rel="stylesheet" type="text/css" href="/resources/css/seminar.css">
 

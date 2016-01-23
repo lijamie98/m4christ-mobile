@@ -3,7 +3,6 @@
 .mdl-tabs__tab-bar {
     border-bottom: none !important;
 }
-
 .mdl-tabs__tab {
     color: rgba(255, 255, 255, 0.54);
 }
@@ -20,7 +19,11 @@
 /* Seminar Cards */
 
 .seminar-tabs .mdl-tabs__panel {
-    padding: 16px;
+    padding: 16px 16px 88px;
+}
+
+#seminar-info {
+    padding-bottom: 16px;
 }
 
 .seminar-card {
@@ -47,6 +50,10 @@
 .seminar-card > .mdl-card__supporting-text {
     font-family: 'Microsoft YaHei UI', "Roboto", "Helvetica", "Arial", sans-serif;
     font-size: 16px;
+    width: 100% !important;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 .seminar-card > .mdl-card__menu {
@@ -60,10 +67,6 @@
 
 .seminar-card > .mdl-card--border {
     border-top: 1px solid rgba(0, 0, 0, .1);
-}
-
-.seminar-card > .mdl-card__supporting-text {
-    width: calc(100% - 16px) !important;
 }
 
 .seminar-info-card > .mdl-card__title, .seminar-past-seminars > .mdl-card__title {
@@ -106,7 +109,7 @@
 }
 
 .seminar-grid .mdl-cell .seminar-item-text {
-    padding: 12px 0 0 12px;
+    padding: 12px;
     float: left;
     height: 100%;
     width: calc(100% - 80px);
@@ -144,4 +147,24 @@
 
 .seminar-grid .mdl-cell.mdl-cell--7-col h4 {
     margin: 4px 0;
+}
+
+#top-fab {
+    position: fixed;
+    right: 44px;
+    bottom: 44px;
+    height: 0;
+    width: 0;
+    transform: translate(0);
+
+    min-width: 0;
+    transition: all 476ms ease-in-out;
+    z-index: 1000000;
+}
+
+#top-fab.active {
+    height: 56px;
+    width: 56px;
+    right: 16px;
+    bottom: 16px;
 }
