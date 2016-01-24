@@ -30,9 +30,10 @@
         "   right: 16px;\n" +
         "}";
 
-    window.onload = function () {
+    window.addEventListener('load', function () {
         document.head.appendChild(toastCSS);
-    };
+    });
+
 
     var text = "";
 
