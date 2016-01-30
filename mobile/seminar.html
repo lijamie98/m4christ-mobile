@@ -2,9 +2,9 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
 
-    <title id="title">耶穌是主 － 首頁</title>
+    <title id="title"></title>
 
     <script src="/resources/js/msg.js"></script>
 
@@ -19,10 +19,9 @@
 
 </head>
 
-<body ng-app="mainApp" style="position: fixed;">
+<body ng-app="mainApp">
 
-<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header" id="main-layout"
-     ng-controller="MainController">
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header" ng-controller="MainController">
 
     <!-- ==================
           Toolbar
@@ -31,7 +30,7 @@
     <header class="mdl-layout__header" ng-controller="NavigationController">
 
         <div class="mdl-layout__header-row">
-            <span class="mdl-layout-title">{{ title }}</span>
+            <span class="mdl-layout-title" id="header-title">{{ title }}</span>
 
             <div class="mdl-layout-spacer"></div>
 
@@ -65,9 +64,9 @@
 
             <div class="mdl-tabs mdl-js-tabs seminar-tabs">
                 <div class="mdl-tabs__tab-bar mdl-color--indigo-600 mdl-shadow--4dp">
-                    <a href="#seminar-info" class="mdl-tabs__tab is-active">講員介紹</a>
-                    <a href="#seminar-past-seminars" class="mdl-tabs__tab">將來的講習會</a>
-                    <a href="#tab3" class="mdl-tabs__tab">過去的講習會</a>
+                    <a href="#seminar-info" class="mdl-tabs__tab is-active" data-title="耶穌是主 － 講習會列表">講員介紹</a>
+                    <a href="#seminar-past-seminars" class="mdl-tabs__tab" data-title="耶穌是主 － 即將來臨的講習會">將來的講習會</a>
+                    <a href="#tab3" class="mdl-tabs__tab" data-title="耶穌是主 － 過去的講習會">過去的講習會</a>
                 </div>
                 <div class="mdl-tabs__panel is-active mdl-color--blue-grey-50" id="seminar-info">
                     <seminar-info-text></seminar-info-text>
@@ -81,7 +80,8 @@
 
             </div>
 
-            <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored" id="top-fab">
+            <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored"
+                    id="top-fab">
                 <i class="material-icons">vertical_align_top</i>
             </button>
 

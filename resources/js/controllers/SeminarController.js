@@ -51,6 +51,20 @@ mainApp.controller("SeminarController", ["$scope", "$http", function ($scope, $h
 
     getData('Future Seminars', 'http://m.m4christ.net/mobile/json/seminars/coming', 'comingSeminars');
 
+    (function() {
+        var tabs = document.querySelector('.mdl-tabs__tab-bar').children;
+        var tabsLength = tabs.length;
+
+        for (var i = 0; i < tabsLength; i++) {
+            tabs[i].addEventListener('click', function() {
+                var title = this.getAttribute('data-title');
+
+                document.querySelector('#title').innerText = title;
+                document.querySelector('#header-title').innerText = title;
+            });
+        }
+    }());
+
 }]).directive('seminarInfoText', function () {
     return {
         restrict: 'E',

@@ -37,8 +37,9 @@ will contain main-controls and secondary-controls
 
 /* adds padding for main-controls and secondary-controls */
 .m4christ-audio .ma-controls .ma-icon-controls > div {
-    flex-shrink: 1;
+    flex: 1;
     padding: 8px;
+    text-align: center;
 }
 
 /* change shadow on hover to 4dp */
@@ -52,6 +53,7 @@ will contain main-controls and secondary-controls
  will contain rewind, play-pause, and fast-forward*/
 .m4christ-audio .ma-controls .ma-icon-controls .ma-icon-controls--main-controls {
     align-self: flex-start;
+    margin-right: 16px;
 }
 
 /* styles for secondary-controls:
