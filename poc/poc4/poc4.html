@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>POC4</title>
+</head>
+<body>
+Just wait for my son, he's gonna come back soon...
+
+<iframe src="poc4SUB.html"></iframe>
+
+<script>
+    window.addEventListener("message", receiveMessage, false);
+
+    function receiveMessage(event) {
+        var origin = event.origin || event.originalEvent.origin; // For Chrome, the origin property is in the event.originalEvent object.
+
+        if (origin !== document.location.origin)
+            return;
+
+        console.log(event.data);
+    }
+</script>
+</body>
+</html>

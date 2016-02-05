@@ -1,0 +1,52 @@
+.slider {
+    position: relative;
+    margin: 0 16px;
+    height: 25px;
+}
+
+.slider, .slider div {
+    box-sizing: border-box;
+
+    /* http://stackoverflow.com/questions/826782/css-rule-to-disable-text-selection-highlighting */
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none;   /* Chrome/Safari/Opera */
+    -khtml-user-select: none;    /* Konqueror */
+    -moz-user-select: none;      /* Firefox */
+    -ms-user-select: none;       /* IE/Edge */
+    user-select: none;           /* non-prefixed version, currently
+                                  not supported by any browser */
+}
+
+.slider > div {
+    position: absolute;
+    top: 11px;
+    height: 3px;
+    min-width: 0;
+    max-width: 100%;
+
+    cursor: pointer;
+}
+
+.slider-background {
+    width: 100%;
+}
+
+.slider-progress-circle {
+    margin: auto;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: -7px;
+
+    height: 14px;
+    width: 14px;
+    border-radius: 50%;
+
+    cursor: pointer;
+}
+
+.slider-progress-circle.pressed {
+    right: -9px;
+    height: 18px;
+    width: 18px;
+}

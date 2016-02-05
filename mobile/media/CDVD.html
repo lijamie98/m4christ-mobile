@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+
+    <title id="title"></title>
+
+    <script src="/resources/js/msg.js"></script>
+
+    <script src="/resources/js/angular.min.js"></script>
+
+    <!-- MDL Resources -->
+
+    <link rel="stylesheet" href="/material-design-lite/dist/material.min.css">
+    <link rel="stylesheet" href="/material-design-lite/dist/material-grid.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Roboto">
+
+</head>
+<body ng-app="mainApp">
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header" ng-controller="CDVDController">
+
+    <!-- Header -->
+    <div class="mdl-layout__header mdl-color--white mdl-color-text--black">
+
+        <div class="mdl-layout__drawer-button mdl-js-button mdl-js-ripple-effect" id="back-button">
+            <i class="material-icons mdl-color-text--black">arrow_back</i>
+        </div>
+
+        <div class="mdl-layout__header-row">
+
+            <span class="mdl-layout-title">{{ title }}</span>
+        </div>
+    </div>
+
+    <main class="mdl-layout__content mdl-color--blue-grey-50">
+
+        <div class="page-content">
+            <div class="mdl-grid media--main-grid">
+                <div class="mdl-cell mdl-cell--6-col media-padding mdl-cell--1-offset-tablet">
+                    <span class="mdl-typography--headline">和風細語宣講 DVD 光碟－靈命初期系列</span>
+                    <br/>
+                <span class="mdl-typography--body-1">上主是我的牧者，我實在一無所缺。當您尚未接受耶穌基督為您的救主及牧者，但卻渴
+                望認識主時 ;或是您已接受耶穌基督為您的救主及牧者，且渴慕認識更多在基督耶穌內的豐盛生命時，這一類別的錄音帶可以帶領您
+                與復活的耶穌基督有生命的碰撞，使您經驗到上主為我們的牧者的滿足與喜樂。 </span>
+                </div>
+
+                <div class="mdl-cell mdl-cell--12-col">
+                    <div class="mdl-grid mdl-grid--no-spacing mm-list">
+                        <div class="mdl-cell mm-list--header">
+                            講習會視頻
+                        </div>
+                        <a href="#" class="mdl-cell mm-list--item">
+                            <div class="mm-list--item-text">
+                                靈命初期MEOWMEOWM
+                            </div>
+                            <div class="mm-list--icon-right material-icons">keyboard_arrow_right</div>
+                        </a>
+                        <a href="#" class="mdl-cell mm-list--item">
+                            <div class="mm-list--item-text">靈命成長期</div>
+                            <div class="mm-list--icon-right material-icons">keyboard_arrow_right</div>
+                        </a>
+                        <a href="#" class="mdl-cell mm-list--item">
+                            <div class="mm-list--item-text">靈命煉淨期</div>
+                            <div class="mm-list--icon-right material-icons">keyboard_arrow_right</div>
+                        </a>
+                        <a href="#" class="mdl-cell mm-list--item">
+                            <div class="mm-list--item-text">靈命成熟期</div>
+                            <div class="mm-list--icon-right material-icons">keyboard_arrow_right</div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</div>
+
+<!-- Modules -->
+
+<script src="/resources/js/modules.js"></script>
+
+<!-- Controllers -->
+
+<script src="/resources/js/controllers/CDVDController.js"></script>
+
+<!-- Setup -->
+
+<script src="/material-design-lite/dist/material.min.js"></script>
+<link rel="stylesheet" type="text/css" href="/resources/css/mobile.css">
+<link rel="stylesheet" type="text/css" href="/resources/css/media.css">
+</body>
+</html>
