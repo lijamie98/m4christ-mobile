@@ -146,3 +146,52 @@
 .media-padding {
     padding: 8px;
 }
+
+.media-iframe--container {
+    position: fixed;
+    top: 100%;
+    left: 0;
+    height: 100%;
+    width: 100%;
+
+    background: #fff;
+    z-index: 100000;
+}
+
+.media-iframe--container.open {
+    animation-name: iframe-container-open;
+    animation-duration: 500ms;
+    animation-fill-mode: forwards;
+}
+
+@keyframes iframe-container-open {
+    from {
+        top: 100%;
+    }
+    to {
+        top: 0;
+    }
+}
+
+.media-iframe--container .mdl-progress {
+    position: absolute;
+    top: 0px;
+    left: 0;
+    width: 100%;
+
+    transition: top 300ms ease-in;
+}
+
+.media-iframe--container.ready .mdl-progress {
+    top: -4px;
+}
+
+.media-iframe--container .mdl-progress > .progressbar {
+    animation-duration: 1473ms;
+}
+
+.media-iframe--iframe {
+    height: 100%;
+    width: 100%;
+    border: none;
+}

@@ -61,7 +61,7 @@
 
     <main class="mdl-layout__content mdl-color--blue-grey-50">
 
-        <div class="page-content"> <!-- ng-controller="MediaController"-->
+        <div class="page-content" ng-controller="MediaController">
 
             <div class="mdl-grid media--main-grid">
                 <div class="mdl-cell mdl-cell--12-col itc">
@@ -138,6 +138,11 @@
     </main>
 </div>
 
+<div class="media-iframe--container">
+    <div id="test" class="mdl-progress mdl-js-progress mdl-progress__indeterminate"></div>
+    <iframe class="media-iframe--iframe"></iframe>
+</div>
+
 <script>
     window.pageSettings = {
         "name": "耶穌是主 － 和風細語訴光碟"
@@ -153,7 +158,7 @@
 <script src="/resources/js/controllers/MainController.js"></script>
 <script src="/resources/js/controllers/NavigationController.js"></script>
 <script src="/resources/js/controllers/LinksController.js"></script>
-<!--<script src="/resources/js/controllers/MediaController.js"></script>-->
+<script src="/resources/js/controllers/MediaController.js"></script>
 
 <!-- Setup -->
 
