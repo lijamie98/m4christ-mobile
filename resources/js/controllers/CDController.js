@@ -13,7 +13,7 @@ mainApp.controller('CDController', ['$scope', '$http', function ($scope, $http) 
         }.bind({}))[0];
     }());
 
-    console.log(queryObject);
+    console.log('[Query Object]', queryObject);
 
     $scope.title = queryObject.filter + 'CD';
 
@@ -46,5 +46,9 @@ mainApp.controller('CDController', ['$scope', '$http', function ($scope, $http) 
 
         $scope.dvds = cdData;
     }, function (response) {
+    });
+
+    document.querySelector('#back-button').addEventListener('click', function() {
+        window.parent.postMessage('closeFrame', '*');
     });
 }]);

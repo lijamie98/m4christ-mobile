@@ -149,8 +149,9 @@
 
 .media-iframe--container {
     position: fixed;
-    top: 100%;
+    top: 0;
     left: 0;
+    transform: translateY(100%);
     height: 100%;
     width: 100%;
 
@@ -166,10 +167,25 @@
 
 @keyframes iframe-container-open {
     from {
-        top: 100%;
+        transform: translateY(100%);
     }
     to {
-        top: 0;
+        transform: translateY(0px);
+    }
+}
+
+.media-iframe--container.close {
+    animation-name: iframe-container-close;
+    animation-duration: 500ms;
+    animation-fill-mode: forwards;
+}
+
+@keyframes iframe-container-close {
+    from {
+        transform: translateY(0px);
+    }
+    to {
+        transform: translateY(100%);
     }
 }
 

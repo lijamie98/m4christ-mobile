@@ -47,4 +47,8 @@ mainApp.controller('DVDController', ['$scope', '$http', function ($scope, $http)
         $scope.dvds = dvdData;
     }, function (response) {
     });
+
+    document.querySelector('#back-button').addEventListener('click', function() {
+        window.parent.postMessage('closeFrame', '*');
+    });
 }]);
