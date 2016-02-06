@@ -44,7 +44,7 @@ mainApp.controller('CDController', ['$scope', '$http', function ($scope, $http) 
         console.log('[Filtered CD Data]', cdData);
         console.log('[Example Data]', cdData[0]);
 
-        $scope.dvds = cdData;
+        $scope.cds = cdData;
     }, function (response) {
     });
 

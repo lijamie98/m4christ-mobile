@@ -120,7 +120,7 @@
 }
 
 .mm-list > .mm-list--item > .mm-list--item-text > .mm-list--item-text-title,
-.mm-list > .mm-list--item > .mm-list--item-text > .mm-list--item-text-subtitle{
+.mm-list > .mm-list--item > .mm-list--item-text > .mm-list--item-text-subtitle {
     display: block;
     margin: 0;
 }
@@ -157,12 +157,17 @@
 
     background: #fff;
     z-index: 100000;
+
+    animation-duration: 567ms;
+    animation-fill-mode: forwards;
+    -webkit-animation-timing-function: cubic-bezier(0.165, 0.840, 0.440, 1.000);
+    -moz-animation-timing-function: cubic-bezier(0.165, 0.840, 0.440, 1.000);
+    -o-animation-timing-function: cubic-bezier(0.165, 0.840, 0.440, 1.000);
+    animation-timing-function: cubic-bezier(0.165, 0.840, 0.440, 1.000); /* easeOutQuart */;
 }
 
 .media-iframe--container.open {
     animation-name: iframe-container-open;
-    animation-duration: 500ms;
-    animation-fill-mode: forwards;
 }
 
 @keyframes iframe-container-open {
@@ -176,8 +181,6 @@
 
 .media-iframe--container.close {
     animation-name: iframe-container-close;
-    animation-duration: 500ms;
-    animation-fill-mode: forwards;
 }
 
 @keyframes iframe-container-close {
@@ -191,7 +194,7 @@
 
 .media-iframe--container .mdl-progress {
     position: absolute;
-    top: 0px;
+    top: 0;
     left: 0;
     width: 100%;
 
@@ -202,12 +205,28 @@
     top: -4px;
 }
 
+.media-iframe--container.open .mdl-progress {
+    top: 0;
+}
+
+.media-iframe--container.open.ready .mdl-progress {
+    top: auto;
+    bottom: 0;
+
+    z-index: 10001;
+}
+
 .media-iframe--container .mdl-progress > .progressbar {
     animation-duration: 1473ms;
 }
 
 .media-iframe--iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
     height: 100%;
     width: 100%;
     border: none;
+
+    z-index: 10000;
 }
