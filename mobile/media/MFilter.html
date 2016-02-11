@@ -4,8 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
 
-    <script src="/resources/js/msg.js"></script>
-
     <script src="/resources/js/angular.min.js"></script>
 
     <!-- MDL Resources -->
@@ -17,7 +15,7 @@
 
 </head>
 <body ng-app="mainApp">
-<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header" ng-controller="CDController">
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header" ng-controller="MFilterController">
 
     <!-- Header -->
     <div class="mdl-layout__header mdl-color--white mdl-color-text--black">
@@ -49,10 +47,11 @@
                         <div class="mdl-cell mm-list--header">
                             講習會視頻
                         </div>
-                        <a href="/mobile/media/CDVD.html" class="mdl-cell mm-list--item" ng-repeat="cd in cds">
+                        <a ng-href=" {{ '/mobile/media/CDVD.html?filter=' + filter }} " class="mdl-cell mm-list--item"
+                           ng-repeat="item in items">
                             <div class="mm-list--item-text">
-                                <span class="mm-list--item-text-title">{{ cd.name }}</span>
-                                <span class="mm-list--item-text-subtitle">{{ cd.label + ", " + cd.contents}}</span>
+                                <span class="mm-list--item-text-title">{{ item.name }}</span>
+                                <span class="mm-list--item-text-subtitle">{{ item.label + ", " + item.contents}}</span>
                             </div>
                             <div class="mm-list--icon-right material-icons">keyboard_arrow_right</div>
                         </a>
@@ -69,7 +68,7 @@
 
 <!-- Controllers -->
 
-<script src="/resources/js/controllers/CDController.js"></script>
+<script src="/resources/js/controllers/MFilterController.js"></script>
 
 <!-- Setup -->
 

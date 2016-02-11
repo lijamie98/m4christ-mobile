@@ -26,8 +26,6 @@ mainApp.controller("SeminarController", ["$scope", "$http", function ($scope, $h
 
                 console.info('[ ' + name + ' ]', response.data);
 
-                msg('[ ' + name + ' ] Retrieved ' + name + ' Succesfully', 3000);
-
             }, function (response) {
 
                 console.log(response);

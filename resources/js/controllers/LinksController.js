@@ -10,8 +10,6 @@ mainApp.controller('LinksController', ['$scope', '$http', function ($scope, $htt
 
             $scope.links = response.data;
 
-            msg('Retrieved Sites Succesfully');
-
         }, function (response) {
 
             if (trys != 0) {
