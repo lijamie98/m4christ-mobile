@@ -48,7 +48,7 @@ function Frame() {
         iFrameContainer = document.querySelector('.media-iframe--container');
         iFrame = document.querySelector('.media-iframe--iframe');
 
-        themeColor = document.getElementById('theme-color');
+        themeColor = document.querySelectorAll('.mm-theme-color');
     });
 
     this.open = function (href) {
@@ -79,7 +79,7 @@ function Frame() {
                     openCode();
                     window.removeEventListener('message', messageOpen);
 
-                    themeColor.setAttribute('content', '#fff');
+                    changeBarColor('#ffffff');
                 }
             } else {
                 setTimeout(function () {
@@ -102,7 +102,7 @@ function Frame() {
 
         iFrameContainer.addEventListener('animationend', onAnimationEnd);
 
-        themeColor.setAttribute('content', '#283593');
+        changeBarColor('#283593');
         function onAnimationEnd() {
             iFrame.src = '';
 
@@ -124,6 +124,12 @@ function Frame() {
 
     function onUnload() {
         iFrameContainer.classList.add('ready');
+    }
+
+    function changeBarColor(hex) {
+        for (var i = 0; i < themeColor.length; i++) {
+            themeColor[i].setAttribute('content', hex);
+        }
     }
 
     this.getIframeContainer = function () {

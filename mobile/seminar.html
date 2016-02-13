@@ -3,7 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
-    <meta name="theme-color" content="#283593" id="theme-color">
+    <meta name="theme-color" content="#283593" class="mm-theme-color">
+    <!-- Windows Phone -->
+    <meta name="msapplication-navbutton-color" content="#4285f4" class="mm-theme-color">
+    <!-- iOS Safari -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 
     <title id="title"></title>
 
@@ -22,7 +27,7 @@
 
 <body ng-app="mainApp">
 
-<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header" ng-controller="MainController">
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header mdl-layout--fixed-drawer" ng-controller="MainController">
 
     <!-- ==================
           Toolbar
@@ -32,7 +37,7 @@
 
         <div class="mdl-layout__header-row">
 
-            <span class="mdl-layout-title" id="header-title">{{ title }}</span>
+            <span class="mdl-layout-title" id="header-title" ng-cloak> {{ title }} </span>
 
             <div class="mdl-layout-spacer"></div>
 
