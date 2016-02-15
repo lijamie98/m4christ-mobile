@@ -45,9 +45,9 @@ mainApp.controller("SeminarController", ["$scope", "$http", function ($scope, $h
         actualMethod();
     }
 
-    getData('Past Seminars', 'http://m.m4christ.net/mobile/json/seminars/past', 'pastSeminars');
+    getData('Past Seminars', '/mobile/json/seminars/past', 'pastSeminars');
 
-    getData('Future Seminars', 'http://m.m4christ.net/mobile/json/seminars/coming', 'comingSeminars');
+    getData('Future Seminars', '/mobile/json/seminars/coming', 'comingSeminars');
 
     (function() {
         var tabs = document.querySelector('.mdl-tabs__tab-bar').children;

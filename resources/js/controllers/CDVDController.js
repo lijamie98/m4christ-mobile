@@ -4,7 +4,15 @@
 
 mainApp.controller('CDVDController', ['$scope', '$http', '$sce', function ($scope, $http, $sce) {
 
-    var rootUrl = 'http://m.m4christ.net/mobile/json/products/';
+    var ytBlocked = false;
+    (function () {
+        var hiddenImg = document.getElementById('hidden-img');
+        hiddenImg.addEventListener('error', function () {
+            ytBlocked = true;
+        });
+    }());
+
+    var rootUrl = '/mobile/json/products/';
 
     // https://css-tricks.com/snippets/jquery/get-query-params-object/
     var queryObject = (function () {
@@ -55,18 +63,44 @@ mainApp.controller('CDVDController', ['$scope', '$http', '$sce', function ($scop
 
         var dataLength = data.length;
         for (var i = 0; i < dataLength; i++) {
-            data[i].href = "";
-            data[i].logo = "keyboard_arrow_right";
+            var vidData = data[i];
+
+            vidData.logo = "keyboard_arrow_right";
+            vidData.index = i;
+
+            if (vidData.youtubeVid === null && vidData.youkuVid === null)
+                vidData.logo = 'videocam_off';
         }
 
         if (data.length !== 0) {
             $scope.videos = data;
         }
+
+        var fileBase = 'http://video.m4christ.net/seminars/mp4/' + queryObject.label + '/';
+        var youkuBase = 'http://player.youku.com/embed/';
+        var ytBase = 'https://www.youtube.com/embed/';
+
+        window.mmBox.intercept = function (href) {
+
+            var vidData = data[parseInt(href.replace(document.location.origin + '/', ''))];
+
+            if (!ytBlocked && vidData.youtubeVid !== null) {
+                return ytBase + vidData.youtubeVid;
+            } else if (vidData.youkuVid !== null) {
+                return youkuBase + vidData.youkuVid;
+            }
+
+            throw "STOP, WAIT A MINUTE";
+        };
+
+        setTimeout(function () {
+            window.mmBox.recapture();
+        }, 50);
     }, function (response) {
         msg('Uh Oh! Something went wrong. Please close and open the page.');
     });
 
-    document.querySelector('#back-button').addEventListener('click', function() {
+    document.querySelector('#back-button').addEventListener('click', function () {
         document.location.href = "/mobile/media/MFilter.html?filter=" + queryObject.filter;
     });
 
