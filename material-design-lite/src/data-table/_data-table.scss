@@ -95,11 +95,11 @@
         @include typo-icon;
       }
     }
-
+    
     .mdl-data-table__header--sorted-ascending:before {
       content: "\e5d8";
     }
-
+    
     .mdl-data-table__header--sorted-descending:before {
       content: "\e5db";
     }
