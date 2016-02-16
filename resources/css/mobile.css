@@ -36,9 +36,9 @@ html, body {
     align-items: center;
 }
 
-.itc--img {
+.itc--image {
     display: block;
-    flex: 1;
+    flex-shrink: 1;
 }
 
 .itc--text {
