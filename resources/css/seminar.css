@@ -96,8 +96,6 @@
     position: relative;
     background-color: #fff;
     margin: 6px auto;
-    border: 1px solid #ccc;
-    border-bottom-width: 0px;
 }
 
 .seminar-grid .mdl-cell p {
@@ -105,7 +103,7 @@
 }
 
 .seminar-grid .mdl-cell hr {
-    margin: 0px 0px 2px;
+    margin: 0 0 2px;
 }
 
 .seminar-grid .mdl-cell .seminar-item-text {

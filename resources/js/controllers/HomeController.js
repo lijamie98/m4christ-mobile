@@ -17,7 +17,7 @@ mainApp.controller("HomeController", ["$scope", function($scope) {
         "title": "和風細語光碟事奉",
         "subtitle": "友愛的自己寫的歌"
     }, {
-        "url": "/mobile/index.html",
+        "url": "/mobile/praise.html",
         "imgSrc": "praise-th.jpg",
         "title": "風中傳愛歌曲",
         "subtitle": "線上播放與下載"

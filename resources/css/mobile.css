@@ -22,6 +22,31 @@ html, body {
     margin-left: 200px !important;
 }
 
+/* itc */
+
+.itc {
+    padding: 8px;
+
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-direction: row;
+    flex-direction: row;
+
+    -webkit-align-items: center;
+    align-items: center;
+}
+
+.itc--img {
+    display: block;
+    flex: 1;
+}
+
+.itc--text {
+    display: block;
+    margin-left: 8px;
+    flex: 1;
+}
+
 /* mm-list */
 
 .mm-list {
@@ -32,6 +57,10 @@ html, body {
 .mm-list > .mdl-cell {
     position: relative;
     width: 100%;
+}
+
+.mm-list > a.mdl-cell {
+    cursor: pointer;
 }
 
 .mm-list > .mm-list--header {
@@ -55,12 +84,13 @@ html, body {
     line-height: 24px;
 }
 
-.mm-list > .mm-list--header > .itc > .itc--text > .mm-title {
+.mm-list > .mm-list--header .mm-title {
     margin: 0;
     font-size: 16px;
+    color: rgba(0, 0, 0, 0.54);
 }
 
-.mm-list > .mm-list--header > .itc > .itc--text > .mm-subtitle {
+.mm-list > .mm-list--header .mm-subtitle {
     margin: 0;
     font-size: 13px;
 }

@@ -13,6 +13,8 @@ mainApp.controller("SeminarController", ["$scope", "$http", function ($scope, $h
         "跟隨祂奔走於美國、加拿大、臺灣、馬來西亞、新加坡、汶萊、羅馬、德國、澳洲、香港、中國…等地，為主見證、傳主福音。" +
         "如果您要邀請主僕疏效平為您的團體服務，請按這裡。";
 
+    $scope.icon = 'info_outline';
+
     function getData(name, url, scope) {
         var trys = 3 + 1;
 

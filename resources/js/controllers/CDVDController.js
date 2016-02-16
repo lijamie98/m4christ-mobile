@@ -100,6 +100,15 @@ mainApp.controller('CDVDController', ['$scope', '$http', '$sce', function ($scop
         msg('Uh Oh! Something went wrong. Please close and open the page.');
     });
 
+    $scope.setInfo = function(title, href) {
+        window.mmAP.setInfo({
+            title: title,
+            href: href,
+            update: true,
+            open: true
+        })
+    }
+
     document.querySelector('#back-button').addEventListener('click', function () {
         document.location.href = "/mobile/media/MFilter.html?filter=" + queryObject.filter;
     });

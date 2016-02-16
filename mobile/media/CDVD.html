@@ -6,6 +6,7 @@
 
     <script src="/resources/js/angular.min.js"></script>
     <script src="/resources/js/mm-box.js"></script>
+    <script src="/resources/js/mm-audio-popup.js"></script>
 
     <!-- MDL Resources -->
 
@@ -79,11 +80,13 @@
                                 <div class="itc--img material-icons mdl-color-text--grey-700">library_music</div>
                                 <div class="itc--text">
                                     <span class="mdl-typography--headline mdl-color-text--grey-700"
-                                          style="line-height: 48px;">音頻線上收聽／下載</span>
+                                          style="line-height: 48px;">
+                                        音頻線上收聽／下載</span>
                                 </div>
                             </div>
                         </div>
-                        <a href="#" class="mdl-cell mm-list--item" ng-repeat="mp3 in data.mp3URLs">
+                        <a class="mdl-cell mm-list--item" ng-repeat="mp3 in data.mp3URLs"
+                           ng-click="setInfo(mp3.title, mp3.href)">
                             <div class="mm-list--item-text">
                                 <span class="mm-list--item-text-title"> {{ mp3.title }} </span>
                                 <span class="mm-list--item-text-subtitle"> {{ mp3.size }}</span>
@@ -94,18 +97,29 @@
                 </div>
             </div>
         </div>
-
-        <div class="mm-audio-popup-wrapper">
-            <div class="mm-ap--fab mdl-button--fab mdl-color--accent">
-                <i class="material-icons mdl-color-text--accent-contrast">keyboard_arrow_up</i>
-            </div>
-
-            <div class="mm-ap--audio">
-
-            </div>
-        </div>
     </main>
 </div>
+
+<div class="mm-audio-popup-wrapper">
+    <div class="mdl-button--fab mdl-js-button mdl-js-ripple-effect mdl-color--blue-A700 mm-ap--fab">
+        <i class="material-icons mdl-color-text--accent-contrast">keyboard_arrow_up</i>
+    </div>
+
+    <div class="mdl-shadow--16dp mdl-color--amber-700 mm-ap--audio-wrapper">
+
+        <div class="mdl-button--fab mdl-js-button mdl-js-ripple-effect mdl-color--blue-A700 mm-ap--fab">
+            <i class="material-icons mdl-color-text--accent-contrast">keyboard_arrow_down</i>
+        </div>
+
+        <div class="mdl-grid mm-ap--audio-grid">
+            <div class="mdl-cell mdl-cell--12-col mdl-shadow--4dp mm-ap--audio-title"></div>
+            <div class="mdl-cell mdl-cell--12-col mdl-shadow--4dp mm-ap--audio-container">
+                <audio class="mm-ap--audio" controls></audio>
+            </div>
+        </div>
+    </div>
+</div>
+
 <img src="http://img.youtube.com/vi/79IXjbns7JU/mqdefault.jpg" style="display: none;" id="hidden-img">
 
 <!-- Modules -->

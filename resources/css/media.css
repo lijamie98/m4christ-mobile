@@ -3,26 +3,6 @@
     box-shadow: 0 4px 5px 0 rgba(0, 0, 0, .14), 0 1px 10px 0 rgba(0, 0, 0, .12), 0 2px 4px -1px rgba(0, 0, 0, .2);
 }
 
-.itc {
-    padding: 8px;
-
-    display: -webkit-flex;
-    display: flex;
-    -webkit-flex-direction: row;
-    flex-direction: row;
-}
-
-.itc--img {
-    display: block;
-    flex-shrink: 1;
-}
-
-.itc--text {
-    display: block;
-    margin-left: 8px;
-    flex-shrink: 1;
-}
-
 .mm-title, .mm-subtitle {
     display: block;
 }
