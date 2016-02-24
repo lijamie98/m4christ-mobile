@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+
+    <script src="/resources/js/angular.min.js"></script>
+
+    <!-- MDL Resources -->
+
+    <link rel="stylesheet" href="/material-design-lite/dist/material.min.css">
+    <link rel="stylesheet" href="/material-design-lite/dist/material-grid.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Roboto">
+
+</head>
+<body ng-app="mainApp">
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header" ng-controller="PlaylistsController">
+    <!-- Header -->
+    <div class="mdl-layout__header mdl-color--white mdl-color-text--black">
+
+        <div class="mdl-layout__drawer-button" ng-click="close()">
+            <i class="material-icons mdl-color-text--black">arrow_back</i>
+        </div>
+
+        <div class="mdl-layout__header-row">
+
+            <span class="mdl-layout-title"> {{ title }} </span>
+        </div>
+    </div>
+
+    <main class="mdl-layout__content mdl-color--blue-grey-50">
+
+        <div class="page-content">
+            <div class="mdl-grid mm--main-grid">
+                <div class="mdl-cell mdl-cell--12-col itc">
+                    <img class="itc--image" src="/resources/imgs/media-th.jpg" height="80"/>
+                    <div class="itc--text">
+                        <span class="mm-title">和風音樂事奉</span>
+                        <hr class="mm-hr"/>
+                        <span class="mm-subtitle">和風音樂詩歌以及風中傳愛歌曲集</span>
+                    </div>
+                </div>
+                <div class="mdl-cell mdl-cell--12-col mm-padding">
+                    <div class="mdl-grid mdl-grid--no-spacing mm-list" ng-repeat="product in products">
+                        <a href="" class="mdl-cell mm-list--item">
+                            <div class="mm-list--item-text praise--product-item">
+                                <div class="itc">
+                                    <img ng-src=" {{ product.imageURL }} " alt="P008CD" class="itc--image">
+                                    <div class="itc--text">
+                                        <span class="mm-list--item-text-title"> {{ product.name }} </span>
+                                        <span class="mm-list--item-text-subtitle"> ({{ product.label }}) {{ product.contents }} </span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mm-list--icon-right material-icons">keyboard_arrow_right</div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</div>
+<!-- Modules -->
+
+<script src="/resources/js/modules.js"></script>
+
+<!-- Controllers -->
+
+<script src="/resources/js/controllers/PlaylistsController.js"></script>
+
+<!-- Setup -->
+
+<script src="/material-design-lite/dist/material.min.js"></script>
+<link rel="stylesheet" type="text/css" href="/resources/css/mobile.css">
+<link rel="stylesheet" type="text/css" href="/resources/css/praise.css">
+
+</body>
+</html>

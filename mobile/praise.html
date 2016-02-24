@@ -23,7 +23,8 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Roboto">
 
-    <link rel="stylesheet" type="text/css" href="/resources/css/media.css">
+    <script src="/resources/js/mm-frame.js"></script>
+    <link rel="stylesheet" type="text/css" href="/resources/css/mm-frame.css">
 </head>
 
 <body ng-app="mainApp">
@@ -70,7 +71,7 @@
 
         <div class="page-content" ng-controller="PraiseController">
 
-            <div class="mdl-grid media--main-grid">
+            <div class="mdl-grid mm--main-grid">
 
                 <!-- Short introduction -->
                 <div class="mdl-cell mdl-cell--12-col itc">
@@ -89,7 +90,22 @@
                             <span class="mm-title">「和風音樂詩歌」CD 線上播放</span>
                             <span class="mm-subtitle">精選 CD 線上播放</span>
                         </div>
-                        <a href="" class="mdl-cell mm-list--item">
+                        <a href="" class="mdl-cell mm-list--item"
+                           ng-click="open('/mobile/praise/product.html?label=' + exampleCD.label)">
+                            <div class="mm-list--item-text praise--product-item">
+                                <div class="itc">
+                                    <img ng-src=" {{ exampleCD.imageURL }} " alt="P008CD"
+                                         class="itc--image">
+                                    <div class="itc--text">
+                                        <span class="mm-list--item-text-title"> {{ exampleCD.name }} </span>
+                                        <span class="mm-list--item-text-subtitle"> ({{ exampleCD.label }}) {{ exampleCD.contents
+                                            }} </span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mm-list--icon-right material-icons">keyboard_arrow_right</div>
+                        </a>
+                        <a href="" class="mdl-cell mm-list--item" ng-click="open('/mobile/praise/playlists.html')">
                             <div class="mm-list--item-text">
                                 <span class="mm-list--item-text-title">更多...</span>
                                 <span class="mm-list--item-text-subtitle">所有「和風音樂詩歌」CD 線上播放</span>
@@ -124,7 +140,7 @@
                             <span class="mm-subtitle">精選風中傳愛歌曲，製作成 CD/DVD光碟。</span>
                         </div>
                         <a href="" class="mdl-cell mm-list--item" ng-repeat="CDVDDown in CDVDDowns">
-                            <div class="mm-list--item-text"> {{ CDVDDown }} </div>
+                            <div class="mm-list--item-text"> {{ CDVDDown }}</div>
                             <div class="mm-list--icon-right material-icons">keyboard_arrow_right</div>
                         </a>
                     </div>
@@ -134,6 +150,11 @@
         </div>
 
     </main>
+</div>
+
+<div class="mm-iframe--container">
+    <div class="mdl-progress mdl-js-progress mdl-progress__indeterminate"></div>
+    <iframe class="mm-iframe--iframe" allowfullscreen allowtransparency></iframe>
 </div>
 
 <script>
@@ -157,7 +178,7 @@
 
 <script src="/material-design-lite/dist/material.min.js"></script>
 <link rel="stylesheet" type="text/css" href="/resources/css/mobile.css">
-
+<link rel="stylesheet" type="text/css" href="/resources/css/praise.css">
 </body>
 
 </html>

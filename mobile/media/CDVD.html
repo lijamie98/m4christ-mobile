@@ -35,8 +35,8 @@
     <main class="mdl-layout__content mdl-color--blue-grey-50">
 
         <div class="page-content">
-            <div class="mdl-grid media--main-grid">
-                <div class="mdl-cell mdl-cell--10-col mdl-cell--8-col-tablet media-padding media-cell-center">
+            <div class="mdl-grid mm--main-grid">
+                <div class="mdl-cell mdl-cell--10-col mdl-cell--8-col-tablet mm-padding mm-cell-center">
                     <span class="mdl-typography--headline"> {{ data.title }} </span>
                     <br/>
                     <span class="mdl-typography--subhead"> <b>內容:</b> {{
@@ -46,7 +46,7 @@
                         data.dateLocation }} </span>
                 </div>
 
-                <div class="mdl-cell mdl-cell--10-col mdl-cell--8-col-tablet media-padding media-cell-center">
+                <div class="mdl-cell mdl-cell--10-col mdl-cell--8-col-tablet mm-padding mm-cell-center">
                     <span class="mdl-typography--headline"> 簡介 </span>
                     <br/>
                     <span class="mdl-typography--subhead" ng-bind-html="thisCanBeusedInsideNgBindHtml"> {{ data.introduction }}</span>
@@ -114,7 +114,7 @@
         <div class="mdl-grid mm-ap--audio-grid">
             <div class="mdl-cell mdl-cell--12-col mdl-shadow--4dp mm-ap--audio-title"></div>
             <div class="mdl-cell mdl-cell--12-col mdl-shadow--4dp mm-ap--audio-container">
-                <audio class="mm-ap--audio" controls></audio>
+                <audio class="mm-ap--audio" controls autoplay></audio>
             </div>
         </div>
     </div>

@@ -131,17 +131,17 @@ html, body {
     word-break: break-all;
 }
 
-.mm-list > .mm-list--item > .mm-list--item-text > .mm-list--item-text-title,
-.mm-list > .mm-list--item > .mm-list--item-text > .mm-list--item-text-subtitle {
+.mm-list > .mm-list--item > .mm-list--item-text .mm-list--item-text-title,
+.mm-list > .mm-list--item > .mm-list--item-text .mm-list--item-text-subtitle {
     display: block;
     margin: 0;
 }
 
-.mm-list > .mm-list--item > .mm-list--item-text > .mm-list--item-text-title {
+.mm-list > .mm-list--item > .mm-list--item-text .mm-list--item-text-title {
     font-size: 18px;
 }
 
-.mm-list > .mm-list--item > .mm-list--item-text > .mm-list--item-text-subtitle {
+.mm-list > .mm-list--item > .mm-list--item-text .mm-list--item-text-subtitle {
     color: rgba(24, 24, 24, 0.86);
     font-size: 14px;
 }
@@ -153,4 +153,36 @@ html, body {
     height: 100%;
     float: right;
     color: rgba(0, 0, 0, .57);
+}
+
+/* extra styles */
+
+.mm--main-grid > .mdl-cell {
+    background-color: #fff;
+    box-shadow: 0 4px 5px 0 rgba(0, 0, 0, .14), 0 1px 10px 0 rgba(0, 0, 0, .12), 0 2px 4px -1px rgba(0, 0, 0, .2);
+}
+
+.mm-title, .mm-subtitle {
+    display: block;
+    line-height: normal;
+}
+
+.mm-title {
+    font-size: 18pt;
+}
+
+.mm-hr {
+    margin: 8px 0;
+}
+
+.mm-subtitle {
+    font-size: 1em;
+}
+
+.mm-padding {
+    padding: 8px;
+}
+
+.mm-center {
+    margin: 8px auto;
 }

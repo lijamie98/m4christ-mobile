@@ -23,7 +23,8 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Roboto">
 
-    <link rel="stylesheet" type="text/css" href="/resources/css/media.css">
+    <script src="/resources/js/mm-frame.js"></script>
+    <link rel="stylesheet" type="text/css" href="/resources/css/mm-frame.css">
 </head>
 
 <body ng-app="mainApp">
@@ -70,7 +71,7 @@
 
         <div class="page-content" ng-controller="MediaController">
 
-            <div class="mdl-grid media--main-grid">
+            <div class="mdl-grid mm--main-grid">
                 <div class="mdl-cell mdl-cell--12-col itc">
                     <img class="itc--image" src="/resources/imgs/media-th.jpg" height="80"/>
                     <div class="itc--text">
@@ -115,9 +116,9 @@
     </main>
 </div>
 
-<div class="media-iframe--container">
+<div class="mm-iframe--container">
     <div class="mdl-progress mdl-js-progress mdl-progress__indeterminate"></div>
-    <iframe class="media-iframe--iframe" allowfullscreen allowtransparency></iframe>
+    <iframe class="mm-iframe--iframe" allowfullscreen allowtransparency></iframe>
 </div>
 
 <script>
@@ -141,6 +142,7 @@
 
 <script src="/material-design-lite/dist/material.min.js"></script>
 <link rel="stylesheet" type="text/css" href="/resources/css/mobile.css">
+<link rel="stylesheet" type="text/css" href="/resources/css/media.css">
 
 </body>
 
