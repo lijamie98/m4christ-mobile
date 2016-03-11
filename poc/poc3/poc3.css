@@ -17,13 +17,6 @@ will contain a icon-controls wrapper and a slider-controls
     transition: box-shadow 256ms ease-in-out;
 }
 
-/* change shadow on hover to 6dp */
-.m4christ-audio .ma-controls:hover {
-    box-shadow: 0 6px 10px 0 rgba(0, 0, 0, .14),
-        0 1px 18px 0 rgba(0, 0, 0, .12),
-        0 3px 5px -1px rgba(0, 0, 0, .2);
-}
-
 /* The icons controls wrapper:
 a div that is on top of the slides and contains all elements that are icon controls, like play pause
 will contain main-controls and secondary-controls
@@ -42,13 +35,6 @@ will contain main-controls and secondary-controls
     text-align: center;
 }
 
-/* change shadow on hover to 4dp */
-.m4christ-audio .ma-controls .ma-icon-controls > div:hover {
-    box-shadow: 0 4px 5px 0 rgba(0,0,0,.14),
-        0 1px 10px 0 rgba(0,0,0,.12),
-    0 2px 4px -1px rgba(0,0,0,.2);
-}
-
 /* styles for main-controls:
  will contain rewind, play-pause, and fast-forward*/
 .m4christ-audio .ma-controls .ma-icon-controls .ma-icon-controls--main-controls {
@@ -62,7 +48,7 @@ will contain main-controls and secondary-controls
     margin-left: auto;
 }
 
-.m4christ-audio .ma-controls .ma-icon-controls .ma-controls
+/*.m4christ-audio .ma-controls .ma-icon-controls .ma-controls*/
     /* Some hr styles*/
 .m4christ-audio .ma-controls hr {
     margin: 16px -16px;
@@ -87,72 +73,53 @@ contains 3 components:
     progress bar that will show progress (controlled via. JS):
         contains circle button that seeks track (controlled via. JS)
 */
-.m4christ-audio .ma-controls .ma-controls-slider {
-    position: relative; /* relative so absolute positioned items will work */
-    height: 4px;
-    width: 100%;
-
-    background: rgba(255, 255, 255, 1);
+.ma-controls-slider {
+    position: relative;
+    margin: 0;
+    height: 25px;
 }
 
-/* Sets CSS properties for the progress bar and the buffer bar */
-.m4christ-audio .ma-controls .ma-controls-slider .ma-controls-slider--progress,
-.m4christ-audio .ma-controls .ma-controls-slider .ma-controls-slider--buffer {
+.ma-controls-slider, .ma-controls-slider div {
+    box-sizing: border-box;
+
+    /* http://stackoverflow.com/questions/826782/css-rule-to-disable-text-selection-highlighting */
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none;   /* Chrome/Safari/Opera */
+    -moz-user-select: none;      /* Firefox */
+    -ms-user-select: none;       /* IE/Edge */
+    user-select: none;           /* non-prefixed version, currently
+                                  not supported by any browser */
+}
+
+.ma-controls-slider > div {
     position: absolute;
-    top: 0;
-    left: 0;
-    height: inherit;
-
-    /* transitions */
-    -webkit-transition: all 347ms cubic-bezier(0.165, 0.840, 0.440, 1.000);
-    -moz-transition: all 347ms cubic-bezier(0.165, 0.840, 0.440, 1.000);
-    -o-transition: all 347ms cubic-bezier(0.165, 0.840, 0.440, 1.000);
-    transition: all 347ms cubic-bezier(0.165, 0.840, 0.440, 1.000); /* easeOutQuart */
-
-    /* min-max widths */
-
+    top: 11px;
+    height: 3px;
     min-width: 0;
     max-width: 100%;
+
+    cursor: pointer;
 }
 
-/* Sets z-index for .ma-controls-slider--progress so it'll be over .ma-controls-slider--buffer */
-.m4christ-audio .ma-controls .ma-controls-slider .ma-controls-slider--progress {
-    z-index: 2;
+.ma-controls-slider .ma-slider--background {
+    width: 100%;
 }
 
-/* Sets z-index for .ma-controls-slider--buffer so it'll be under .ma-controls-slider--slider */
-.m4christ-audio .ma-controls .ma-controls-slider .ma-controls-slider--buffer {
-    z-index: 1;
-}
-
-.m4christ-audio .ma-controls .ma-controls-slider .ma-controls-slider--progress .ma-controls-slider--progress-circle {
+.ma-controls-slider .ma-slider--progress-circle {
+    margin: auto;
     position: absolute;
-    top: -5px;
+    top: 0;
+    bottom: 0;
     right: -7px;
+
     height: 14px;
     width: 14px;
-
-    /* transitions */
-    -webkit-transition: all 153ms cubic-bezier(0.250, 0.460, 0.450, 0.940);
-    -moz-transition: all 153ms cubic-bezier(0.250, 0.460, 0.450, 0.940);
-    -o-transition: all 153ms cubic-bezier(0.250, 0.460, 0.450, 0.940);
-    transition: all 153ms cubic-bezier(0.250, 0.460, 0.450, 0.940); /* easeOutQuad */
-
-    /* no-selects */
-    -webkit-touch-callout: none;
-    -webkit-user-select: none;
-    -khtml-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-
     border-radius: 50%;
+
+    cursor: pointer;
 }
 
-.m4christ-audio .ma-controls .ma-controls-slider .ma-controls-slider--progress .ma-controls-slider--progress-circle:hover,
-.m4christ-audio .ma-controls .ma-controls-slider .ma-controls-slider--progress .ma-controls-slider--progress-circle:active,
-.m4christ-audio .ma-controls .ma-controls-slider .ma-controls-slider--progress .ma-controls-slider--progress-circle.pressed {
-    top: -7px;
+.ma-controls-slider .ma-slider--progress-circle.pressed {
     right: -9px;
     height: 18px;
     width: 18px;

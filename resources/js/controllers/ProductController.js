@@ -25,7 +25,10 @@ mainApp.controller('ProductController', ['$scope', '$http', '$sce', function ($s
 
         console.log('[Product Data]', data);
 
-        $scope.thisCanBeusedInsideNgBindHtml = $sce.trustAsHtml(data.introduction);
+        $scope.bindHtml = $sce.trustAsHtml(data.introduction);
+
+        if (window.self !== window.top)
+            window.parent.postMessage('openFrame', '*');
 
         $scope.product = data;
     }, function (response) {
@@ -33,9 +36,10 @@ mainApp.controller('ProductController', ['$scope', '$http', '$sce', function ($s
     });
 
     $scope.close = function () {
-        if (window.self !== window.top)
+        if (window.self !== window.top) {
             window.parent.postMessage('closeFrame', '*');
+        }
         else
-            window.location.href = '/mobile/praise.html';
+            window.location.href = '/mobile/praise/playlists.html?filter=' + queryObject.prev + '&hideIntro=true';
     };
 }]);

@@ -1,9 +1,11 @@
 /* when window is loaded, initialize it
  * NOTE: with this design, there should only be one */
-window.addEventListener('load', function () {
+$(function () {
+
+    window.player = this;
 
     var mobile = (function () {
-        if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+        if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
             return false;
         }
 
@@ -13,7 +15,7 @@ window.addEventListener('load', function () {
     var $maSlide = $('.ma-controls-slider');
 
     // pc AKA. progressBar or "personal best" (inside joke)
-    var $pb = $('.ma-controls-slider--progress', $maSlide);
+    var $pb = $('.ma-slider--progress', $maSlide);
 
     // ct AKA. currentTime
     var $ct = $('.ma-controls-time--current-time');
@@ -23,52 +25,46 @@ window.addEventListener('load', function () {
 
     // When progress circle is touched
     $maSlide.on('mousedown touchstart', function (e) {
-
         // set boolean for if the audio was paused or not before seeking
         var beforePaused = audio.paused;
 
         // pause audio for smooth seeking
         audio.pause();
 
-        // move the circle when clicked
+        var $slider = $(this);
+        var $progress = $pb; // pass reference to $pb for compataibility with poc-slider
+        var $document = $(document);
+
+        var offsetLeft = $(this).offset().left;
+        var sliderWidth = $slider.width();
+
+        $('.slider-progress-circle', $progress).addClass('pressed');
+
+        var audioDuration = audio.duration;
+        var offset = getOffsetLeft($maSlide[0]);
         moveCircle(e);
 
-        // pa AKA. progressCircle
-        var $pc = $('.ma-controls-slider--progress-circle', $maSlide);
-
-        // change some classes on pc to a pressed state
-        $pc[0].className = "mdl-color--accent mdl-shadow--4dp ma-controls-slider--progress-circle pressed";
-
-        // get offsetLeft of pb();
-        var pbLeft = getOffsetLeft($pb[0]);
-
-        // Move the circle n' seek
-        document.documentElement.on('mousemove touchmove', moveCircle);
-
         function moveCircle(e) {
-            $pb[0].style.width = (((e.clientX || e.touches[0].clientX) - pbLeft) / $maSlide[0].offsetWidth) * 100 + '%';
+            e.preventDefault();
+            var rawValue = ((e.clientX || e.originalEvent.touches[0].clientX) - offset) / sliderWidth;
+            $ct[0].innerText = formatSeconds(audioDuration * rawValue);
+            $progress.css('width', (rawValue * 100) + '%');
         }
 
-        function detachMove(e) {
-            // Detach the listener and itself
-            this.off('mousemove touchmove', moveCircle);
-            this.off('mouseup touchend', detachMove);
-
-            // change some classes on 'pc'
-            $pc[0].className = "mdl-color--accent mdl-shadow--2dp ma-controls-slider--progress-circle";
-
-            // update slider position and seek to slider position
+        $document.on('mousemove touchmove', function (e) {
             moveCircle(e);
+        });
+
+        $document.one('mouseup touchend', function (e) {
+            $('.slider-progress-circle', $progress).removeClass('pressed');
+
             audio.currentTime = audio.duration * ($pb[0].style.width.replace('%', '') / 100);
 
             // play if beforePaused is false
             if (!beforePaused)
                 audio.play();
-        }
-
-        document.documentElement.on('mouseup touchend', detachMove);
-
-        DOY();
+            $document.off('mousemove touchmove');
+        });
 
         // http://stackoverflow.com/questions/5598743/finding-elements-position-relative-to-the-document
         function getOffsetLeft(elem) {
@@ -135,15 +131,7 @@ window.addEventListener('load', function () {
     });
 
     // when stop is clicked, reload the audio
-    stop.on('click', function () {
-        // Reset controls
-        pp.children[0].innerText = iconText.play;
-        $pb[0].style.width = "0%";
-        $ct[0].innerText = "00:00";
-
-        // Load it again
-        audio.load();
-    });
+    stop.on('click', reset);
 
     /* Independent Events */
 
@@ -167,7 +155,7 @@ window.addEventListener('load', function () {
     });
 
     // when audio can play, update several things
-    audio.on('canplay', function() {
+    audio.on('canplay', function () {
         $dt[0].innerText = formatSeconds(audio.duration);
         $pb[0].style.width = '0%';
     });
@@ -176,12 +164,12 @@ window.addEventListener('load', function () {
 
     // rewind by n number of seconds
     HTMLAudioElement.prototype.rewind = function (n) {
-        this.currentTime = this.currentTime - 10;
+        this.currentTime = this.currentTime - n;
     };
 
     // fast forward by n number of seconds
     HTMLAudioElement.prototype.fastForward = function (n) {
-        this.currentTime = this.currentTime + 10;
+        this.currentTime = this.currentTime + n;
     };
 
     /* DOM and misc. methods */
@@ -202,8 +190,6 @@ window.addEventListener('load', function () {
         return minutes + ":" + seconds;
     }
 
-    formatSeconds(246);
-
     function _s(s) {
         return document.querySelector(s);
     }
@@ -213,8 +199,93 @@ window.addEventListener('load', function () {
     }
 
     function DOY(s) {
-        console.log('[DOY]', s || 'DOY');
+        var doy = '[DOY] ' + (s || 'DOY');
+
+        console.log(doy);
+        return doy;
     }
+
+    // Playlist Time
+
+    function reset() {
+        // Reset controls
+        pp.children[0].innerText = iconText.play;
+        $pb[0].style.width = "0%";
+        $ct[0].innerText = "00:00";
+
+        // Load it again
+        audio.load();
+        audio.pause();
+    }
+
+    (function () {
+        // http://stackoverflow.com/questions/610406/javascript-equivalent-to-printf-string-format
+        String.prototype.format = function () {
+            var formatted = this;
+            for (var arg in arguments) {
+                formatted = formatted.replace("{" + arg + "}", arguments[arg]);
+            }
+            return formatted;
+        };
+
+        var playlist = document.querySelector('.ma-playlist');
+
+        var url = (function () {
+            return 'http://m.m4christ.net/mobile/json/songs?start=1&end=49';
+        }());
+
+        var data = [];
+
+        var playlistItemTemplate = '<div class="mm-list--item-text">' +
+            '   <span class="mm-list--item-text-title">{0}</span>' +
+            '   <span class="mm-list--item-text-subtitle">({1}) {2}</span>' +
+            '</div>' +
+            '<div class="mm-list--icon-right material-icons">keyboard_arrow_right</div>';
+        var mp3Template = 'http://static.m4christ.net/music/audio/mp3.studio/{0}';
+
+        $.ajax({
+            url: url,
+            success: function (response) {
+                data = response;
+
+                console.log('[Song Data]', response);
+                console.log('[Example Song Data]', response[0]);
+
+                var dataLength = data.length;
+                for (var i = 0; i < dataLength; i++) {
+                    var song = data[i];
+
+                    var songElement = document.createElement('a');
+                    songElement.className = "mdl-cell mm-list--item";
+                    songElement.href = 'javascript:player.changeSong(' + i + ');';
+
+                    songElement.innerHTML = playlistItemTemplate.format(song.songName, song.songNumber, song.songAuthor);
+
+                    // append
+                    playlist.appendChild(songElement);
+
+                    playlistItems[i] = songElement;
+                }
+
+                player.changeSong(0);
+            },
+            dataType: 'JSON'
+        });
+
+        var songTitle = document.getElementById('song-title');
+        var mainContent = document.querySelector('.mdl-layout__content');
+        var playlistItems = [];
+        player.changeSong = function (index) {
+            var song = data[index];
+
+            songTitle.innerText = song.songName;
+            audio.setAttribute('src', mp3Template.format(song.songAudioMp3));
+
+            $(mainContent).animate({ scrollTop: "0px" }, '600', 'swing');
+            reset();
+            audio.play();
+        };
+    }());
 });
 
 HTMLElement.prototype._s = function (s) {

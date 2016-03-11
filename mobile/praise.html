@@ -105,7 +105,7 @@
                             </div>
                             <div class="mm-list--icon-right material-icons">keyboard_arrow_right</div>
                         </a>
-                        <a href="" class="mdl-cell mm-list--item" ng-click="open('/mobile/praise/playlists.html')">
+                        <a href="" class="mdl-cell mm-list--item" ng-click="open('/mobile/praise/playlists.html?filter=P&play=true')">
                             <div class="mm-list--item-text">
                                 <span class="mm-list--item-text-title">更多...</span>
                                 <span class="mm-list--item-text-subtitle">所有「和風音樂詩歌」CD 線上播放</span>
@@ -139,8 +139,8 @@
                             <span class="mm-title">風中傳愛歌本、CD／DVD光碟免費下載</span>
                             <span class="mm-subtitle">精選風中傳愛歌曲，製作成 CD/DVD光碟。</span>
                         </div>
-                        <a href="" class="mdl-cell mm-list--item" ng-repeat="CDVDDown in CDVDDowns">
-                            <div class="mm-list--item-text"> {{ CDVDDown }}</div>
+                        <a href="" class="mdl-cell mm-list--item" ng-repeat="CDVDDown in CDVDDowns" ng-click="open(CDVDDown.href)">
+                            <div class="mm-list--item-text"> {{ CDVDDown.title }}</div>
                             <div class="mm-list--icon-right material-icons">keyboard_arrow_right</div>
                         </a>
                     </div>
@@ -150,11 +150,6 @@
         </div>
 
     </main>
-</div>
-
-<div class="mm-iframe--container">
-    <div class="mdl-progress mdl-js-progress mdl-progress__indeterminate"></div>
-    <iframe class="mm-iframe--iframe" allowfullscreen allowtransparency></iframe>
 </div>
 
 <script>

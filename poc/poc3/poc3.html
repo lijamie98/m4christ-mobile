@@ -38,7 +38,7 @@
     <header class="mdl-layout__header">
 
         <div class="mdl-layout__header-row">
-            <span class="mdl-layout-title">POC 3</span>
+            <span class="mdl-layout-title" id="song-title"></span>
         </div>
 
     </header>
@@ -96,23 +96,29 @@
 
                         <hr/>
 
-                        <div class="mdl-color--blue-grey-100 ma-controls-slider">
-                            <div class="mdl-color--primary ma-controls-slider--progress">
-                                <div class="mdl-color--accent mdl-shadow--2dp ma-controls-slider--progress-circle"></div>
+                        <div class="ma-controls-slider">
+                            <div class="ma-slider--background mdl-color--blue-grey-100"></div>
+                            <div class="ma-slider--progress mdl-color--primary">
+                                <div class="ma-slider--progress-circle mdl-color--accent mdl-shadow--3dp"></div>
                             </div>
-                            <div class="mdl-color--blue-grey-200 ma-controls-slider--buffer ma-controls--buffer"></div>
                         </div>
-                        <audio class="ma-audio" src="http://static.m4christ.net/music/audio/mp3.studio/386_cja_your_love_never_changes.mp3" type="audio/mpeg"></audio>
+                        <audio class="ma-audio" type="audio/mpeg" autoplay></audio>
                     </div>
-                </div>
 
-                <div class="mdl-cell"></div>
+                    <div class="mdl-cell mdl-cell--12-col mdl-color--white mdl-shadow--4dp">
+                        <div class="mdl-grid mdl-grid--no-spacing mm-list ma-playlist">
+
+                        </div>
+                    </div>
+
+                </div>
             </div>
         </div>
 
     </main>
 </div>
 
+<link rel="stylesheet" type="text/css" href="/resources/css/mobile.css">
 <link rel="stylesheet" type="text/css" href="poc3.css">
 
 <script src="poc3.js"></script>

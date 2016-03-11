@@ -6,6 +6,9 @@
 
     <script src="/resources/js/angular.min.js"></script>
 
+    <script src="/resources/js/mm-frame.js"></script>
+    <link rel="stylesheet" type="text/css" href="/resources/css/mm-frame.css">
+
     <!-- MDL Resources -->
 
     <link rel="stylesheet" href="/material-design-lite/dist/material.min.css">
@@ -33,7 +36,7 @@
 
         <div class="page-content">
             <div class="mdl-grid mm--main-grid">
-                <div class="mdl-cell mdl-cell--12-col itc">
+                <div class="mdl-cell mdl-cell--12-col itc" ng-show="{{ showIntro }}">
                     <img class="itc--image" src="/resources/imgs/media-th.jpg" height="80"/>
                     <div class="itc--text">
                         <span class="mm-title">和風音樂事奉</span>
@@ -43,7 +46,7 @@
                 </div>
                 <div class="mdl-cell mdl-cell--12-col mm-padding">
                     <div class="mdl-grid mdl-grid--no-spacing mm-list" ng-repeat="product in products">
-                        <a href="" class="mdl-cell mm-list--item">
+                        <a href="" class="mdl-cell mm-list--item" ng-click="open(product.href)">
                             <div class="mm-list--item-text praise--product-item">
                                 <div class="itc">
                                     <img ng-src=" {{ product.imageURL }} " alt="P008CD" class="itc--image">
@@ -61,6 +64,7 @@
         </div>
     </main>
 </div>
+
 <!-- Modules -->
 
 <script src="/resources/js/modules.js"></script>

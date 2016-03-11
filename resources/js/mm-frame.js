@@ -2,6 +2,21 @@
  * Created by samuel on 2/17/16.
  */
 
+window.globalFrame = new Frame();
+
+window.addEventListener('load', function () {
+    var iFrameContainerContents = '<div class="mdl-progress mdl-js-progress mdl-progress__indeterminate"></div>' +
+        '<iframe class="mm-iframe--iframe" allowfullscreen allowtransparency></iframe>';
+
+    var iFrameContainer = document.createElement('div');
+
+    iFrameContainer.className = 'mm-iframe--container';
+    iFrameContainer.innerHTML = iFrameContainerContents;
+
+    document.body.appendChild(iFrameContainer);
+    window.globalFrame.updateElements();
+});
+
 function Frame() {
     var iFrameContainer;
     var iFrame;
@@ -9,15 +24,22 @@ function Frame() {
     var openOnMessage = false;
 
     var themeColor;
+    var frameObj = this;
 
-    window.addEventListener('load', function () {
+    window.addEventListener('load', this.updateElements);
+
+    this.updateElements = function() {
         iFrameContainer = document.querySelector('.mm-iframe--container');
         iFrame = document.querySelector('.mm-iframe--iframe');
 
         themeColor = document.querySelectorAll('.mm-theme-color');
-    });
+    };
 
     this.open = function (href) {
+        if (iFrameContainer == undefined) {
+            frameObj.updateElements();
+        }
+
         iFrameContainer.classList.remove('close');
 
         iFrameContainer.classList.add('ready');
@@ -53,6 +75,7 @@ function Frame() {
                     iFrameContainer.classList.remove('ready');
 
                     openCode();
+                    changeBarColor('#ffffff');
                 }, 256);
             }
 
@@ -99,15 +122,29 @@ function Frame() {
     }
 
     this.getIframeContainer = function () {
-        return iFrameContainer
+        return iFrameContainer;
     };
 
     this.getIframe = function () {
-        return iFrame
+        return iFrame;
     };
 
     this.changeOpenOnMessage = function (bool) {
         if (typeof bool == 'boolean')
             openOnMessage = bool;
+    }
+
+    window.addEventListener("message", receiveMessage);
+
+    function receiveMessage(event) {
+        var origin = event.origin || event.originalEvent.origin; // For Chrome, the origin property is in the event.originalEvent object.
+        if (origin !== window.location.origin)
+            return;
+
+        var data = event.data;
+
+        if (event.data == 'closeFrame') {
+            frameObj.close();
+        }
     }
 }

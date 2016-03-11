@@ -18,18 +18,4 @@ mainApp.controller("MediaController", ["$scope", function ($scope) {
             mediaFrame.open(this.getAttribute('href'));
         });
     }
-
-    window.addEventListener("message", receiveMessage);
-
-    function receiveMessage(event) {
-        var origin = event.origin || event.originalEvent.origin; // For Chrome, the origin property is in the event.originalEvent object.
-        if (origin !== window.location.origin)
-            return;
-
-        var data = event.data;
-
-        if (event.data == 'closeFrame') {
-            mediaFrame.close();
-        }
-    }
 }]);

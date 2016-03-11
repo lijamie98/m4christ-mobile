@@ -16,16 +16,36 @@ mainApp.controller('PlaylistsController', ['$scope', '$http', function ($scope, 
         return formatted;
     };
 
-    $scope.close = function () {
-        if (window.self !== window.top)
-            window.parent.postMessage('closeFrame', '*');
-        else
-            window.location.href = '/mobile/praise.html';
-    };
+    // https://css-tricks.com/snippets/jquery/get-query-params-object/
+    var queryObject = (function () {
+        return (document.location.search).replace(/(^\?)/, '').split('&').map(function (n) {
+            return n = n.split('='), this[n[0]] = n[1], this;
+        }.bind({}))[0];
+    }());
+
+    var rootUrlTemplate = "http://m.m4christ.net/mobile/json/products/_filter/{0}";
+
+    var url = rootUrlTemplate.format(queryObject.filter);
+
+    $scope.showIntro = (function () {
+        if (queryObject.hideIntro === 'true')
+            return false;
+
+        return true;
+    }());
+
+    var urlTemplate = (function() {
+        if (queryObject.play === 'true')
+            return "/mobile/praise/play.html?label={0}";
+
+        return "/mobile/praise/product.html?label={0}&prev={1}";
+    }());
+
+    console.log(urlTemplate);
 
     $http({
         method: 'GET',
-        url: 'http://m.m4christ.net/mobile/json/products/_filter/P'
+        url: url
     }).then(function (response) {
         var data = response.data;
 
@@ -34,13 +54,32 @@ mainApp.controller('PlaylistsController', ['$scope', '$http', function ($scope, 
         var dataLength = data.length;
         for (var i = 0; i < dataLength; i++) {
             var currentData = data[i];
-            currentData.imageURL = imgTemplateUrl.format(currentData.label, currentData.label);
+
+            var label = currentData.labelWeb;
+            currentData.imageURL = imgTemplateUrl.format(label, label);
+            currentData.href = urlTemplate.format(label, queryObject.filter);
         }
 
         console.log('[Example Product Data]', data[0]);
+
+        if (window.self !== window.top)
+            window.parent.postMessage('openFrame', '*');
 
         $scope.products = data;
     }, function (response) {
         msg('Uh oh! Something went wrong. Please close and open the page again!</br>' + response.data);
     });
+
+    globalFrame.changeOpenOnMessage(true);
+
+    $scope.open = function(href) {
+        globalFrame.open(href);
+    };
+
+    $scope.close = function () {
+        if (window.self !== window.top)
+            window.parent.postMessage('closeFrame', '*');
+        else
+            window.location.href = '/mobile/praise.html';
+    };
 }]);

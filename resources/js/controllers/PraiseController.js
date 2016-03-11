@@ -22,11 +22,24 @@ mainApp.controller('PraiseController', ['$scope', function ($scope) {
 
     $scope.exampleCD.imageURL = imgTemplateUrl.format($scope.exampleCD.label, $scope.exampleCD.label.toLowerCase());
 
-    $scope.CDVDDowns = ['風中傳愛歌本', '和風音樂詩歌 CD 光碟', '音樂卡拉ＯＫ視頻 DVD 光碟'];
+    $scope.CDVDDowns = [{
+        title: '風中傳愛歌本',
+        href: '/mobile/praise/product.html?label=PB003&prev=close'
+    },{
+        title: '和風音樂詩歌 CD 光碟',
+        href: '/mobile/praise/playlists.html?filter=PCD&hideIntro=true'
+    }
+        // Feels like not in use
+        /*,{
+        title: '音樂卡拉ＯＫ視頻 DVD 光碟',
+        href: ''
+    }*/];
 
     window.addEventListener("message", receiveMessage);
 
     var praiseFrame = new Frame();
+
+    praiseFrame.changeOpenOnMessage(true);
 
     function receiveMessage(event) {
         var origin = event.origin || event.originalEvent.origin; // For Chrome, the origin property is in the event.originalEvent object.
