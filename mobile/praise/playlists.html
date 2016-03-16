@@ -37,16 +37,16 @@
         <div class="page-content">
             <div class="mdl-grid mm--main-grid">
                 <div class="mdl-cell mdl-cell--12-col itc" ng-show="{{ showIntro }}">
-                    <img class="itc--image" src="/resources/imgs/media-th.jpg" height="80"/>
+                    <img class="itc--image" src="/resources/imgs/praise-th.jpg" height="80"/>
                     <div class="itc--text">
                         <span class="mm-title">和風音樂事奉</span>
                         <hr class="mm-hr"/>
                         <span class="mm-subtitle">和風音樂詩歌以及風中傳愛歌曲集</span>
                     </div>
                 </div>
-                <div class="mdl-cell mdl-cell--12-col mm-padding">
-                    <div class="mdl-grid mdl-grid--no-spacing mm-list" ng-repeat="product in products">
-                        <a href="" class="mdl-cell mm-list--item" ng-click="open(product.href)">
+                <div class="mdl-cell mdl-cell--12-col">
+                    <div class="mdl-grid mdl-grid--no-spacing mm-list">
+                        <a href="" class="mdl-cell mm-list--item" ng-click="open(product.href)" ng-repeat="product in products">
                             <div class="mm-list--item-text praise--product-item">
                                 <div class="itc">
                                     <img ng-src=" {{ product.imageURL }} " alt="P008CD" class="itc--image">
@@ -71,7 +71,7 @@
 
 <!-- Controllers -->
 
-<script src="/resources/js/controllers/PlaylistsController.js"></script>
+<script src="/resources/js/controllers/praise/PlaylistsController.js"></script>
 
 <!-- Setup -->
 

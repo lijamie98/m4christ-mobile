@@ -4,9 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
 
-    <script src="/resources/js/msg.js"></script>
-
     <script src="/resources/js/angular.min.js"></script>
+
+    <script src="/resources/js/mm-frame.js"></script>
+    <link rel="stylesheet" type="text/css" href="/resources/css/mm-frame.css">
 
     <!-- MDL Resources -->
 
@@ -17,8 +18,7 @@
 
 </head>
 <body ng-app="mainApp">
-<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header" ng-controller="ProductController">
-
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header" ng-controller="SongsController">
     <!-- Header -->
     <div class="mdl-layout__header mdl-color--white mdl-color-text--black">
 
@@ -28,7 +28,7 @@
 
         <div class="mdl-layout__header-row">
 
-            <span class="mdl-layout-title" ng-cloak> {{ title }} </span>
+            <span class="mdl-layout-title"> {{ title }} </span>
         </div>
     </div>
 
@@ -36,21 +36,23 @@
 
         <div class="page-content">
             <div class="mdl-grid mm--main-grid">
-                <div class="mdl-cell mdl-cell--10-col mm-center mm-padding">
-                    <div class="itc">
-                        <img ng-src=" {{ product.imageURL }} " alt="Image URL" style="height: 150px;">
-
-                        <div class="itc--text">
-                            <span class="mdl-typography--headline" ng-cloak>({{ product.labelWeb }}) {{ product.name }}</span>
-                            <br>
-                            <span class="mdl-typography--subhead" ng-cloak> <b>內容:</b> {{ product.contentsWeb }} </span>
-                        </div>
+                <div class="mdl-cell mdl-cell--12-col itc">
+                    <img class="itc--image" src="/resources/imgs/praise-th.jpg" height="80"/>
+                    <div class="itc--text">
+                        <span class="mm-title">風中傳愛詩歌</span>
+                        <hr class="mm-hr"/>
+                        <span class="mm-subtitle">風中傳愛詩歌線上播放</span>
                     </div>
                 </div>
-                <div class="mdl-cell mdl-cell--12-col mm-padding">
-                    <span class="mdl-typography--headline">簡介:</span>
-                    <br>
-                    <span class="mdl-typography--body-1" ng-bind-html="bindHtml">{{ product.introduction }}</span>
+                <div class="mdl-cell mdl-cell--12-col">
+                    <div class="mdl-grid mdl-grid--no-spacing mm-list">
+                        <a href="" class="mdl-cell mm-list--item" ng-repeat="list in lists" ng-click="open(list.start, list.end)">
+                            <div class="mm-list--item-text praise--product-item">
+                                第 {{ list.start }} - {{ list.end }} 首播放
+                            </div>
+                            <div class="mm-list--icon-right material-icons">keyboard_arrow_right</div>
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -63,11 +65,13 @@
 
 <!-- Controllers -->
 
-<script src="/resources/js/controllers/praise/ProductController.js"></script>
+<script src="/resources/js/controllers/praise/SongsController.js"></script>
 
 <!-- Setup -->
 
 <script src="/material-design-lite/dist/material.min.js"></script>
 <link rel="stylesheet" type="text/css" href="/resources/css/mobile.css">
+<link rel="stylesheet" type="text/css" href="/resources/css/praise.css">
+
 </body>
 </html>
