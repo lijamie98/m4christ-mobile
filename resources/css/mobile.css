@@ -115,6 +115,10 @@ html, body {
     transition: background-color 57ms ease-out;
 }
 
+.mm-list > .mm-list--item.selected {
+    background-color: rgba(0, 0, 0, .1);
+}
+
 .mm-list > .mm-list--item:hover, .mm-list > .mm-list--item:active {
     background-color: rgba(0, 0, 0, .11);
 }

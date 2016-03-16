@@ -20,7 +20,7 @@ mainApp.controller('PraiseController', ['$scope', function ($scope) {
         return formatted;
     };
 
-    $scope.exampleCD.imageURL = imgTemplateUrl.format($scope.exampleCD.label, $scope.exampleCD.label.toLowerCase());
+    $scope.exampleCD.imageURL = imgTemplateUrl.format($scope.exampleCD.label, $scope.exampleCD.label);
 
     $scope.CDVDDowns = [{
         title: '風中傳愛歌本',

@@ -298,6 +298,7 @@ $(function () {
                 }
 
                 player.changeSong(0);
+                window.parent.postMessage('openFrame', '*');
             },
             dataType: 'JSON'
         });
