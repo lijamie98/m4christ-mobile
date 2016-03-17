@@ -5,11 +5,7 @@ $(function () {
     window.player = this;
 
     var mobile = (function () {
-        if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
-            return false;
-        }
-
-        return true;
+        return !/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
     }());
 
     var $maSlide = $('.ma-controls-slider');
@@ -41,12 +37,11 @@ $(function () {
         $('.slider-progress-circle', $progress).addClass('pressed');
 
         var audioDuration = audio.duration;
-        var offset = getOffsetLeft($maSlide[0]);
         moveCircle(e);
 
         function moveCircle(e) {
             e.preventDefault();
-            var rawValue = ((e.clientX || e.originalEvent.touches[0].clientX) - offset) / sliderWidth;
+            var rawValue = ((e.clientX || e.originalEvent.touches[0].clientX) - offsetLeft) / sliderWidth;
             $ct[0].innerText = formatSeconds(audioDuration * rawValue);
             $progress.css('width', (rawValue * 100) + '%');
         }
@@ -58,6 +53,7 @@ $(function () {
         $document.one('mouseup touchend', function (e) {
             $('.slider-progress-circle', $progress).removeClass('pressed');
 
+            moveCircle(e);
             audio.currentTime = audio.duration * ($pb[0].style.width.replace('%', '') / 100);
 
             // play if beforePaused is false
@@ -65,17 +61,6 @@ $(function () {
                 audio.play();
             $document.off('mousemove touchmove');
         });
-
-        // http://stackoverflow.com/questions/5598743/finding-elements-position-relative-to-the-document
-        function getOffsetLeft(elem) {
-            var offsetLeft = 0;
-            do {
-                if (!isNaN(elem.offsetLeft)) {
-                    offsetLeft += elem.offsetLeft;
-                }
-            } while (elem = elem.offsetParent);
-            return offsetLeft;
-        }
     });
 
     /* Audio interaction methods */
@@ -187,6 +172,7 @@ $(function () {
 
     /* DOM and misc. methods */
     function formatSeconds(s) {
+        //noinspection JSDuplicatedDeclaration
         var s = Math.floor(s);
 
         var seconds = s % 60;
@@ -207,10 +193,14 @@ $(function () {
         return document.querySelector(s);
     }
 
-    function _sa(s) {
-        return document.querySelectorAll(s);
-    }
+    // unused
+    //function _sa(s) {
+    //    return document.querySelectorAll(s);
+    //}
 
+    /**
+     * @return {string}
+     */
     function DOY(s) {
         var doy = '[DOY] ' + (s || 'DOY');
 
@@ -324,7 +314,16 @@ $(function () {
         };
     }());
 
+    var themeColor = window.top.document.querySelectorAll('.mm-theme-color');
+    function changeBarColor(hex) {
+        for (var i = 0; i < themeColor.length; i++) {
+            themeColor[i].setAttribute('content', hex);
+        }
+    }
+    changeBarColor('#283593');
+
     document.getElementById('back-button').addEventListener('click', function () {
+        changeBarColor('#ffffff');
         if (window.self !== window.top)
             window.parent.postMessage('closeFrame', '*');
         else

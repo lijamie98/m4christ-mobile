@@ -6,9 +6,6 @@
 
     <script src="/resources/js/angular.min.js"></script>
 
-    <script src="/resources/js/mm-frame.js"></script>
-    <link rel="stylesheet" type="text/css" href="/resources/css/mm-frame.css">
-    
     <!-- MDL Resources -->
 
     <link rel="stylesheet" href="/material-design-lite/dist/material.min.css">
@@ -16,9 +13,20 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Roboto">
 
+    <!--Please, just this once...-->
+    <style>
+        #frame {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            border: none;
+        }
+    </style>
 </head>
 <body ng-app="mainApp" ng-cloak>
-<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header" ng-controller="MFilterController">
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header" ng-controller="InfoController">
 
     <!-- Header -->
     <div class="mdl-layout__header mdl-color--white mdl-color-text--black">
@@ -28,33 +36,12 @@
         </div>
 
         <div class="mdl-layout__header-row">
-
             <span class="mdl-layout-title"> {{ title }} </span>
         </div>
     </div>
 
     <main class="mdl-layout__content mdl-color--blue-grey-50">
-
-        <div class="page-content">
-            <div class="mdl-grid mm--main-grid">
-                <div class="mdl-cell mdl-cell--12-col">
-                    <div class="mdl-grid mdl-grid--no-spacing mm-list">
-                        <div class="mdl-cell mm-list--header">
-                            講習會視頻
-                        </div>
-                        <a ng-click="open(filter, item.label)"
-                           class="mdl-cell mm-list--item"
-                           ng-repeat="item in items">
-                            <div class="mm-list--item-text">
-                                <span class="mm-list--item-text-title"> {{ item.name }} </span>
-                                <span class="mm-list--item-text-subtitle"> {{ item.label + ", " + item.contents }} </span>
-                            </div>
-                            <div class="mm-list--icon-right material-icons">keyboard_arrow_right</div>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <iframe id="frame" ng-src=" {{ src }} "></iframe>
     </main>
 </div>
 
@@ -64,7 +51,7 @@
 
 <!-- Controllers -->
 
-<script src="/resources/js/controllers/media/MFilterController.js"></script>
+<script src="/resources/js/controllers/seminar/InfoController.js"></script>
 
 <!-- Setup -->
 

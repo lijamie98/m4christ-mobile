@@ -35,7 +35,7 @@ function Frame() {
         themeColor = document.querySelectorAll('.mm-theme-color');
     };
 
-    this.open = function (href) {
+    this.open = function (href, callback) {
         if (iFrameContainer == undefined) {
             frameObj.updateElements();
         }
@@ -64,7 +64,7 @@ function Frame() {
                         iFrameContainer.classList.remove('ready');
                     }
 
-                    openCode();
+                    openCode(callback);
                     window.removeEventListener('message', messageOpen);
 
                     changeBarColor('#ffffff');
@@ -74,7 +74,7 @@ function Frame() {
                     iFrameContainer.classList.add('open');
                     iFrameContainer.classList.remove('ready');
 
-                    openCode();
+                    openCode(callback);
                     changeBarColor('#ffffff');
                 }, 256);
             }
@@ -100,7 +100,7 @@ function Frame() {
         }
     }
 
-    function openCode() {
+    function openCode(callback) {
 
         iFrame.contentWindow.addEventListener('unload', onUnload);
         iFrame.addEventListener('load', onLoad);
@@ -108,6 +108,9 @@ function Frame() {
         function onLoad() {
             iFrameContainer.classList.remove('ready');
             iFrame.contentWindow.removeEventListener('load', onLoad);
+
+            if (callback != undefined)
+                callback();
         }
     }
 

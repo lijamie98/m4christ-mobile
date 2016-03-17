@@ -13,14 +13,17 @@ html, body {
 
 .mdl-layout__drawer {
     border: none !important;
-    width: 200px;
+
+    /* I don't like it */
+    /*width: 200px;*/
 }
 
-.mdl-layout--fixed-drawer:not(.is-small-screen) > .mdl-layout__header,
+/* I don't like it */
+/*.mdl-layout--fixed-drawer:not(.is-small-screen) > .mdl-layout__header,
 .mdl-layout--fixed-drawer:not(.is-small-screen) > .mdl-layout__content {
     width: calc(100% - 200px) !important;
     margin-left: 200px !important;
-}
+}*/
 
 /* itc */
 

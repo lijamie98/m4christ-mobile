@@ -65,6 +65,10 @@ mainApp.controller("SeminarController", ["$scope", "$http", function ($scope, $h
         }
     }());
 
+    $scope.open = function(page) {
+        globalFrame.open("/mobile/seminar/info.html?path=" + page);
+    };
+
 }]).directive('seminarInfoText', function () {
     return {
         restrict: 'E',

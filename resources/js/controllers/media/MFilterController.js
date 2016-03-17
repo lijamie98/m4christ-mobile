@@ -38,6 +38,10 @@ mainApp.controller('MFilterController', ['$scope', '$http', function ($scope, $h
     }, function (response) {
     });
 
+    $scope.open = function (filter, label) {
+        globalFrame.open('/mobile/media/CDVD.html?filter=' + filter + '&label=' + label);
+    };
+
     document.querySelector('#back-button').addEventListener('click', function () {
         if (window.self !== window.top)
             window.parent.postMessage('closeFrame', '*');

@@ -11,11 +11,7 @@ mainApp.controller("MediaController", ["$scope", function ($scope) {
 
     mediaFrame.changeOpenOnMessage(true);
 
-    for (var i = 0; i < listItemsLength; i++) {
-        listItems[i].addEventListener('click', function (e) {
-            e.preventDefault();
-
-            mediaFrame.open(this.getAttribute('href'));
-        });
-    }
+    $scope.open = function (href) {
+        mediaFrame.open(href);
+    };
 }]);

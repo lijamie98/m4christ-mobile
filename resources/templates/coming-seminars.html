@@ -6,7 +6,7 @@
 
     <div class="mdl-cell mdl-cell--12-col mdl-shadow--3dp">
         <div class="mdl-grid mdl-grid--no-spacing mm-list">
-            <a href="" class="mdl-cell mm-list--item" ng-repeat="comingSeminar in comingSeminarList.seminars">
+            <a href="" class="mdl-cell mm-list--item" ng-repeat="comingSeminar in comingSeminarList.seminars" ng-click="open(comingSeminarList.year + '/' + comingSeminar.number + '/')">
                 <div class="mm-list--item-text">
                     <span class="mm-list--item-text-title"> {{ comingSeminar.title }} </span>
                     <span class="mm-list--item-text-subtitle"> {{ comingSeminar.startDate | date }} - {{ comingSeminar.location }} </span>
