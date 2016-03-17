@@ -24,7 +24,7 @@ var mainApp = angular.module("mainApp", []).directive('css', function () {
 
         var year = date.getFullYear();
 
-        var month = date.getMonth();
+        var month = date.getMonth() + 1;
 
         if (month < 10) {
             month = "0" + month;
