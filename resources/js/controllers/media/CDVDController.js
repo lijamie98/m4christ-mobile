@@ -110,7 +110,7 @@ mainApp.controller('CDVDController', ['$scope', '$http', '$sce', function ($scop
     }
 
     document.querySelector('#back-button').addEventListener('click', function () {
-        document.location.href = "/mobile/media/MFilter.html?filter=" + queryObject.filter;
+        window.location.href = "/mobile/media/MFilter.html?filter=" + queryObject.filter;
     });
 
 }]);

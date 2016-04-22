@@ -34,7 +34,7 @@ mainApp.controller('PlaylistsController', ['$scope', '$http', function ($scope, 
         return true;
     }());
 
-    var urlTemplate = (function() {
+    var urlTemplate = (function () {
         if (queryObject.play === 'true')
             return "/mobile/praise/play.html?label={0}";
 
@@ -62,24 +62,18 @@ mainApp.controller('PlaylistsController', ['$scope', '$http', function ($scope, 
 
         console.log('[Example Product Data]', data[0]);
 
-        if (window.self !== window.top)
-            window.parent.postMessage('openFrame', '*');
-
         $scope.products = data;
     }, function (response) {
         msg('Uh oh! Something went wrong. Please close and open the page again!</br>' + response.data);
     });
 
-    globalFrame.changeOpenOnMessage(true);
+    //globalFrame.changeOpenOnMessage(true);
 
-    $scope.open = function(href) {
+    $scope.open = function (href) {
         globalFrame.open(href);
     };
 
     $scope.close = function () {
-        if (window.self !== window.top)
-            window.parent.postMessage('closeFrame', '*');
-        else
-            window.location.href = '/mobile/praise.html';
+        window.location.href = '/mobile/praise.html';
     };
 }]);

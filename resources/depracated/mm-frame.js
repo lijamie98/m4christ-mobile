@@ -28,7 +28,7 @@ function Frame() {
 
     window.addEventListener('load', this.updateElements);
 
-    this.updateElements = function() {
+    this.updateElements = function () {
         iFrameContainer = document.querySelector('.mm-iframe--container');
         iFrame = document.querySelector('.mm-iframe--iframe');
 
@@ -59,7 +59,7 @@ function Frame() {
 
                     var data = e.data;
 
-                    if (e.data == 'openFrame') {
+                    if (data == 'openFrame') {
                         iFrameContainer.classList.add('open');
                         iFrameContainer.classList.remove('ready');
                     }
@@ -86,6 +86,12 @@ function Frame() {
     }
 
     this.close = function () {
+
+        iFrame.contentWindow.blur();
+        window.focus();
+
+        window.top.history.pushState(null, "hey", document.location.pathname + document.location.search);
+
         iFrameContainer.classList.remove('ready', 'open');
         iFrameContainer.classList.add('close');
 
@@ -101,6 +107,11 @@ function Frame() {
     }
 
     function openCode(callback) {
+
+        window.blur();
+        iFrame.contentWindow.focus();
+
+        window.top.history.pushState(null, iFrame.contentDocument.title, iFrame.src);
 
         iFrame.contentWindow.addEventListener('unload', onUnload);
         iFrame.addEventListener('load', onLoad);

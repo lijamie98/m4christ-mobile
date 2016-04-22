@@ -1,6 +1,5 @@
-html, body, .mdl-layout {
+html, body {
     height: 100%;
-    overflow: hidden;
 }
 
 .mdl-navigation__link {

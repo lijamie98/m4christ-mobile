@@ -15,16 +15,13 @@ mainApp.controller('InfoController', ['$scope', '$sce', function ($scope, $sce) 
     $scope.src = $sce.trustAsResourceUrl($scope.foSrc);
 
     $scope.title = "Loading...";
-    document.getElementById('frame').addEventListener('load', function() {
+    document.getElementById('frame').addEventListener('load', function () {
         $scope.title = this.contentDocument.title;
         $scope.$apply();
         return null;
     });
 
     document.querySelector('#back-button').addEventListener('click', function () {
-        if (window.self !== window.top)
-            window.parent.postMessage('closeFrame', '*');
-        else
-            window.location.href = '/mobile/seminar.html';
+        window.location.href = '/mobile/seminar.html';
     });
 }]);

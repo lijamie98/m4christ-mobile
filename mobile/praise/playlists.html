@@ -6,8 +6,8 @@
 
     <script src="/resources/js/angular.min.js"></script>
 
-    <script src="/resources/js/mm-frame.js"></script>
-    <link rel="stylesheet" type="text/css" href="/resources/css/mm-frame.css">
+    <!--<script src="/resources/depracated/mm-frame.js"></script>-->
+    <!--<link rel="stylesheet" type="text/css" href="/resources/depracated/mm-frame.css">-->
 
     <!-- MDL Resources -->
 
@@ -46,7 +46,7 @@
                 </div>
                 <div class="mdl-cell mdl-cell--12-col">
                     <div class="mdl-grid mdl-grid--no-spacing mm-list">
-                        <a href="" class="mdl-cell mm-list--item" ng-click="open(product.href)" ng-repeat="product in products">
+                        <a ng-href="{{product.href}}" class="mdl-cell mm-list--item" ng-repeat="product in products">
                             <div class="mm-list--item-text praise--product-item">
                                 <div class="itc">
                                     <img ng-src=" {{ product.imageURL }} " alt="P008CD" class="itc--image">

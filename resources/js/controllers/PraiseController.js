@@ -35,25 +35,25 @@ mainApp.controller('PraiseController', ['$scope', function ($scope) {
         href: ''
     }*/];
 
-    window.addEventListener("message", receiveMessage);
+    //window.addEventListener("message", receiveMessage);
 
-    var praiseFrame = new Frame();
-
-    praiseFrame.changeOpenOnMessage(true);
-
-    function receiveMessage(event) {
-        var origin = event.origin || event.originalEvent.origin; // For Chrome, the origin property is in the event.originalEvent object.
-        if (origin !== window.location.origin)
-            return;
-
-        var data = event.data;
-
-        if (event.data == 'closeFrame') {
-            praiseFrame.close();
-        }
-    }
-
-    $scope.open = function (href) {
-        praiseFrame.open(href);
-    };
+    //var praiseFrame = new Frame();
+    //
+    //praiseFrame.changeOpenOnMessage(true);
+    //
+    //function receiveMessage(event) {
+    //    var origin = event.origin || event.originalEvent.origin; // For Chrome, the origin property is in the event.originalEvent object.
+    //    if (origin !== window.location.origin)
+    //        return;
+    //
+    //    var data = event.data;
+    //
+    //    if (event.data == 'closeFrame') {
+    //        praiseFrame.close();
+    //    }
+    //}
+    //
+    //$scope.open = function (href) {
+    //    praiseFrame.open(href);
+    //};
 }]);

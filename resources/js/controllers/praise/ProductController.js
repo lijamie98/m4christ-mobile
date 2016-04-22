@@ -27,18 +27,14 @@ mainApp.controller('ProductController', ['$scope', '$http', '$sce', function ($s
 
         $scope.bindHtml = $sce.trustAsHtml(data.introduction);
 
-        if (window.self !== window.top)
-            window.parent.postMessage('openFrame', '*');
-
         $scope.product = data;
     }, function (response) {
         msg('Uh oh! Something went wrong. Please close and open the page again!</br>' + response.data);
     });
 
     $scope.close = function () {
-        if (window.self !== window.top) {
-            window.parent.postMessage('closeFrame', '*');
-        }
+        if (queryObject.prev == "close")
+            window.location.href = "/mobile/praise.html";
         else
             window.location.href = '/mobile/praise/playlists.html?filter=' + queryObject.prev + '&hideIntro=true';
     };

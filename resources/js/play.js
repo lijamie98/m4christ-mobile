@@ -158,6 +158,10 @@ $(function () {
         $pb[0].style.width = '0%';
     });
 
+    audio.on('ended', function () {
+        player.changeSong(currentIndex + 1);
+    });
+
     /* Audio methods */
 
     // rewind by n number of seconds
@@ -315,19 +319,17 @@ $(function () {
     }());
 
     var themeColor = window.top.document.querySelectorAll('.mm-theme-color');
+
     function changeBarColor(hex) {
         for (var i = 0; i < themeColor.length; i++) {
             themeColor[i].setAttribute('content', hex);
         }
     }
+
     changeBarColor('#283593');
 
     document.getElementById('back-button').addEventListener('click', function () {
-        changeBarColor('#ffffff');
-        if (window.self !== window.top)
-            window.parent.postMessage('closeFrame', '*');
-        else
-            window.location.href = '/mobile/praise/playlists.html?filter=P&play=true';
+        window.location.href = '/mobile/praise/playlists.html?filter=P&play=true';
     });
 });
 

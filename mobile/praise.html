@@ -23,8 +23,8 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Roboto">
 
-    <script src="/resources/js/mm-frame.js"></script>
-    <link rel="stylesheet" type="text/css" href="/resources/css/mm-frame.css">
+    <!--<script src="/resources/depracated/mm-frame.js"></script>-->
+    <!--<link rel="stylesheet" type="text/css" href="/resources/depracated/mm-frame.css">-->
 </head>
 
 <body ng-app="mainApp">
@@ -90,8 +90,7 @@
                             <span class="mm-title">「和風音樂詩歌」CD 線上播放</span>
                             <span class="mm-subtitle">精選 CD 線上播放</span>
                         </div>
-                        <a href="" class="mdl-cell mm-list--item"
-                           ng-click="open('/mobile/praise/product.html?label=' + exampleCD.label)">
+                        <a ng-href="/mobile/praise/product.html?label={{exampleCD.label}}&prev=close" class="mdl-cell mm-list--item">
                             <div class="mm-list--item-text praise--product-item">
                                 <div class="itc">
                                     <img ng-src=" {{ exampleCD.imageURL }} " alt="P008CD"
@@ -105,7 +104,7 @@
                             </div>
                             <div class="mm-list--icon-right material-icons">keyboard_arrow_right</div>
                         </a>
-                        <a href="" class="mdl-cell mm-list--item" ng-click="open('/mobile/praise/playlists.html?filter=P&play=true')">
+                        <a href="/mobile/praise/playlists.html?filter=P&play=true" class="mdl-cell mm-list--item">
                             <div class="mm-list--item-text">
                                 <span class="mm-list--item-text-title">更多...</span>
                                 <span class="mm-list--item-text-subtitle">所有「和風音樂詩歌」CD 線上播放</span>
@@ -122,7 +121,7 @@
                             <span class="mm-title">「風中傳愛詩歌全集</span>
                             <span class="mm-subtitle">1-500首風中傳愛詩歌全集</span>
                         </div>
-                        <a href="" class="mdl-cell mm-list--item" ng-click="open('/mobile/praise/songs.html')">
+                        <a href="/mobile/praise/songs.html" class="mdl-cell mm-list--item">
                             <div class="mm-list--item-text">
                                 <span class="mm-list--item-text-title">線上播放</span>
                                 <span class="mm-list--item-text-subtitle">1-500首風中傳愛詩歌全集－線上播放</span>
@@ -139,7 +138,7 @@
                             <span class="mm-title">風中傳愛歌本、CD／DVD光碟免費下載</span>
                             <span class="mm-subtitle">精選風中傳愛歌曲，製作成 CD/DVD光碟。</span>
                         </div>
-                        <a href="" class="mdl-cell mm-list--item" ng-repeat="CDVDDown in CDVDDowns" ng-click="open(CDVDDown.href)">
+                        <a ng-href="{{CDVDDown.href}}" class="mdl-cell mm-list--item" ng-repeat="CDVDDown in CDVDDowns">
                             <div class="mm-list--item-text"> {{ CDVDDown.title }}</div>
                             <div class="mm-list--icon-right material-icons">keyboard_arrow_right</div>
                         </a>

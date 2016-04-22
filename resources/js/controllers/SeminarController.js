@@ -66,7 +66,7 @@ mainApp.controller("SeminarController", ["$scope", "$http", function ($scope, $h
     }());
 
     $scope.open = function(page) {
-        globalFrame.open("/mobile/seminar/info.html?path=" + page);
+        window.location.href = "/mobile/seminar/info.html?path=" + page;
     };
 
 }]).directive('seminarInfoText', function () {

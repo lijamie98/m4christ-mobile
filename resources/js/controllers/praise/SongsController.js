@@ -14,11 +14,9 @@ mainApp.controller('SongsController', ['$scope', '$http', function ($scope, $htt
         return formatted;
     };
 
-    if (window.self !== window.top)
-        window.parent.postMessage('openFrame', '*');
-    globalFrame.changeOpenOnMessage(true);
+    //globalFrame.changeOpenOnMessage(true);
 
-    $scope.lists = (function() {
+    $scope.lists = (function () {
         var songs = 500;
         var lists = [];
 
@@ -28,7 +26,7 @@ mainApp.controller('SongsController', ['$scope', '$http', function ($scope, $htt
             var number = i * 50;
             lists.push({
                 "start": number - 49,
-                "end" : number
+                "end": number
             });
         }
 
@@ -36,14 +34,11 @@ mainApp.controller('SongsController', ['$scope', '$http', function ($scope, $htt
     }());
 
     var urlTemplate = '/mobile/praise/play.html?start={0}&end={1}';
-    $scope.open = function(start, end) {
-        globalFrame.open(urlTemplate.format(start, end));
+    $scope.open = function (start, end) {
+        window.location.href = urlTemplate.format(start, end);
     };
 
     $scope.close = function () {
-        if (window.self !== window.top)
-            window.parent.postMessage('closeFrame', '*');
-        else
-            window.location.href = '/mobile/praise.html';
+        window.location.href = '/mobile/praise.html';
     };
 }]);

@@ -32,20 +32,14 @@ mainApp.controller('MFilterController', ['$scope', '$http', function ($scope, $h
 
         $scope.items = data;
 
-        if (window.self !== window.top)
-            window.parent.postMessage('openFrame', '*');
-
     }, function (response) {
     });
 
     $scope.open = function (filter, label) {
-        globalFrame.open('/mobile/media/CDVD.html?filter=' + filter + '&label=' + label);
+        window.location.href = '/mobile/media/CDVD.html?filter=' + filter + '&label=' + label;
     };
 
     document.querySelector('#back-button').addEventListener('click', function () {
-        if (window.self !== window.top)
-            window.parent.postMessage('closeFrame', '*');
-        else
-            window.location.href = '/mobile/media.html';
+        window.location.href = '/mobile/media.html';
     });
 }]);
