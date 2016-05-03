@@ -21,4 +21,5 @@ mainApp.controller('NavigationController', ['$scope', function ($scope) {
             "src": "/mobile/praise.html"
         }
     ];
+
 }]);

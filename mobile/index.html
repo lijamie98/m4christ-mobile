@@ -78,7 +78,7 @@
     <main class="mdl-layout__content mdl-color--blue-grey-50" ng-controller="HomeController">
 
         <div class="mdl-grid home-grid">
-            <a ng-href="{{ navLink.url }}" class="mdl-cell mdl-cell--11-col mdl-shadow--4dp" ng-repeat="navLink in navLinks">
+            <a ng-href="{{ navLink.url }}" class="mdl-cell mdl-cell--11-col mdl-js-ripple-effect mdl-shadow--4dp" ng-repeat="navLink in navLinks">
                 <img class="mdl-shadow--8dp home-img" ng-src=" {{ imgsRoot + navLink.imgSrc }} "/>
                 <span class="mdl-layout-title"> {{ navLink.title }} </span>
                 <hr>

@@ -1,6 +1,9 @@
 .home-grid .mdl-cell {
+    position: relative;
     margin: 6px auto;
     padding: 8px;
+    overflow: hidden;
+
     background-color: #fff;
 
     color: #000;
@@ -9,7 +12,7 @@
 }
 
 .home-grid .mdl-cell:active {
-    background-color: rgba(30, 100, 255, 0.1);
+    /*background-color: rgba(30, 100, 255, 0.1);*/
 }
 
 .home-grid .mdl-cell .mdl-layout-title, .home-grid p {

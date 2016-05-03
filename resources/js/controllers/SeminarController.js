@@ -4,7 +4,7 @@
 
 mainApp.controller("SeminarController", ["$scope", "$http", function ($scope, $http) {
 
-    $scope.imgsRoot = "/resources/imgs/"
+    $scope.imgsRoot = "/resources/imgs/";
 
     $scope.infoTitle = "主僕疏效平簡介";
 
@@ -15,6 +15,28 @@ mainApp.controller("SeminarController", ["$scope", "$http", function ($scope, $h
 
     $scope.icon = 'info_outline';
 
+    $scope.pastSeminars = [{
+        "seminars": [{
+            "number": "Loading...",
+            "title": "Loading...",
+            "location": "Loading...",
+            "startDate": 0,
+            "endDate": 0,
+            "product": "Loading..."
+        }],
+        "year": "Loading Past Seminars..."
+    }];
+    $scope.comingSeminars = [{
+        "seminars": [{
+            "number": "Loading...",
+            "title": "Loading...",
+            "location": "Loading...",
+            "startDate": 0,
+            "endDate": 0,
+            "product": "Loading..."
+        }],
+        "year": "Loading Past Seminars..."
+    }];
     function getData(name, url, scope) {
         var trys = 3 + 1;
 
@@ -51,12 +73,12 @@ mainApp.controller("SeminarController", ["$scope", "$http", function ($scope, $h
 
     getData('Future Seminars', '/mobile/json/seminars/coming', 'comingSeminars');
 
-    (function() {
+    (function () {
         var tabs = document.querySelector('.mdl-tabs__tab-bar').children;
         var tabsLength = tabs.length;
 
         for (var i = 0; i < tabsLength; i++) {
-            tabs[i].addEventListener('click', function() {
+            tabs[i].addEventListener('click', function () {
                 var title = this.getAttribute('data-title');
 
                 document.querySelector('#title').innerText = title;
@@ -65,21 +87,24 @@ mainApp.controller("SeminarController", ["$scope", "$http", function ($scope, $h
         }
     }());
 
-    $scope.open = function(page) {
-        window.location.href = "/mobile/seminar/info.html?path=" + page;
-    };
-
 }]).directive('seminarInfoText', function () {
     return {
         restrict: 'E',
         templateUrl: '/resources/templates/seminar-info-text.html'
     };
-}).directive('seminarList', function() {
+}).directive('seminarList', function () {
+    function controller($scope, $element) {
+        $scope.open = function (page) {
+            window.location.href = "/mobile/seminar/info.html?path=" + page;
+        };
+    }
+
     return {
         restrict: 'E',
         scope: {
             data: "=data"
         },
+        controller: controller,
         templateUrl: "/resources/templates/seminar-list.html"
     }
 });
