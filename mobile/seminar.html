@@ -72,8 +72,9 @@
     <div class="mdl-layout__drawer mdl-color--blue-grey-800" ng-controller="NavigationController">
 
         <nav class="mdl-navigation" style="padding-top: 0;">
-            <a class="mdl-navigation__link mdl-color-text--white" ng-repeat="link in links" ng-href="{{ link.src }}">{{
-                link.name }}</a>
+            <a class="mdl-navigation__link mdl-js-ripple-effect mdl-color-text--white" ng-repeat="link in links" ng-href="{{ link.src }}">
+                {{ link.name }}
+                <span class="mdl-ripple"></span></a>
         </nav>
 
     </div>
@@ -86,9 +87,9 @@
 
         <div class="mdl-tabs mdl-js-tabs seminar-tabs">
             <div class="mdl-tabs__tab-bar mdl-color--indigo-600 mdl-shadow--4dp">
-                <a href="#seminar-info" class="mdl-tabs__tab is-active" data-title="耶穌是主 － 講習會列表">講員介紹</a>
-                <a href="#seminar-coming-seminars" class="mdl-tabs__tab" data-title="耶穌是主 － 即將來臨的講習會">將來的講習會</a>
-                <a href="#seminar-past-seminars" class="mdl-tabs__tab" data-title="耶穌是主 － 過去的講習會">過去的講習會</a>
+                <a href="#seminar-info" class="mdl-tabs__tab mdl-js-ripple-effect is-active" data-title="耶穌是主 － 講習會列表">講員介紹<span class="mdl-ripple"></span></a>
+                <a href="#seminar-coming-seminars" class="mdl-tabs__tab mdl-js-ripple-effect" data-title="耶穌是主 － 即將來臨的講習會">將來的講習會<span class="mdl-ripple"></span></a>
+                <a href="#seminar-past-seminars" class="mdl-tabs__tab mdl-js-ripple-effect" data-title="耶穌是主 － 過去的講習會">過去的講習會<span class="mdl-ripple"></span></a>
             </div>
             <div class="mdl-tabs__panel is-active" id="seminar-info">
                 <seminar-info-text></seminar-info-text>

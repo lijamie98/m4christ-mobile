@@ -65,8 +65,9 @@
     <div class="mdl-layout__drawer mdl-color--blue-grey-800" ng-controller="NavigationController">
 
         <nav class="mdl-navigation" style="padding-top: 0;">
-            <a class="mdl-navigation__link mdl-color-text--white" ng-repeat="link in links" ng-href="{{ link.src }}"> {{
-                link.name }} </a>
+            <a class="mdl-navigation__link mdl-js-ripple-effect mdl-color-text--white" ng-repeat="link in links" ng-href="{{ link.src }}"> {{
+                link.name }}
+            <span class="mdl-ripple"></span></a>
         </nav>
 
     </div>

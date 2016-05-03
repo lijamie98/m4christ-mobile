@@ -5,6 +5,8 @@
 }
 
 .mdl-tabs__tab {
+    position: relative;
+    overflow: hidden;
     color: rgba(255, 255, 255, 0.54);
 }
 
@@ -37,7 +39,6 @@
 
 .seminar-card > .mdl-card__title > .mdl-card__title-text {
     -webkit-align-self: flex-end;
-    -ms-flex-item-align: end;
     align-self: flex-end;
     display: -webkit-flex;
     display: -ms-flexbox;

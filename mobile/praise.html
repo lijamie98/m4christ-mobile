@@ -73,8 +73,9 @@
     <div class="mdl-layout__drawer mdl-color--blue-grey-800" ng-controller="NavigationController">
 
         <nav class="mdl-navigation" style="padding-top: 0;">
-            <a class="mdl-navigation__link mdl-color-text--white" ng-repeat="link in links" ng-href="{{ link.src }}"> {{
-                link.name }} </a>
+            <a class="mdl-navigation__link mdl-js-ripple-effect mdl-color-text--white" ng-repeat="link in links" ng-href="{{ link.src }}">
+                {{ link.name }}
+                <span class="mdl-ripple"></span></a>
         </nav>
 
     </div>
@@ -104,7 +105,7 @@
                         <span class="mm-title">「和風音樂詩歌」CD 線上播放</span>
                         <span class="mm-subtitle">精選 CD 線上播放</span>
                     </div>
-                    <a ng-href="/mobile/praise/product.html?label={{exampleCD.label}}&prev=close" class="mdl-cell mm-list--item">
+                    <a ng-href="/mobile/praise/product.html?label={{exampleCD.label}}&prev=close" class="mdl-cell mm-list--item mdl-js-ripple-effect">
                         <div class="mm-list--item-text praise--product-item">
                             <div class="itc">
                                 <img ng-src=" {{ exampleCD.imageURL }} " alt="P008CD"
@@ -117,13 +118,15 @@
                             </div>
                         </div>
                         <div class="mm-list--icon-right material-icons">keyboard_arrow_right</div>
+                        <span class="mdl-ripple"></span>
                     </a>
-                    <a href="/mobile/praise/playlists.html?filter=P&play=true" class="mdl-cell mm-list--item">
+                    <a href="/mobile/praise/playlists.html?filter=P&play=true" class="mdl-cell mm-list--item mdl-js-ripple-effect">
                         <div class="mm-list--item-text">
                             <span class="mm-list--item-text-title">更多...</span>
                             <span class="mm-list--item-text-subtitle">所有「和風音樂詩歌」CD 線上播放</span>
                         </div>
                         <div class="mm-list--icon-right material-icons">keyboard_arrow_right</div>
+                        <span class="mdl-ripple"></span>
                     </a>
                 </div>
             </div>
@@ -135,12 +138,13 @@
                         <span class="mm-title">「風中傳愛詩歌全集</span>
                         <span class="mm-subtitle">1-500首風中傳愛詩歌全集</span>
                     </div>
-                    <a href="/mobile/praise/songs.html" class="mdl-cell mm-list--item">
+                    <a href="/mobile/praise/songs.html" class="mdl-cell mm-list--item mdl-js-ripple-effect">
                         <div class="mm-list--item-text">
                             <span class="mm-list--item-text-title">線上播放</span>
                             <span class="mm-list--item-text-subtitle">1-500首風中傳愛詩歌全集－線上播放</span>
                         </div>
                         <div class="mm-list--icon-right material-icons">keyboard_arrow_right</div>
+                        <span class="mdl-ripple"></span>
                     </a>
                 </div>
             </div>
@@ -153,9 +157,10 @@
                         <span class="mm-title">TODO: FILL TITLE</span>
                         <span class="mm-subtitle">TODO: FILL SUBTITLES</span>
                     </div>
-                    <a ng-href="{{products.href}}" class="mdl-cell mm-list--item" ng-repeat="products in productsLists">
+                    <a ng-href="{{products.href}}" class="mdl-cell mm-list--item mdl-js-ripple-effect" ng-repeat="products in productsLists">
                         <div class="mm-list--item-text"> {{ products.title }}</div>
                         <div class="mm-list--icon-right material-icons">keyboard_arrow_right</div>
+                        <span class="mdl-ripple"></span>
                     </a>
                 </div>
             </div>

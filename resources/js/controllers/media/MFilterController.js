@@ -9,6 +9,7 @@ mainApp.controller('MFilterController', ['$scope', '$http', function ($scope, $h
     // https://css-tricks.com/snippets/jquery/get-query-params-object/
     var queryObject = (function () {
         return (document.location.search).replace(/(^\?)/, '').split('&').map(function (n) {
+            //noinspection CommaExpressionJS
             return n = n.split('='), this[n[0]] = n[1], this
         }.bind({}))[0];
     }());
@@ -31,7 +32,6 @@ mainApp.controller('MFilterController', ['$scope', '$http', function ($scope, $h
         console.log('[Example Data]', data[0]);
 
         $scope.items = data;
-
     }, function (response) {
     });
 
