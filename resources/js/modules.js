@@ -46,11 +46,16 @@ var mainApp = angular.module("mainApp", []).directive('css', function () {
         var footer = $element[0];
 
         var scrollElement = document.querySelector(".mdl-layout__content");
-        var defaultBottom = -107;
+        var defaultBottom = -63;
 
+        scrollElement.style.paddingBottom = Math.abs(defaultBottom) + "px";
         setFooterBottom(scrollElement);
         scrollElement.addEventListener("scroll", function () {
             setFooterBottom(this);
+        });
+
+        window.addEventListener("resize", function() {
+            setFooterBottom(scrollElement);
         });
 
         function setFooterBottom(element) {
@@ -64,7 +69,6 @@ var mainApp = angular.module("mainApp", []).directive('css', function () {
                 footer.style.bottom = defaultBottom + "px";
             }
         }
-
     }
 
     return {

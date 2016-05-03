@@ -198,26 +198,18 @@ html, body, .mdl-layout {
 
 /* footer */
 
-main.mdl-layout__content {
-    padding-bottom: 107px;
-}
-
 .mm-footer {
     position: fixed;
     right: 0;
-    bottom: -107px;
+    bottom: -63px;
     left: 0;
     z-index: 1000000;
-}
-
-.mm-footer > .mm-footer--header {
-    padding: 12px 16px;
 }
 
 .mm-footer > .mm-footer--body {
     padding: 16px;
 }
 
-.mm-footer > .mm-footer--body > img {
+.mm-footer > .mm-footer--body img {
     margin-right: 8px;
 }

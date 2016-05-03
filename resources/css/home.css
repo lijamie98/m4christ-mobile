@@ -1,18 +1,29 @@
 .home-grid .mdl-cell {
     margin: 6px auto;
-    padding: 12px 12px 5px;
+    padding: 8px;
+    background-color: #fff;
+
+    color: #000;
+    text-decoration: none;
+    font-weight: 400;
 }
 
-.home-grid .mdl-cell .mdl-layout__title, .home-grid p {
-    margin-bottom: 0px;
+.home-grid .mdl-cell:active {
+    background-color: rgba(30, 100, 255, 0.1);
+}
+
+.home-grid .mdl-cell .mdl-layout-title, .home-grid p {
+    margin-bottom: 0;
+}
+
+.home-grid p {
+    line-height: normal;
+    white-space: pre;
+    font-size: 16px;
 }
 
 .home-grid hr {
-    margin: 2px 0 3px;
-}
-
-.home-grid button {
-    float: right;
+    margin: 6px 0 2px;
 }
 
 .home-img {

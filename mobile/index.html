@@ -78,24 +78,18 @@
     <main class="mdl-layout__content mdl-color--blue-grey-50" ng-controller="HomeController">
 
         <div class="mdl-grid home-grid">
-            <div class="mdl-cell mdl-cell--11-col mdl-color--white mdl-shadow--4dp" ng-repeat="navLink in navLinks">
+            <a ng-href="{{ navLink.url }}" class="mdl-cell mdl-cell--11-col mdl-shadow--4dp" ng-repeat="navLink in navLinks">
                 <img class="mdl-shadow--8dp home-img" ng-src=" {{ imgsRoot + navLink.imgSrc }} "/>
                 <span class="mdl-layout-title"> {{ navLink.title }} </span>
-                <p> {{ navLink.subtitle }} </p>
-                <hr/>
-                <a ng-href=" {{ navLink.url }} ">
-                    <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-color-text--primary">
-                        Continue
-                    </button>
-                </a>
-            </div>
+                <hr>
+                <p>{{ navLink.subtitle }}</p>
+                <span class="mdl-ripple"></span>
+            </a>
         </div>
 
     </main>
 
 </div>
-
-<footer mobile-footer></footer>
 
 </body>
 
