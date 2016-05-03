@@ -10,7 +10,7 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 
-    <title id="title"></title>
+    <title id="title">耶穌是主 － 講習會列表</title>
 
     <script src="/resources/js/msg.js"></script>
 
@@ -25,11 +25,26 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Roboto">
 
+    <!-- Modules -->
+
+    <script src="/resources/js/modules.js"></script>
+
+    <!-- Controllers -->
+
+    <script src="/resources/js/controllers/NavigationController.js"></script>
+    <script src="/resources/js/controllers/SeminarController.js"></script>
+
+    <!-- Setup -->
+
+    <script src="/material-design-lite/dist/material.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="/resources/css/mobile.css">
+    <link rel="stylesheet" type="text/css" href="/resources/css/seminar.css">
+
 </head>
 
-<body ng-app="mainApp">
+<body class="mdl-color--blue-grey-50" ng-app="mainApp" ng-cloak>
 
-<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header mdl-layout--fixed-drawer" ng-controller="MainController">
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header mdl-layout--fixed-drawer">
 
     <!-- ==================
           Toolbar
@@ -39,7 +54,7 @@
 
         <div class="mdl-layout__header-row">
 
-            <span class="mdl-layout-title" id="header-title" ng-cloak> {{ title }} </span>
+            <span class="mdl-layout-title" id="header-title" ng-cloak>耶穌是主 － 講習會列表</span>
 
             <div class="mdl-layout-spacer"></div>
 
@@ -56,7 +71,7 @@
 
     <div class="mdl-layout__drawer mdl-color--blue-grey-800" ng-controller="NavigationController">
 
-        <nav class="mdl-navigation" style="padding-top: 0;" ng-controller="LinksController">
+        <nav class="mdl-navigation" style="padding-top: 0;">
             <a class="mdl-navigation__link mdl-color-text--white" ng-repeat="link in links" ng-href="{{ link.src }}">{{
                 link.name }}</a>
         </nav>
@@ -67,26 +82,22 @@
             Content
     =================== -->
 
-    <main class="mdl-layout__content mdl-color--blue-grey-50">
+    <main class="mdl-layout__content mdl-color--blue-grey-50" ng-controller="SeminarController">
 
-        <div class="page-content" ng-controller="SeminarController">
-
-            <div class="mdl-tabs mdl-js-tabs seminar-tabs">
-                <div class="mdl-tabs__tab-bar mdl-color--indigo-600 mdl-shadow--4dp">
-                    <a href="#seminar-info" class="mdl-tabs__tab is-active" data-title="耶穌是主 － 講習會列表">講員介紹</a>
-                    <a href="#seminar-past-seminars" class="mdl-tabs__tab" data-title="耶穌是主 － 即將來臨的講習會">將來的講習會</a>
-                    <a href="#tab3" class="mdl-tabs__tab" data-title="耶穌是主 － 過去的講習會">過去的講習會</a>
-                </div>
-                <div class="mdl-tabs__panel is-active" id="seminar-info">
-                    <seminar-info-text></seminar-info-text>
-                </div>
-                <div class="mdl-tabs__panel" id="seminar-past-seminars">
-                    <seminar-coming-seminars></seminar-coming-seminars>
-                </div>
-                <div class="mdl-tabs__panel" id="tab3">
-                    <seminar-past-seminars></seminar-past-seminars>
-                </div>
-
+        <div class="mdl-tabs mdl-js-tabs seminar-tabs">
+            <div class="mdl-tabs__tab-bar mdl-color--indigo-600 mdl-shadow--4dp">
+                <a href="#seminar-info" class="mdl-tabs__tab is-active" data-title="耶穌是主 － 講習會列表">講員介紹</a>
+                <a href="#seminar-coming-seminars" class="mdl-tabs__tab" data-title="耶穌是主 － 即將來臨的講習會">將來的講習會</a>
+                <a href="#seminar-past-seminars" class="mdl-tabs__tab" data-title="耶穌是主 － 過去的講習會">過去的講習會</a>
+            </div>
+            <div class="mdl-tabs__panel is-active" id="seminar-info">
+                <seminar-info-text></seminar-info-text>
+            </div>
+            <div class="mdl-tabs__panel" id="seminar-coming-seminars">
+                <seminar-list data="comingSeminars"></seminar-list>
+            </div>
+            <div class="mdl-tabs__panel" id="seminar-past-seminars">
+                <seminar-list data="pastSeminars"></seminar-list>
             </div>
 
         </div>
@@ -97,30 +108,7 @@
         </button>
 
     </main>
-</div>
-
-<script>
-    window.pageSettings = {
-        "name": "耶穌是主 － 講習會列表"
-    };
-</script>
-
-<!-- Modules -->
-
-<script src="/resources/js/modules.js"></script>
-
-<!-- Controllers -->
-
-<script src="/resources/js/controllers/MainController.js"></script>
-<script src="/resources/js/controllers/NavigationController.js"></script>
-<script src="/resources/js/controllers/LinksController.js"></script>
-<script src="/resources/js/controllers/SeminarController.js"></script>
-
-<!-- Setup -->
-
-<script src="/material-design-lite/dist/material.min.js"></script>
-<link rel="stylesheet" type="text/css" href="/resources/css/mobile.css">
-<link rel="stylesheet" type="text/css" href="/resources/css/seminar.css">
+</div>s
 
 </body>
 

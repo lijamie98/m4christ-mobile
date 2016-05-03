@@ -74,16 +74,14 @@ mainApp.controller("SeminarController", ["$scope", "$http", function ($scope, $h
         restrict: 'E',
         templateUrl: '/resources/templates/seminar-info-text.html'
     };
-}).directive('seminarComingSeminars', function () {
+}).directive('seminarList', function() {
     return {
         restrict: 'E',
-        templateUrl: '/resources/templates/coming-seminars.html'
-    };
-}).directive('seminarPastSeminars', function () {
-    return {
-        restrict: 'E',
-        templateUrl: '/resources/templates/past-seminars.html'
-    };
+        scope: {
+            data: "=data"
+        },
+        templateUrl: "/resources/templates/seminar-list.html"
+    }
 });
 
 window.onload = function () {

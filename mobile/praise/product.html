@@ -15,8 +15,21 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Roboto">
 
+    <!-- Modules -->
+
+    <script src="/resources/js/modules.js"></script>
+
+    <!-- Controllers -->
+
+    <script src="/resources/js/controllers/praise/ProductController.js"></script>
+
+    <!-- Setup -->
+
+    <script src="/material-design-lite/dist/material.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="/resources/css/mobile.css">
+
 </head>
-<body ng-app="mainApp">
+<body class="mdl-color--blue-grey-50" ng-app="mainApp" ng-cloak>
 <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header" ng-controller="ProductController">
 
     <!-- Header -->
@@ -34,7 +47,6 @@
 
     <main class="mdl-layout__content mdl-color--blue-grey-50">
 
-        <div class="page-content">
             <div class="mdl-grid mm--main-grid">
                 <div class="mdl-cell mdl-cell--10-col mm-center mm-padding">
                     <div class="itc">
@@ -53,21 +65,9 @@
                     <span class="mdl-typography--body-1" ng-bind-html="bindHtml">{{ product.introduction }}</span>
                 </div>
             </div>
-        </div>
+
     </main>
 </div>
 
-<!-- Modules -->
-
-<script src="/resources/js/modules.js"></script>
-
-<!-- Controllers -->
-
-<script src="/resources/js/controllers/praise/ProductController.js"></script>
-
-<!-- Setup -->
-
-<script src="/material-design-lite/dist/material.min.js"></script>
-<link rel="stylesheet" type="text/css" href="/resources/css/mobile.css">
 </body>
 </html>

@@ -3,6 +3,18 @@
 }
 
 .praise--product-item .itc--image {
-    height: 84px;
-    width: 84px;
+    min-height: 84px;
+    min-width: 84px;
+}
+
+.mdl-cell.itc .itc--image {
+    min-height: 80px;
+    min-width: 80px;
+}
+
+.playlist-image {
+    min-height: 100px;
+    min-width: 100px;
+    height: 100px;
+    width: 100px;
 }

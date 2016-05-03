@@ -40,4 +40,36 @@ var mainApp = angular.module("mainApp", []).directive('css', function () {
 
         return dateString;
     };
+}).directive('mobileFooter', function () {
+    function controller($scope, $element) {
+        $element.attr("class", "mm-footer");
+        var footer = $element[0];
+
+        var scrollElement = document.querySelector(".mdl-layout__content");
+        var defaultBottom = -107;
+
+        setFooterBottom(scrollElement);
+        scrollElement.addEventListener("scroll", function () {
+            setFooterBottom(this);
+        });
+
+        function setFooterBottom(element) {
+            var threshold = element.scrollTop - ((element.scrollHeight - element.offsetHeight) - Math.abs(defaultBottom));
+
+            if (threshold >= 0) {
+                footer.style.bottom = defaultBottom + threshold + "px";
+                console.log("STARTOOOOO");
+            }
+            else {
+                footer.style.bottom = defaultBottom + "px";
+            }
+        }
+
+    }
+
+    return {
+        restrict: 'A',
+        controller: controller,
+        templateUrl: "/resources/templates/mobile-footer.html"
+    }
 });

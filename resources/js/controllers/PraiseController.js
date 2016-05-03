@@ -15,6 +15,7 @@ mainApp.controller('PraiseController', ['$scope', function ($scope) {
     String.prototype.format = function () {
         var formatted = this;
         for (var arg in arguments) {
+            //noinspection JSUnfilteredForInLoop
             formatted = formatted.replace("{" + arg + "}", arguments[arg]);
         }
         return formatted;
@@ -22,13 +23,14 @@ mainApp.controller('PraiseController', ['$scope', function ($scope) {
 
     $scope.exampleCD.imageURL = imgTemplateUrl.format($scope.exampleCD.label, $scope.exampleCD.label);
 
-    $scope.CDVDDowns = [{
+    $scope.productsLists = [{
         title: '風中傳愛歌本',
         href: '/mobile/praise/product.html?label=PB003&prev=close'
     },{
-        title: '和風音樂詩歌 CD 光碟',
-        href: '/mobile/praise/playlists.html?filter=PCD&hideIntro=true'
+        title: 'TODO: ALL PRODUCTS',
+        href: '/mobile/praise/playlists.html?filter=P&hideIntro=true'
     }
+        // TODO fill in title for ALL PRODUCTS
         // Feels like not in use
         /*,{
         title: '音樂卡拉ＯＫ視頻 DVD 光碟',

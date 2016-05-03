@@ -1,6 +1,7 @@
 html, body, .mdl-layout {
     height: 100%;
-    overflow: hidden;
+    width: 100%;
+    overflow: auto;
 }
 
 .mdl-navigation__link {
@@ -60,7 +61,7 @@ html, body, .mdl-layout {
 
 .mm-list > .mdl-cell {
     position: relative;
-    width: 100%;
+    width: 100% !important;
 }
 
 .mm-list > a.mdl-cell {
@@ -193,4 +194,30 @@ html, body, .mdl-layout {
 
 .mm-center {
     margin: 8px auto;
+}
+
+/* footer */
+
+main.mdl-layout__content {
+    padding-bottom: 107px;
+}
+
+.mm-footer {
+    position: fixed;
+    right: 0;
+    bottom: -107px;
+    left: 0;
+    z-index: 1000000;
+}
+
+.mm-footer > .mm-footer--header {
+    padding: 12px 16px;
+}
+
+.mm-footer > .mm-footer--body {
+    padding: 16px;
+}
+
+.mm-footer > .mm-footer--body > img {
+    margin-right: 8px;
 }

@@ -10,7 +10,7 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 
-    <title id="title"></title>
+    <title id="title">耶穌是主 - 和風音樂</title>
 
     <script src="/resources/js/msg.js"></script>
 
@@ -25,11 +25,27 @@
 
     <!--<script src="/resources/depracated/mm-frame.js"></script>-->
     <!--<link rel="stylesheet" type="text/css" href="/resources/depracated/mm-frame.css">-->
+
+    <!-- Modules -->
+
+    <script src="/resources/js/modules.js"></script>
+
+    <!-- Controllers -->
+
+    <script src="/resources/js/controllers/NavigationController.js"></script>
+    <script src="/resources/js/controllers/PraiseController.js"></script>
+
+    <!-- Setup -->
+
+    <script src="/material-design-lite/dist/material.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="/resources/css/mobile.css">
+    <link rel="stylesheet" type="text/css" href="/resources/css/praise.css">
+
 </head>
 
-<body ng-app="mainApp">
+<body class="mdl-color--blue-grey-50" ng-app="mainApp" ng-cloak>
 
-<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header mdl-layout--fixed-drawer" ng-controller="MainController">
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header mdl-layout--fixed-drawer">
 
     <!-- ==================
           Toolbar
@@ -39,7 +55,7 @@
 
         <div class="mdl-layout__header-row">
 
-            <span class="mdl-layout-title" ng-cloak> {{ title }} </span>
+            <span class="mdl-layout-title" ng-cloak>耶穌是主 - 和風音樂</span>
 
             <div class="mdl-layout-spacer"></div>
 
@@ -56,7 +72,7 @@
 
     <div class="mdl-layout__drawer mdl-color--blue-grey-800" ng-controller="NavigationController">
 
-        <nav class="mdl-navigation" style="padding-top: 0;" ng-controller="LinksController">
+        <nav class="mdl-navigation" style="padding-top: 0;">
             <a class="mdl-navigation__link mdl-color-text--white" ng-repeat="link in links" ng-href="{{ link.src }}"> {{
                 link.name }} </a>
         </nav>
@@ -67,112 +83,90 @@
             Content
     =================== -->
 
-    <main class="mdl-layout__content mdl-color--blue-grey-50">
+    <main class="mdl-layout__content mdl-color--blue-grey-50" ng-controller="PraiseController">
 
-        <div class="page-content" ng-controller="PraiseController">
+        <div class="mdl-grid mm--main-grid">
 
-            <div class="mdl-grid mm--main-grid">
-
-                <!-- Short introduction -->
-                <div class="mdl-cell mdl-cell--12-col itc">
-                    <img class="itc--image" src="/resources/imgs/praise-th.jpg" height="80"/>
-                    <div class="itc--text">
-                        <span class="mm-title">和風音樂事奉</span>
-                        <hr class="mm-hr"/>
-                        <span class="mm-subtitle">和風音樂詩歌以及風中傳愛歌曲集 </span>
-                    </div>
+            <!-- Short introduction -->
+            <div class="mdl-cell mdl-cell--12-col itc">
+                <img class="itc--image mdl-color--white mdl-shadow--4dp" src="/resources/imgs/praise-th.jpg" height="80" width="80"/>
+                <div class="itc--text">
+                    <span class="mm-title">和風音樂事奉</span>
+                    <hr class="mm-hr"/>
+                    <span class="mm-subtitle">和風音樂詩歌以及風中傳愛歌曲集 </span>
                 </div>
+            </div>
 
-                <!-- CDs -->
-                <div class="mdl-cell mdl-cell--12-col">
-                    <div class="mdl-grid mdl-grid--no-spacing mm-list">
-                        <div class="mdl-cell mm-list--header">
-                            <span class="mm-title">「和風音樂詩歌」CD 線上播放</span>
-                            <span class="mm-subtitle">精選 CD 線上播放</span>
-                        </div>
-                        <a ng-href="/mobile/praise/product.html?label={{exampleCD.label}}&prev=close" class="mdl-cell mm-list--item">
-                            <div class="mm-list--item-text praise--product-item">
-                                <div class="itc">
-                                    <img ng-src=" {{ exampleCD.imageURL }} " alt="P008CD"
-                                         class="itc--image">
-                                    <div class="itc--text">
-                                        <span class="mm-list--item-text-title"> {{ exampleCD.name }} </span>
+            <!-- CDs -->
+            <div class="mdl-cell mdl-cell--12-col">
+                <div class="mdl-grid mdl-grid--no-spacing mm-list">
+                    <div class="mdl-cell mm-list--header">
+                        <span class="mm-title">「和風音樂詩歌」CD 線上播放</span>
+                        <span class="mm-subtitle">精選 CD 線上播放</span>
+                    </div>
+                    <a ng-href="/mobile/praise/product.html?label={{exampleCD.label}}&prev=close" class="mdl-cell mm-list--item">
+                        <div class="mm-list--item-text praise--product-item">
+                            <div class="itc">
+                                <img ng-src=" {{ exampleCD.imageURL }} " alt="P008CD"
+                                     class="itc--image mdl-shadow--4dp" height="84" width="84">
+                                <div class="itc--text">
+                                    <span class="mm-list--item-text-title"> {{ exampleCD.name }} </span>
                                         <span class="mm-list--item-text-subtitle"> ({{ exampleCD.label }}) {{ exampleCD.contents
                                             }} </span>
-                                    </div>
                                 </div>
                             </div>
-                            <div class="mm-list--icon-right material-icons">keyboard_arrow_right</div>
-                        </a>
-                        <a href="/mobile/praise/playlists.html?filter=P&play=true" class="mdl-cell mm-list--item">
-                            <div class="mm-list--item-text">
-                                <span class="mm-list--item-text-title">更多...</span>
-                                <span class="mm-list--item-text-subtitle">所有「和風音樂詩歌」CD 線上播放</span>
-                            </div>
-                            <div class="mm-list--icon-right material-icons">keyboard_arrow_right</div>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Music -->
-                <div class="mdl-cell mdl-cell--12-col">
-                    <div class="mdl-grid mdl-grid--no-spacing mm-list">
-                        <div class="mdl-cell mm-list--header">
-                            <span class="mm-title">「風中傳愛詩歌全集</span>
-                            <span class="mm-subtitle">1-500首風中傳愛詩歌全集</span>
                         </div>
-                        <a href="/mobile/praise/songs.html" class="mdl-cell mm-list--item">
-                            <div class="mm-list--item-text">
-                                <span class="mm-list--item-text-title">線上播放</span>
-                                <span class="mm-list--item-text-subtitle">1-500首風中傳愛詩歌全集－線上播放</span>
-                            </div>
-                            <div class="mm-list--icon-right material-icons">keyboard_arrow_right</div>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- CDVD Product Info -->
-                <div class="mdl-cell mdl-cell--12-col">
-                    <div class="mdl-grid mdl-grid--no-spacing mm-list">
-                        <div class="mdl-cell mm-list--header">
-                            <span class="mm-title">風中傳愛歌本、CD／DVD光碟免費下載</span>
-                            <span class="mm-subtitle">精選風中傳愛歌曲，製作成 CD/DVD光碟。</span>
+                        <div class="mm-list--icon-right material-icons">keyboard_arrow_right</div>
+                    </a>
+                    <a href="/mobile/praise/playlists.html?filter=P&play=true" class="mdl-cell mm-list--item">
+                        <div class="mm-list--item-text">
+                            <span class="mm-list--item-text-title">更多...</span>
+                            <span class="mm-list--item-text-subtitle">所有「和風音樂詩歌」CD 線上播放</span>
                         </div>
-                        <a ng-href="{{CDVDDown.href}}" class="mdl-cell mm-list--item" ng-repeat="CDVDDown in CDVDDowns">
-                            <div class="mm-list--item-text"> {{ CDVDDown.title }}</div>
-                            <div class="mm-list--icon-right material-icons">keyboard_arrow_right</div>
-                        </a>
-                    </div>
+                        <div class="mm-list--icon-right material-icons">keyboard_arrow_right</div>
+                    </a>
                 </div>
-
             </div>
+
+            <!-- Music -->
+            <div class="mdl-cell mdl-cell--12-col">
+                <div class="mdl-grid mdl-grid--no-spacing mm-list">
+                    <div class="mdl-cell mm-list--header">
+                        <span class="mm-title">「風中傳愛詩歌全集</span>
+                        <span class="mm-subtitle">1-500首風中傳愛詩歌全集</span>
+                    </div>
+                    <a href="/mobile/praise/songs.html" class="mdl-cell mm-list--item">
+                        <div class="mm-list--item-text">
+                            <span class="mm-list--item-text-title">線上播放</span>
+                            <span class="mm-list--item-text-subtitle">1-500首風中傳愛詩歌全集－線上播放</span>
+                        </div>
+                        <div class="mm-list--icon-right material-icons">keyboard_arrow_right</div>
+                    </a>
+                </div>
+            </div>
+
+            <!-- CDVD Product Info -->
+            <div class="mdl-cell mdl-cell--12-col">
+                <div class="mdl-grid mdl-grid--no-spacing mm-list">
+                    <div class="mdl-cell mm-list--header">
+                        <!-- TODO Fill in title and subtitle -->
+                        <span class="mm-title">TODO: FILL TITLE</span>
+                        <span class="mm-subtitle">TODO: FILL SUBTITLES</span>
+                    </div>
+                    <a ng-href="{{products.href}}" class="mdl-cell mm-list--item" ng-repeat="products in productsLists">
+                        <div class="mm-list--item-text"> {{ products.title }}</div>
+                        <div class="mm-list--icon-right material-icons">keyboard_arrow_right</div>
+                    </a>
+                </div>
+            </div>
+
         </div>
 
     </main>
 </div>
 
-<script>
-    window.pageSettings = {
-        "name": "耶穌是主 － 和風細語訴光碟"
-    };
-</script>
+<footer mobile-footer></footer>
 
-<!-- Modules -->
-
-<script src="/resources/js/modules.js"></script>
-
-<!-- Controllers -->
-
-<script src="/resources/js/controllers/MainController.js"></script>
-<script src="/resources/js/controllers/NavigationController.js"></script>
-<script src="/resources/js/controllers/LinksController.js"></script>
-<script src="/resources/js/controllers/PraiseController.js"></script>
-
-<!-- Setup -->
-
-<script src="/material-design-lite/dist/material.min.js"></script>
-<link rel="stylesheet" type="text/css" href="/resources/css/mobile.css">
-<link rel="stylesheet" type="text/css" href="/resources/css/praise.css">
 </body>
 
 </html>

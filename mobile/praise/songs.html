@@ -16,8 +16,22 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Roboto">
 
+    <!-- Modules -->
+
+    <script src="/resources/js/modules.js"></script>
+
+    <!-- Controllers -->
+
+    <script src="/resources/js/controllers/praise/SongsController.js"></script>
+
+    <!-- Setup -->
+
+    <script src="/material-design-lite/dist/material.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="/resources/css/mobile.css">
+    <link rel="stylesheet" type="text/css" href="/resources/css/praise.css">
+
 </head>
-<body ng-app="mainApp">
+<body class="mdl-color--blue-grey-50" ng-app="mainApp" ng-cloak>
 <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header" ng-controller="SongsController">
     <!-- Header -->
     <div class="mdl-layout__header mdl-color--white mdl-color-text--black">
@@ -34,44 +48,29 @@
 
     <main class="mdl-layout__content mdl-color--blue-grey-50">
 
-        <div class="page-content">
-            <div class="mdl-grid mm--main-grid">
-                <div class="mdl-cell mdl-cell--12-col itc">
-                    <img class="itc--image" src="/resources/imgs/praise-th.jpg" height="80"/>
-                    <div class="itc--text">
-                        <span class="mm-title">風中傳愛詩歌</span>
-                        <hr class="mm-hr"/>
-                        <span class="mm-subtitle">風中傳愛詩歌線上播放</span>
-                    </div>
+        <div class="mdl-grid mm--main-grid">
+            <div class="mdl-cell mdl-cell--12-col itc">
+                <img class="itc--image" src="/resources/imgs/praise-th.jpg" height="80"/>
+                <div class="itc--text">
+                    <span class="mm-title">風中傳愛詩歌</span>
+                    <hr class="mm-hr"/>
+                    <span class="mm-subtitle">風中傳愛詩歌線上播放</span>
                 </div>
-                <div class="mdl-cell mdl-cell--12-col">
-                    <div class="mdl-grid mdl-grid--no-spacing mm-list">
-                        <a href="" class="mdl-cell mm-list--item" ng-repeat="list in lists" ng-click="open(list.start, list.end)">
-                            <div class="mm-list--item-text praise--product-item">
-                                第 {{ list.start }} - {{ list.end }} 首播放
-                            </div>
-                            <div class="mm-list--icon-right material-icons">keyboard_arrow_right</div>
-                        </a>
-                    </div>
+            </div>
+            <div class="mdl-cell mdl-cell--12-col">
+                <div class="mdl-grid mdl-grid--no-spacing mm-list">
+                    <a href="" class="mdl-cell mm-list--item" ng-repeat="list in lists" ng-click="open(list.start, list.end)">
+                        <div class="mm-list--item-text praise--product-item">
+                            第 {{ list.start }} - {{ list.end }} 首播放
+                        </div>
+                        <div class="mm-list--icon-right material-icons">keyboard_arrow_right</div>
+                    </a>
                 </div>
             </div>
         </div>
+
     </main>
 </div>
-
-<!-- Modules -->
-
-<script src="/resources/js/modules.js"></script>
-
-<!-- Controllers -->
-
-<script src="/resources/js/controllers/praise/SongsController.js"></script>
-
-<!-- Setup -->
-
-<script src="/material-design-lite/dist/material.min.js"></script>
-<link rel="stylesheet" type="text/css" href="/resources/css/mobile.css">
-<link rel="stylesheet" type="text/css" href="/resources/css/praise.css">
 
 </body>
 </html>

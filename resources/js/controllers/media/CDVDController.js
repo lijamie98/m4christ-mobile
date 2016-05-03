@@ -17,13 +17,17 @@ mainApp.controller('CDVDController', ['$scope', '$http', '$sce', function ($scop
     // https://css-tricks.com/snippets/jquery/get-query-params-object/
     var queryObject = (function () {
         return (document.location.search).replace(/(^\?)/, '').split('&').map(function (n) {
+            //noinspection CommaExpressionJS
             return n = n.split('='), this[n[0]] = n[1], this
         }.bind({}))[0];
     }());
 
     console.log('[Query Object]', queryObject);
 
-    $scope.data = {};
+    $scope.data = {
+        "content": "Loading...",
+        "dateLocation": "Loading..."
+    };
     $scope.videos = [{
         href: "",
         title: "沒有影片",
@@ -49,7 +53,7 @@ mainApp.controller('CDVDController', ['$scope', '$http', '$sce', function ($scop
 
         $scope.data = data;
 
-    }, function (response) {
+    }, function () {
         msg('Uh Oh! Something went wrong. Please close and open the page.');
     });
 
@@ -76,7 +80,7 @@ mainApp.controller('CDVDController', ['$scope', '$http', '$sce', function ($scop
             $scope.videos = data;
         }
 
-        var fileBase = 'http://video.m4christ.net/seminars/mp4/' + queryObject.label + '/';
+        //var fileBase = 'http://video.m4christ.net/seminars/mp4/' + queryObject.label + '/';
         var youkuBase = 'http://player.youku.com/embed/';
         var ytBase = 'https://www.youtube.com/embed/';
 
@@ -96,7 +100,7 @@ mainApp.controller('CDVDController', ['$scope', '$http', '$sce', function ($scop
         setTimeout(function () {
             window.mmBox.recapture();
         }, 50);
-    }, function (response) {
+    }, function () {
         msg('Uh Oh! Something went wrong. Please close and open the page.');
     });
 
@@ -107,7 +111,7 @@ mainApp.controller('CDVDController', ['$scope', '$http', '$sce', function ($scop
             update: true,
             open: true
         })
-    }
+    };
 
     document.querySelector('#back-button').addEventListener('click', function () {
         window.location.href = "/mobile/media/MFilter.html?filter=" + queryObject.filter;

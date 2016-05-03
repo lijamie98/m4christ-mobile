@@ -31,7 +31,7 @@ will contain main-controls and secondary-controls
 /* adds padding for main-controls and secondary-controls */
 .m4christ-audio .ma-controls .ma-icon-controls > div {
     flex: 1;
-    padding: 8px;
+    padding: 8px 6px;
     text-align: center;
 
     border: 1pt solid rgba(0, 0, 0, 0.1);
@@ -51,7 +51,7 @@ will contain main-controls and secondary-controls
 }
 
 /*.m4christ-audio .ma-controls .ma-icon-controls .ma-controls*/
-    /* Some hr styles*/
+/* Some hr styles*/
 .m4christ-audio .ma-controls hr {
     margin: 16px -16px;
 }

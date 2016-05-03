@@ -4,7 +4,7 @@
 
 mainApp.controller("HomeController", ["$scope", function($scope) {
 
-    $scope.imgsRoot = "/resources/imgs/"
+    $scope.imgsRoot = "/resources/imgs/";
 
     $scope.navLinks = [{
         "url": "/mobile/seminar.html",

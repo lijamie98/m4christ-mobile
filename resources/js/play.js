@@ -5,7 +5,19 @@ $(function () {
     window.player = this;
 
     var mobile = (function () {
-        return !/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+        return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+    }());
+
+    var getPositionX;
+    (function() {
+        if (mobile)
+            getPositionX = function(e) {
+                return e.originalEvent.touches[0].clientX;
+            };
+        else
+            getPositionX = function(e) {
+                return e.clientX;
+            };
     }());
 
     var $maSlide = $('.ma-controls-slider');
@@ -36,14 +48,14 @@ $(function () {
 
         $('.slider-progress-circle', $progress).addClass('pressed');
 
-        var audioDuration = audio.duration;
+        //var audioDuration = audio.duration; unused
         moveCircle(e);
 
         function moveCircle(e) {
             e.preventDefault();
-            var rawValue = ((e.clientX || e.originalEvent.touches[0].clientX) - offsetLeft) / sliderWidth;
-            $ct[0].innerText = formatSeconds(audioDuration * rawValue);
+            var rawValue = (getPositionX(e) - offsetLeft) / sliderWidth;
             $progress.css('width', (rawValue * 100) + '%');
+            audio.currentTime = audio.duration * ($pb[0].style.width.replace('%', '') / 100);
         }
 
         $document.on('mousemove touchmove', function (e) {
@@ -53,7 +65,6 @@ $(function () {
         $document.one('mouseup touchend', function (e) {
             $('.slider-progress-circle', $progress).removeClass('pressed');
 
-            moveCircle(e);
             audio.currentTime = audio.duration * ($pb[0].style.width.replace('%', '') / 100);
 
             // play if beforePaused is false
