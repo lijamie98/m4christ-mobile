@@ -9,13 +9,13 @@ $(function () {
     }());
 
     var getPositionX;
-    (function() {
+    (function () {
         if (mobile)
-            getPositionX = function(e) {
+            getPositionX = function (e) {
                 return e.originalEvent.touches[0].clientX;
             };
         else
-            getPositionX = function(e) {
+            getPositionX = function (e) {
                 return e.clientX;
             };
     }());
@@ -62,7 +62,7 @@ $(function () {
             moveCircle(e);
         });
 
-        $document.one('mouseup touchend', function (e) {
+        $document.one('mouseup touchend', function () {
             $('.slider-progress-circle', $progress).removeClass('pressed');
 
             audio.currentTime = audio.duration * ($pb[0].style.width.replace('%', '') / 100);
@@ -156,9 +156,6 @@ $(function () {
 
     // when audio progress changes, change slider position
     audio.on('timeupdate progress', function () {
-
-        DOY('Time Update');
-
         $ct[0].innerText = formatSeconds(audio.currentTime);
         $pb[0].style.width = ((audio.currentTime / audio.duration) * 100) + "%";
     });
@@ -239,9 +236,10 @@ $(function () {
     var currentIndex;
     (function () {
         // http://stackoverflow.com/questions/610406/javascript-equivalent-to-printf-string-format
+        var queryObject;
         String.prototype.format = function () {
             var formatted = this;
-            for (var arg in arguments) {
+            for (var arg in arguments) { //noinspection JSUnfilteredForInLoop
                 formatted = formatted.replace("{" + arg + "}", arguments[arg]);
             }
             return formatted;
@@ -250,8 +248,9 @@ $(function () {
         var playlist = document.querySelector('.ma-playlist');
 
         // https://css-tricks.com/snippets/jquery/get-query-params-object/
-        var queryObject = (function () {
+        queryObject = (function () {
             return (document.location.search).replace(/(^\?)/, '').split('&').map(function (n) {
+                //noinspection CommaExpressionJS
                 return n = n.split('='), this[n[0]] = n[1], this;
             }.bind({}))[0];
         }());
@@ -291,11 +290,17 @@ $(function () {
                     var song = data[i];
 
                     var songElement = document.createElement('a');
-                    songElement.className = "mdl-cell mm-list--item";
+                    songElement.className = "mdl-cell mm-list--item mdl-js-ripple-effect";
                     songElement.href = 'javascript:player.changeSong(' + i + ');';
 
                     songElement.innerHTML = playlistItemTemplate.format(song.songName, song.songNumber, song.songAuthor);
 
+                    var rippleElement = document.createElement('span');
+                    rippleElement.className = "mdl-ripple";
+
+                    songElement.appendChild(rippleElement);
+
+                    componentHandler.upgradeElement(songElement);
                     // append
                     playlist.appendChild(songElement);
 
@@ -310,21 +315,26 @@ $(function () {
         var songTitle = document.getElementById('song-title');
         var mainContent = document.querySelector('.mdl-layout__content');
         var playlistItems = [];
-        currentIndex = 0;
+        currentIndex = -1;
         player.changeSong = function (index) {
             var song = data[index];
 
-            songTitle.innerText = song.songName;
-            audio.setAttribute('src', mp3Template.format(song.songAudioMp3));
+            if (currentIndex != index && song != null) {
+                if (currentIndex == -1)
+                    currentIndex = 0;
 
-            $(mainContent).animate({scrollTop: "0px"}, '600', 'swing');
-            //reset();
-            audio.play();
+                songTitle.innerText = song.songName;
+                audio.setAttribute('src', mp3Template.format(song.songAudioMp3));
 
-            playlistItems[currentIndex].classList.remove('selected');
+                $(mainContent).animate({scrollTop: "0px"}, '600', 'swing');
+                //reset();
+                audio.play();
 
-            currentIndex = index;
-            playlistItems[currentIndex].classList.add('selected');
+                playlistItems[currentIndex].classList.remove('selected');
+
+                currentIndex = index;
+                playlistItems[currentIndex].classList.add('selected');
+            }
         };
     }());
 

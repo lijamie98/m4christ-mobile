@@ -129,8 +129,12 @@ html, body, .mdl-layout {
     background-color: rgba(0, 0, 0, .1);
 }
 
-.mm-list > .mm-list--item:hover, .mm-list > .mm-list--item:active {
-    background-color: rgba(0, 0, 0, .11);
+.mm-list > .mm-list--item:hover {
+    background-color: rgba(0, 0, 0, .13);
+}
+
+.mm-list > .mm-list--item:active:not[data-upgraded=",MaterialRipple"] {
+    background-color: rgba(0, 0, 0, .13);
 }
 
 .mm-list > .mm-list--item > .mm-list--item-text {
