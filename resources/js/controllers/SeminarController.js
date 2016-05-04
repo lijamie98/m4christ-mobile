@@ -94,8 +94,8 @@ mainApp.controller("SeminarController", ["$scope", "$http", function ($scope, $h
     };
 }).directive('seminarList', function () {
     function controller($scope, $element) {
-        $scope.open = function (page) {
-            window.location.href = "/mobile/seminar/info.html?path=" + page;
+        $scope.open = function (year, number) {
+            window.location.href = "/mobile/seminar/info.html?path=" + year.toString() + "/" + number.toString() + "/";
         };
     }
 

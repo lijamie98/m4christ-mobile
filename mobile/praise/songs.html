@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
 
+    <title>耶穌是主 - 線上播放</title>
+
     <script src="/resources/js/angular.min.js"></script>
 
     <!--<script src="/resources/depracated/mm-frame.js"></script>-->
@@ -59,11 +61,12 @@
             </div>
             <div class="mdl-cell mdl-cell--12-col">
                 <div class="mdl-grid mdl-grid--no-spacing mm-list">
-                    <a href="" class="mdl-cell mm-list--item" ng-repeat="list in lists" ng-click="open(list.start, list.end)">
+                    <a href="" class="mdl-cell mm-list--item mdl-js-ripple-effect" ng-repeat="list in lists" ng-click="open(list.start, list.end)">
                         <div class="mm-list--item-text praise--product-item">
                             第 {{ list.start }} - {{ list.end }} 首播放
                         </div>
                         <div class="mm-list--icon-right material-icons">keyboard_arrow_right</div>
+                        <span class="mdl-ripple"></span>
                     </a>
                 </div>
             </div>
