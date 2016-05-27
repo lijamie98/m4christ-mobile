@@ -1,0 +1,18 @@
+<div class="mdl-grid mdl-grid--no-spacing seminar-grid" ng-repeat="item in data">
+
+    <div class="mdl-cell mdl-cell--1-col mdl-shadow--4dp mm-year">
+        <h4> {{ item.year }} 年</h4>
+    </div>
+
+    <div class="mdl-cell mdl-cell--12-col mdl-shadow--3dp">
+        <div class="mdl-grid mdl-grid--no-spacing mm-list">
+            <a ng-href="" class="mdl-cell mm-list--item" ng-repeat="seminar in item.seminars" ng-click="open(item.year, seminar.number);">
+                <div class="mm-list--item-text">
+                    <span class="mm-list--item-text-title"> {{ seminar.title }} </span>
+                    <span class="mm-list--item-text-subtitle"> {{ seminar.startDate | date }} - {{ seminar.location }} </span>
+                </div>
+                <div class="mm-list--icon-right material-icons"> {{ icon }} </div>
+            </a>
+        </div>
+    </div>
+</div>

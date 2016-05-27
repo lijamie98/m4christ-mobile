@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+
+    <title>POC 2</title>
+    <script src="/web/resources/js/angular.min.js"></script>
+    <!-- MDL Resources -->
+    <link rel="stylesheet" href="/material-design-lite/dist/material.min.css">
+    <link rel="stylesheet" href="/web/resources/css/material-grid.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <script src="/web/resources/js/material.min.js"></script>
+
+    <style>
+
+        .mm-list {
+            display: block;
+            padding: 0;
+            margin: 0;
+
+            list-style-type: none;
+        }
+
+        .mm-list > .mm-list--sub-header {
+            padding: 8px 16px 12px;
+
+            border-bottom: 1px solid #ccc;
+            color: rgba(0, 0, 0, 0.6);
+            font-weight: bold;
+            font-size: 16px;
+        }
+
+        .mm-list > .mm-list--two-line-item {
+            position: relative;
+            min-height: 72px;
+
+            padding-left: 56px;
+
+            border-bottom: 1px solid #ccc;
+            border-left: 16px solid transparent;
+            border-right: 16px solid transparent;
+            box-sizing: border-box;
+        }
+
+        .mm-list > li > .mm-list--icon-wrapper {
+            position: absolute;
+            top: 0;
+            left: 16px;
+            min-height: inherit;
+            display: table;
+        }
+
+        .mm-list > li > .mm-list--icon-wrapper > .mm-list--icon {
+            display: table-cell;
+
+            vertical-align: middle;
+            text-align: center;
+            color: rgba(0, 0, 0, 0.4);
+
+            font-family: 'Material Icons', sans-serif;
+            font-weight: normal;
+            font-style: normal;
+            font-size: 24px;
+            line-height: 1;
+            letter-spacing: normal;
+            text-transform: none;
+            white-space: nowrap;
+            word-wrap: normal;
+            direction: ltr;
+            -webkit-font-feature-settings: 'liga';
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .mm-list > li > .mm-list--content {
+            height: 100%;
+            padding: 20px 0 20px 16px;
+        }
+
+        .mm-list > li > .mm-list--content > span {
+            font-family: 'Roboto', sans-serif;
+            display: block;
+        }
+
+        .mm-list > li > .mm-list--content > .mm-list--title {
+            font-size: 18px;
+        }
+
+        .mm-list > li > .mm-list--content > .mm-list--subtitle {
+            color: rgba(0, 0, 0, 0.6);
+            font-size: 14px;
+        }
+
+    </style>
+</head>
+<body ng-app="poc2">
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+    <!-- ==================
+       Toolbar
+       =================== -->
+    <header class="mdl-layout__header">
+        <div class="mdl-layout__header-row">
+            <span class="mdl-layout-title">POC 2</span>
+            <div class="mdl-layout-spacer"></div>
+        </div>
+    </header>
+    <!-- ==================
+       Content
+       =================== -->
+    <main class="mdl-layout__content mdl-color--blue-grey-50">
+        <div class="page-content" ng-controller="poc2Controller">
+            <ul class="mm-list mm-border" ng-repeat="seminarList in seminarLists">
+                <li class="mm-list--sub-header">
+                    <span class="mn-list--sub-header-text"> {{ seminarList.year }} </span>
+                </li>
+                <li class="mm-list--two-line-item" ng-repeat="seminar in seminarList.seminars">
+                    <div class="mm-list--icon-wrapper">
+                        <i class="mm-list--icon">info_outline</i>
+                    </div>
+                    <div class="mm-list--content">
+                        <span class="mm-list--title">{{ seminar.title }}</span>
+                        <span class="mm-list--subtitle"> {{ seminar.startDate | date }} - {{ seminar.location }}</span>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <div class="mdl-layout__content">
+
+        </div>
+
+    </main>
+</div>
+<script>
+    var poc2 = angular.module("poc2", []).controller('poc2Controller', ['$scope', '$http', function ($scope, $http) {
+        $http({
+            method: 'GET',
+            url: "http://m.m4christ.net/mobile/json/seminars/past"
+        }).then(function (response) {
+
+            $scope.seminarLists = response.data;
+
+            console.info('[ Fun ]', response.data);
+
+            componentHandler.upgradeAllRegistered();
+        }, function (response) {
+
+            console.log('FAIL');
+        });
+    }]).filter('date', function ($filter) {
+
+        return function (input) {
+            if (input == null) {
+                return "";
+            }
+
+            var date = new Date(input);
+
+            var year = date.getFullYear();
+
+            var month = date.getMonth();
+
+            if (month < 10) {
+                month = "0" + month;
+            }
+
+            var day = date.getDate();
+
+            if (day < 10) {
+                day = "0" + day;
+            }
+
+            var dateString = year + " 年 " + month + " 月 " + day + " 日";
+
+            return dateString;
+        };
+    });
+
+</script>
+</body>
+</html>

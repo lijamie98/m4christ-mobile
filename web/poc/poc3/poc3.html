@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+
+    <title id="title">耶穌是主 － 首頁</title>
+
+    <script src="/resources/js/msg.js"></script>
+    <script src="/resources/js/jquery-2.2.0.min.js"></script>
+
+    <!-- MDL Resources -->
+
+    <link rel="stylesheet" href="/material-design-lite/dist/material.min.css">
+    <link rel="stylesheet" href="/material-design-lite/dist/material-grid.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Roboto">
+
+    <script src="/material-design-lite/dist/material.min.js"></script>
+</head>
+
+<body ng-app="mainApp">
+
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header" id="main-layout">
+
+    <!-- ==================
+          Toolbar
+    =================== -->
+
+    <header class="mdl-layout__header">
+
+        <div class="mdl-layout__drawer-button" id="back-button">
+            <i class="material-icons">arrow_back</i>
+        </div>
+
+        <div class="mdl-layout__header-row">
+            <span class="mdl-layout-title" id="song-title"></span>
+        </div>
+
+    </header>
+
+    <!-- ==================
+            Content
+    =================== -->
+
+    <main class="mdl-layout__content mdl-color--blue-grey-50">
+
+        <div class="page-content">
+            <div class="m4christ-audio">
+                <div class="mdl-grid">
+                    <div class="mdl-cell mdl-cell--12-col mdl-shadow--4dp ma-controls">
+
+                        <div class="ma-icon-controls mdl-color-text--blue-grey-800">
+                            <div class="mdl-shadow--3dp ma-icon-controls--main-controls">
+
+                                <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon ma-icon-controls--rewind">
+                                    <i class="material-icons">fast_rewind</i>
+                                </button>
+
+                                <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon ma-icon-controls--play-pause">
+                                    <i class="material-icons">play_arrow</i>
+                                </button>
+
+                                <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon ma-icon-controls--fast-forward">
+                                    <i class="material-icons">fast_forward</i>
+                                </button>
+
+                            </div>
+
+                            <div class="mdl-shadow--3dp ma-icon-controls--secondary-controls">
+
+                                <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon ma-icon-controls--prev">
+                                    <i class=material-icons>skip_previous</i>
+                                </button>
+
+
+                                <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon ma-icon-controls--stop">
+                                    <i class="material-icons">stop</i>
+                                </button>
+
+                                <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon ma-icon-controls--next">
+                                    <i class=material-icons>skip_next</i>
+                                </button>
+
+                            </div>
+                        </div>
+
+                        <div class="mdl-color-text--primary mdl-shadow--4dp ma-controls-time">
+                            <span class="ma-controls-time--current-time">0:00</span> / <span
+                                class="ma-controls-time--duration">0:00</span>
+                        </div>
+
+                        <hr/>
+
+                        <div class="ma-controls-slider">
+                            <div class="ma-slider--background mdl-color--blue-grey-100"></div>
+                            <div class="ma-slider--progress mdl-color--primary">
+                                <div class="ma-slider--progress-circle mdl-color--accent mdl-shadow--3dp"></div>
+                            </div>
+                        </div>
+                        <audio class="ma-audio" type="audio/mpeg" autoplay></audio>
+                    </div>
+
+                    <div class="mdl-cell mdl-cell--12-col mdl-color--white mdl-shadow--4dp">
+                        <div class="mdl-grid mdl-grid--no-spacing mm-list ma-playlist">
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </main>
+</div>
+
+<link rel="stylesheet" type="text/css" href="/resources/css/mobile.css">
+<link rel="stylesheet" type="text/css" href="poc3.css">
+
+<script src="poc3.js"></script>
+
+</body>
+
+</html>

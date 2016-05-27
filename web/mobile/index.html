@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <meta name="theme-color" content="#283593" class="mm-theme-color">
+    <!-- Windows Phone -->
+    <meta name="msapplication-navbutton-color" content="#4285f4" class="mm-theme-color">
+    <!-- iOS Safari -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+    <title id="title">耶穌是主</title>
+
+    <script src="/resources/js/msg.js"></script>
+
+    <script src="/resources/js/angular.min.js"></script>
+
+    <!-- MDL Resources -->
+
+    <link rel="stylesheet" href="/material-design-lite/dist/material.min.css">
+    <link rel="stylesheet" href="/material-design-lite/dist/material-grid.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Roboto">
+
+    <script src="/material-design-lite/dist/material.min.js"></script>
+
+    <!-- Modules -->
+
+    <script src="/resources/js/modules.js"></script>
+
+    <!-- Controllers -->
+
+    <script src="/resources/js/controllers/HomeController.js"></script>
+    <script src="/resources/js/controllers/NavigationController.js"></script>
+
+    <!-- Setup -->
+    <link rel="stylesheet" type="text/css" href="/resources/css/mobile.css">
+    <link rel="stylesheet" type="text/css" href="/resources/css/home.css">
+</head>
+
+<body class="mdl-color--blue-grey-50" ng-app="mainApp" ng-cloak>
+
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header mdl-layout--fixed-drawer" id="main-layout">
+
+    <!-- ==================
+          Toolbar
+    =================== -->
+
+    <header class="mdl-layout__header" ng-controller="NavigationController">
+
+        <div class="mdl-layout__header-row">
+            <span class="mdl-layout-title" id="header-title" ng-cloak>耶穌是主</span>
+
+            <div class="mdl-layout-spacer"></div>
+
+        </div>
+
+    </header>
+
+    <!-- ==================
+            Drawer
+    =================== -->
+
+    <div class="mdl-layout__drawer mdl-color--blue-grey-800" ng-controller="NavigationController">
+
+        <nav class="mdl-navigation" style="padding-top: 0;">
+            <a class="mdl-navigation__link mdl-js-ripple-effect mdl-color-text--white" ng-repeat="link in links" ng-href="{{ link.src }}"> {{
+                link.name }}
+            <span class="mdl-ripple"></span></a>
+        </nav>
+
+    </div>
+
+    <!-- ==================
+            Content
+    =================== -->
+
+    <main class="mdl-layout__content mdl-color--blue-grey-50" ng-controller="HomeController">
+
+        <div class="mdl-grid home-grid">
+            <a ng-href="{{ navLink.url }}" class="mdl-cell mdl-cell--11-col mdl-js-ripple-effect mdl-shadow--4dp" ng-repeat="navLink in navLinks">
+                <img class="mdl-shadow--8dp home-img" ng-src=" {{ imgsRoot + navLink.imgSrc }} "/>
+                <span class="mdl-layout-title"> {{ navLink.title }} </span>
+                <hr>
+                <p>{{ navLink.subtitle }}</p>
+                <span class="mdl-ripple"></span>
+            </a>
+        </div>
+
+    </main>
+
+</div>
+
+</body>
+
+</html>
