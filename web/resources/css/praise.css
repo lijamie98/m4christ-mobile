@@ -19,6 +19,10 @@
     width: 100px;
 }
 
+.mdl-cell.border-radius {
+    border-radius: 2px;
+}
+
 .mdl-card {
     height: 100%;
     width: 100%;
@@ -48,6 +52,7 @@
     position: absolute;
     top: 0;
     left: 0;
+    padding: 12px 16px;
 }
 
 .mdl-card .mdl-card__title.first {
@@ -67,13 +72,16 @@
 }
 
 .mdl-card .mdl-card__title .mdl-card__title-text {
-    font-size: 20px;
+    font-size: 16px;
     font-weight: 700;
 }
 
 .mdl-card img {
+    display: block;
     height: auto;
+    max-width: 280px;
     width: 100%;
+    margin: 0 auto;
 
     padding: 20px;
     box-sizing: border-box;

@@ -5,7 +5,7 @@
 mainApp.controller('PlaylistsController', ['$scope', '$http', function ($scope, $http) {
     $scope.title = "「和風音樂詩歌」CD 光碟";
 
-    var imgTemplateUrl = 'http://static.m4christ.net/products/{0}/{1}-ths.jpg';
+    var imgTemplateUrl = 'http://static.m4christ.net/products/{0}/{1}-th.jpg';
 
     // http://stackoverflow.com/questions/610406/javascript-equivalent-to-printf-string-format
     String.prototype.format = function () {

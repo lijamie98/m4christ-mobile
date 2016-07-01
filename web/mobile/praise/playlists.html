@@ -57,7 +57,7 @@
 
     <main class="mdl-layout__content mdl-color--blue-grey-50">
 
-        <div class="mdl-grid mm--main-grid">
+        <div class="mdl-grid mm--main-grid"><!--
             <div class="mdl-cell mdl-cell--12-col">
                 <div class="mdl-grid mdl-grid--no-spacing mm-list">
                     <a ng-href="{{product.href}}" class="mdl-cell mm-list--item" ng-repeat="product in products">
@@ -73,6 +73,22 @@
                         <div class="mm-list--icon-right material-icons">keyboard_arrow_right</div>
                     </a>
                 </div>
+            </div> -->
+            <div class="mdl-cell mdl-cell--4 mdl-shadow--4dp border-radius" ng-repeat="product in products">
+                <a ng-href="{{product.href}}" class="mdl-card">
+                    <div class="mdl-card__title mdl-color--orange-700 mdl-color-text--white mdl-shadow--6dp">
+                        <h2 class="mdl-card__title-text">
+                            ({{ product.label }})
+                        </h2>
+                    </div>
+                    <div class="mdl-card__media mdl-color--blue-grey-200">
+                        <img ng-src="{{product.imageURL}}" border="0" alt="FILLER">
+                    </div>
+                    <div class="mdl-card__supporting-text mdl-color--blue-grey-800 mdl-color-text--white">
+                        {{ product.name }}
+                    </div>
+                    <div class="tint"></div>
+                </a>
             </div>
         </div>
 
