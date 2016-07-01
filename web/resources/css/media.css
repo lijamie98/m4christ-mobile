@@ -1,3 +1,7 @@
 .mdl-typography--subhead p {
     font-size: 16px !important;
 }
+
+.mm-list > .mm-list--item {
+    border-bottom: none !important;
+}

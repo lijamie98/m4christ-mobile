@@ -3,7 +3,7 @@
  */
 
 mainApp.controller('SongsController', ['$scope', '$http', function ($scope, $http) {
-    $scope.title = "耶穌是主 - 線上播放";
+    $scope.title = "線上播放";
 
     // http://stackoverflow.com/questions/610406/javascript-equivalent-to-printf-string-format
     String.prototype.format = function () {
@@ -33,7 +33,7 @@ mainApp.controller('SongsController', ['$scope', '$http', function ($scope, $htt
         return lists;
     }());
 
-    var urlTemplate = '/mobile/praise/play.html?start={0}&end={1}';
+    var urlTemplate = '/mobile/praise/play.html?start={0}&end={1}&from=songs';
     $scope.open = function (start, end) {
         window.location.href = urlTemplate.format(start, end);
     };

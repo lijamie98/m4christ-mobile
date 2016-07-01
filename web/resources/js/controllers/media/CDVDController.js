@@ -30,7 +30,7 @@ mainApp.controller('CDVDController', ['$scope', '$http', '$sce', function ($scop
     };
     $scope.videos = [{
         href: "",
-        title: "沒有影片",
+        title: "",
         logo: "videocam_off"
     }];
 
@@ -44,9 +44,7 @@ mainApp.controller('CDVDController', ['$scope', '$http', '$sce', function ($scop
 
         console.log('[Example MP3 Data]', data.mp3URLs[0]);
 
-        data.title = '(' + data.label + ') ' + data.name;
-        if (data.introduction === null)
-            data.introduction = '沒有簡介';
+        data.title = data.name;
 
         // http://stackoverflow.com/questions/9381926/angularjs-insert-html-into-view
         $scope.thisCanBeusedInsideNgBindHtml = $sce.trustAsHtml(data.introduction);
@@ -78,6 +76,8 @@ mainApp.controller('CDVDController', ['$scope', '$http', '$sce', function ($scop
 
         if (data.length !== 0) {
             $scope.videos = data;
+        } else {
+            $scope.videos[0].title = "沒有影片";
         }
 
         //var fileBase = 'http://video.m4christ.net/seminars/mp4/' + queryObject.label + '/';

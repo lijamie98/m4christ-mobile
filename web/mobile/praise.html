@@ -55,7 +55,7 @@
 
         <div class="mdl-layout__header-row">
 
-            <span class="mdl-layout-title" ng-cloak>耶穌是主 - 和風音樂</span>
+            <span class="mdl-layout-title" ng-cloak>和風音樂</span>
 
             <div class="mdl-layout-spacer"></div>
 
@@ -88,43 +88,14 @@
 
         <div class="mdl-grid mm--main-grid">
 
-            <!-- Short introduction -->
-            <div class="mdl-cell mdl-cell--12-col itc">
-                <img class="itc--image mdl-color--white mdl-shadow--4dp" src="/resources/imgs/praise-th.jpg" height="80" width="80"/>
-                <div class="itc--text">
-                    <span class="mm-title">和風音樂事奉</span>
-                    <hr class="mm-hr"/>
-                    <span class="mm-subtitle">和風音樂詩歌以及風中傳愛歌曲集 </span>
-                </div>
-            </div>
-
             <!-- CDs -->
-            <div class="mdl-cell mdl-cell--12-col">
-                <div class="mdl-grid mdl-grid--no-spacing mm-list">
-                    <div class="mdl-cell mm-list--header">
-                        <span class="mm-title">「和風音樂詩歌」CD 線上播放</span>
-                        <span class="mm-subtitle">精選 CD 線上播放</span>
-                    </div>
-                    <a ng-href="/mobile/praise/product.html?label={{exampleCD.label}}&prev=close" class="mdl-cell mm-list--item mdl-js-ripple-effect">
-                        <div class="mm-list--item-text praise--product-item">
-                            <div class="itc">
-                                <img ng-src=" {{ exampleCD.imageURL }} " alt="P008CD"
-                                     class="itc--image mdl-shadow--4dp" height="84" width="84">
-                                <div class="itc--text">
-                                    <span class="mm-list--item-text-title"> {{ exampleCD.name }} </span>
-                                        <span class="mm-list--item-text-subtitle"> ({{ exampleCD.label }}) {{ exampleCD.contents
-                                            }} </span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="mm-list--icon-right material-icons">keyboard_arrow_right</div>
-                        <span class="mdl-ripple"></span>
-                    </a>
-                    <a href="/mobile/praise/playlists.html?filter=P&play=true" class="mdl-cell mm-list--item mdl-js-ripple-effect">
+            <div class="mdl-cell mdl-cell--12-col mdl-shadow--4dp">
+                <div class="mdl-grid mdl-grid--no-spacing mm-list" style="margin: 0;">
+                    <a href="/mobile/praise/playlists.html?filter=PCD&play=true" class="mdl-cell mm-list--item mdl-js-ripple-effect" style="padding: 16px;">
                         <div class="mm-list--item-text">
-                            <span class="mm-list--item-text-title">更多...</span>
-                            <span class="mm-list--item-text-subtitle">所有「和風音樂詩歌」CD 線上播放</span>
+                            「和風音樂詩歌」CD 光碟
                         </div>
+
                         <div class="mm-list--icon-right material-icons">keyboard_arrow_right</div>
                         <span class="mdl-ripple"></span>
                     </a>
@@ -132,16 +103,11 @@
             </div>
 
             <!-- Music -->
-            <div class="mdl-cell mdl-cell--12-col">
-                <div class="mdl-grid mdl-grid--no-spacing mm-list">
-                    <div class="mdl-cell mm-list--header">
-                        <span class="mm-title">「風中傳愛詩歌全集</span>
-                        <span class="mm-subtitle">1-500首風中傳愛詩歌全集</span>
-                    </div>
-                    <a href="/mobile/praise/songs.html" class="mdl-cell mm-list--item mdl-js-ripple-effect">
+            <div class="mdl-cell mdl-cell--12-col mdl-shadow--4dp">
+                <div class="mdl-grid mdl-grid--no-spacing mm-list" style="margin: 0;">
+                    <a href="/mobile/praise/songs.html" class="mdl-cell mm-list--item mdl-js-ripple-effect" style="padding: 16px;">
                         <div class="mm-list--item-text">
-                            <span class="mm-list--item-text-title">線上播放</span>
-                            <span class="mm-list--item-text-subtitle">1-500首風中傳愛詩歌全集－線上播放</span>
+                            「風中傳愛」詩歌 500 首全集
                         </div>
                         <div class="mm-list--icon-right material-icons">keyboard_arrow_right</div>
                         <span class="mdl-ripple"></span>

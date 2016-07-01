@@ -41,13 +41,6 @@ will contain main-controls and secondary-controls
  will contain rewind, play-pause, and fast-forward*/
 .m4christ-audio .ma-controls .ma-icon-controls .ma-icon-controls--main-controls {
     align-self: flex-start;
-    margin-right: 16px;
-}
-
-/* styles for secondary-controls:
- will contain previous song and next song*/
-.m4christ-audio .ma-controls .ma-icon-controls .ma-icon-controls--secondary-controls {
-    margin-left: auto;
 }
 
 /*.m4christ-audio .ma-controls .ma-icon-controls .ma-controls*/
@@ -126,4 +119,8 @@ contains 3 components:
     right: -9px;
     height: 18px;
     width: 18px;
+}
+
+.mm-list > .mm-list--item.selected {
+    background-color: #FFCA28; /* amber-400 */
 }

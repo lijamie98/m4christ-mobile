@@ -3,7 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <meta name="theme-color" content="#283593" class="mm-theme-color">
+    <!-- Windows Phone -->
+    <meta name="msapplication-navbutton-color" content="#4285f4" class="mm-theme-color">
+    <!-- iOS Safari -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 
+    <script src="/resources/js/angular.min.js"></script>
+    <script src="/resources/js/mm-box.js"></script>
+    <script src="/resources/js/mm-audio-popup.js"></script>
     <script src="/resources/js/angular.min.js"></script>
 
     <!--<script src="/resources/depracated/mm-frame.js"></script>-->
@@ -34,10 +43,10 @@
 <body class="mdl-color--blue-grey-50" ng-app="mainApp" ng-cloak>
 <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header" ng-controller="PlaylistsController">
     <!-- Header -->
-    <div class="mdl-layout__header mdl-color--white mdl-color-text--black">
+    <div class="mdl-layout__header">
 
         <div class="mdl-layout__drawer-button" ng-click="close()">
-            <i class="material-icons mdl-color-text--black">arrow_back</i>
+            <i class="material-icons">arrow_back</i>
         </div>
 
         <div class="mdl-layout__header-row">
@@ -49,14 +58,6 @@
     <main class="mdl-layout__content mdl-color--blue-grey-50">
 
         <div class="mdl-grid mm--main-grid">
-            <div class="mdl-cell mdl-cell--12-col itc" ng-show="showIntro">
-                <img class="itc--image mdl-shadow--4dp" src="/resources/imgs/praise-th.jpg" height="80" width="80"/>
-                <div class="itc--text">
-                    <span class="mm-title">和風音樂事奉</span>
-                    <hr class="mm-hr"/>
-                    <span class="mm-subtitle">和風音樂詩歌以及風中傳愛歌曲集</span>
-                </div>
-            </div>
             <div class="mdl-cell mdl-cell--12-col">
                 <div class="mdl-grid mdl-grid--no-spacing mm-list">
                     <a ng-href="{{product.href}}" class="mdl-cell mm-list--item" ng-repeat="product in products">

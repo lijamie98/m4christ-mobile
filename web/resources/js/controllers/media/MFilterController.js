@@ -19,13 +19,20 @@ mainApp.controller('MFilterController', ['$scope', '$http', function ($scope, $h
 
     console.log('[Query Object]', queryObject);
 
-    $scope.title = queryObject.filter;
+    var titles = {
+        "M1": "靈命初期",
+        "M2": "靈命成長期",
+        "M3": "靈命煉淨期",
+        "M4": "靈命成熟期"
+    };
+
+    $scope.title = titles[queryObject.filter];
     $scope.filter = queryObject.filter;
 
     $scope.items = [{
-        "name": "Loading...",
-        "label": "Loading...",
-        "contents": "Loading..."
+        "name": "請稍後． ． ．",
+        "label": "",
+        "contents": ""
     }];
 
     $http({
@@ -36,6 +43,16 @@ mainApp.controller('MFilterController', ['$scope', '$http', function ($scope, $h
 
         console.log('[Data]', data);
         console.log('[Example Data]', data[0]);
+
+        var dataLength = data.length;
+        for (var i = 0; i < dataLength; i++) {
+            var item = data[i];
+            if (item.hasYouKuVideo || item.hasYouTubeVideo) {
+                item.color = "mdl-color-text--green-500";
+                item.icon = "videocam";
+            } else
+                item.icon = "keyboard_arrow_right";
+        }
 
         $scope.items = data;
     }, function (response) {

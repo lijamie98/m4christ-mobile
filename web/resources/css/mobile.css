@@ -1,7 +1,8 @@
 html, body, .mdl-layout {
     height: 100%;
     width: 100%;
-    overflow: auto;
+    overflow-y: auto;
+    overflow-x: hidden;
 }
 
 .mdl-navigation__link {
@@ -21,6 +22,10 @@ html, body, .mdl-layout {
 
     /* I don't like it */
     /*width: 200px;*/
+}
+
+.mdl-layout__header-row {
+    padding-left: 60px;
 }
 
 /* I don't like it */
@@ -77,6 +82,7 @@ html, body, .mdl-layout {
     font-size: 14px;
     color: rgba(0, 0, 0, 0.37);
     font-weight: bold;
+    text-decoration: none;
 }
 
 .mm-list > .mm-list--header > .itc {
@@ -123,6 +129,11 @@ html, body, .mdl-layout {
     font-size: 16px;
     transition: background-color 57ms ease-out;
     overflow: hidden;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+}
+
+.mm-list > .mm-list--item:last-of-type {
+    border-bottom: none;
 }
 
 .mm-list > .mm-list--item.selected {
@@ -162,6 +173,15 @@ html, body, .mdl-layout {
 .mm-list > .mm-list--item > .mm-list--item-text .mm-list--item-text-subtitle {
     color: rgba(24, 24, 24, 0.86);
     font-size: 14px;
+}
+
+.mm-list > .mm-list--item > .mm-list--icon-left {
+    flex-shrink: 1;
+    -webkit-flex-shrink: 1;
+    margin-right: auto;
+    height: 100%;
+    float: left;
+    color: rgba(0, 0, 0, .57);
 }
 
 .mm-list > .mm-list--item > .mm-list--icon-right {
@@ -221,4 +241,7 @@ html, body, .mdl-layout {
 
 .mm-footer > .mm-footer--body img {
     margin-right: 8px;
+}
+
+.mdl-js-ripple-effect {
 }

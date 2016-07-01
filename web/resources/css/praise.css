@@ -18,3 +18,63 @@
     height: 100px;
     width: 100px;
 }
+
+.mdl-card {
+    height: 100%;
+    width: 100%;
+    text-decoration: none !important;
+}
+
+.mdl-card > .tint {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+
+    background: transparent;
+    pointer-events: none;
+    -webkit-transition: background 57ms;
+    -moz-transition: background 57ms;
+    -o-transition: background 57ms;
+    transition: background 57ms;
+}
+
+.mdl-card:hover > .tint, .mdl-card:active > .tint {
+    background: rgba(0, 0, 0, 0.17);
+}
+
+.mdl-card .mdl-card__title {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.mdl-card .mdl-card__title.first {
+    width: 100%;
+
+    background: rgba(0, 0, 0, 0.1); /* For browsers that do not support gradients */
+    background: -webkit-linear-gradient(rgba(0, 0, 0, 0.45), transparent); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(rgba(0, 0, 0, 0.45), transparent); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(rgba(0, 0, 0, 0.45), transparent); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(rgba(0, 0, 0, 0.45), transparent); /* Standard syntax */
+
+    text-align: center;
+}
+
+.mdl-card .mdl-card__title.first > .mdl-card__title-text.center {
+    margin: 0 auto;
+}
+
+.mdl-card .mdl-card__title .mdl-card__title-text {
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.mdl-card img {
+    height: auto;
+    width: 100%;
+
+    padding: 20px;
+    box-sizing: border-box;
+}

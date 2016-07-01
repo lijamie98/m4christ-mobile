@@ -8,6 +8,8 @@
     position: relative;
     overflow: hidden;
     color: rgba(255, 255, 255, 0.54);
+    padding-left: 16px;
+    padding-right: 16px;
 }
 
 .mdl-tabs__tab.is-active {
@@ -169,4 +171,12 @@
     width: 56px;
     right: 16px;
     bottom: 16px;
+}
+
+.mm-list > .mm-list--item {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+}
+
+.mm-list > .mm-list--item:last-of-type {
+    border-bottom: none;
 }

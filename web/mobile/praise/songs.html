@@ -3,8 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <meta name="theme-color" content="#283593" class="mm-theme-color">
+    <!-- Windows Phone -->
+    <meta name="msapplication-navbutton-color" content="#4285f4" class="mm-theme-color">
+    <!-- iOS Safari -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 
-    <title>耶穌是主 - 線上播放</title>
+    <title id="title">音樂</title>
+
+    <script src="/resources/js/msg.js"></script>
+    <script src="/resources/js/jquery-2.2.0.min.js"></script>
+
+    <title>線上播放</title>
 
     <script src="/resources/js/angular.min.js"></script>
 
@@ -36,10 +47,10 @@
 <body class="mdl-color--blue-grey-50" ng-app="mainApp" ng-cloak>
 <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header" ng-controller="SongsController">
     <!-- Header -->
-    <div class="mdl-layout__header mdl-color--white mdl-color-text--black">
+    <div class="mdl-layout__header">
 
         <div class="mdl-layout__drawer-button" ng-click="close()">
-            <i class="material-icons mdl-color-text--black">arrow_back</i>
+            <i class="material-icons">arrow_back</i>
         </div>
 
         <div class="mdl-layout__header-row">
@@ -51,14 +62,6 @@
     <main class="mdl-layout__content mdl-color--blue-grey-50">
 
         <div class="mdl-grid mm--main-grid">
-            <div class="mdl-cell mdl-cell--12-col itc">
-                <img class="itc--image" src="/resources/imgs/praise-th.jpg" height="80"/>
-                <div class="itc--text">
-                    <span class="mm-title">風中傳愛詩歌</span>
-                    <hr class="mm-hr"/>
-                    <span class="mm-subtitle">風中傳愛詩歌線上播放</span>
-                </div>
-            </div>
             <div class="mdl-cell mdl-cell--12-col">
                 <div class="mdl-grid mdl-grid--no-spacing mm-list">
                     <a href="" class="mdl-cell mm-list--item mdl-js-ripple-effect" ng-repeat="list in lists" ng-click="open(list.start, list.end)">

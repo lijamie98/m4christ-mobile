@@ -3,7 +3,7 @@
  */
 
 mainApp.controller('PlaylistsController', ['$scope', '$http', function ($scope, $http) {
-    $scope.title = "耶穌是主 - 線上播放";
+    $scope.title = "「和風音樂詩歌」CD 光碟";
 
     var imgTemplateUrl = 'http://static.m4christ.net/products/{0}/{1}-ths.jpg';
 
@@ -27,18 +27,11 @@ mainApp.controller('PlaylistsController', ['$scope', '$http', function ($scope, 
 
     var url = rootUrlTemplate.format(queryObject.filter);
 
-    $scope.showIntro = (function () {
-        if (queryObject.hideIntro === 'true')
-            return false;
-
-        return true;
-    }());
-
     var urlTemplate = (function () {
         if (queryObject.play === 'true')
-            return "/mobile/praise/play.html?label={0}";
+            return "/mobile/praise/play.html?label={0}&from=playlists";
 
-        return "/mobile/praise/product.html?label={0}&prev={1}";
+        return "/mobile/praise/product.html?label={0}&prev={1}&from=playlists";
     }());
 
     console.log(urlTemplate);

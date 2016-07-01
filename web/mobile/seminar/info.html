@@ -3,6 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <meta name="theme-color" content="#283593" class="mm-theme-color">
+    <!-- Windows Phone -->
+    <meta name="msapplication-navbutton-color" content="#4285f4" class="mm-theme-color">
+    <!-- iOS Safari -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+    <title id="title">音樂</title>
+
+    <script src="/resources/js/msg.js"></script>
+    <script src="/resources/js/jquery-2.2.0.min.js"></script>
 
     <script src="/resources/js/angular.min.js"></script>
 
@@ -42,10 +53,10 @@
 <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header" ng-controller="InfoController">
 
     <!-- Header -->
-    <div class="mdl-layout__header mdl-color--white mdl-color-text--black" id="back-button">
+    <div class="mdl-layout__header" id="back-button">
 
         <div class="mdl-layout__drawer-button">
-            <i class="material-icons mdl-color-text--black">arrow_back</i>
+            <i class="material-icons">arrow_back</i>
         </div>
 
         <div class="mdl-layout__header-row">

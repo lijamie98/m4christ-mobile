@@ -99,16 +99,11 @@ $(function () {
     // ff AKA. fastForward
     var ff = mc._s('.ma-icon-controls--fast-forward');
 
-    // sc AKA. secondaryControls
-    var sc = _s('.ma-icon-controls--secondary-controls');
+    var prev = mc._s('.ma-icon-controls--prev');
 
-    var prev = sc._s('.ma-icon-controls--prev');
+    var stop = mc._s('.ma-icon-controls--stop');
 
-    var stop = sc._s('.ma-icon-controls--stop');
-
-    var next = sc._s('.ma-icon-controls--next');
-
-    DOY(stop);
+    var next = mc._s('.ma-icon-controls--next');
 
     /* Icon click events */
 
@@ -161,10 +156,20 @@ $(function () {
     });
 
     // when audio can play, update several things
-    audio.on('canplay', function () {
+    audio.on('canplay', canplay);
+
+    function canplay() {
         $dt[0].innerText = formatSeconds(audio.duration);
         $pb[0].style.width = '0%';
-    });
+
+        setTimeout(function () {
+            audio.play();
+        }, 500);
+    }
+
+    if (audio.readyState > 3) {
+        canplay();
+    }
 
     audio.on('ended', function () {
         player.changeSong(currentIndex + 1);
@@ -233,17 +238,17 @@ $(function () {
         audio.pause();
     }
 
+    // http://stackoverflow.com/questions/610406/javascript-equivalent-to-printf-string-format
+    var queryObject;
+    String.prototype.format = function () {
+        var formatted = this;
+        for (var arg in arguments) { //noinspection JSUnfilteredForInLoop
+            formatted = formatted.replace("{" + arg + "}", arguments[arg]);
+        }
+        return formatted;
+    };
     var currentIndex;
     (function () {
-        // http://stackoverflow.com/questions/610406/javascript-equivalent-to-printf-string-format
-        var queryObject;
-        String.prototype.format = function () {
-            var formatted = this;
-            for (var arg in arguments) { //noinspection JSUnfilteredForInLoop
-                formatted = formatted.replace("{" + arg + "}", arguments[arg]);
-            }
-            return formatted;
-        };
 
         var playlist = document.querySelector('.ma-playlist');
 
@@ -330,10 +335,19 @@ $(function () {
                 //reset();
                 audio.play();
 
-                playlistItems[currentIndex].classList.remove('selected');
+                var oldElement = playlistItems[currentIndex];
+                oldElement.classList.remove('selected');
+                var oldIcon = oldElement.querySelector(".mm-list--icon-right");
+                oldIcon.innerText = "keyboard_arrow_right";
+                oldIcon.classList.remove("mdl-color-text--green-700");
 
                 currentIndex = index;
-                playlistItems[currentIndex].classList.add('selected');
+
+                var newElement = playlistItems[currentIndex];
+                newElement.classList.add('selected');
+                var newIcon = newElement.querySelector(".mm-list--icon-right");
+                newIcon.innerText = "volume_up";
+                newIcon.classList.add("mdl-color-text--green-700");
             }
         };
     }());
@@ -349,7 +363,10 @@ $(function () {
     changeBarColor('#283593');
 
     document.getElementById('back-button').addEventListener('click', function () {
-        window.location.href = '/mobile/praise/playlists.html';
+        if (queryObject.from == "playlists")
+            window.location.href = '/mobile/praise/playlists.html?filter=PCD&play=true';
+        else
+            window.location.href = '/mobile/praise/songs.html'
     });
 });
 

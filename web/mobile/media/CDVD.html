@@ -3,6 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <meta name="theme-color" content="#283593" class="mm-theme-color">
+    <!-- Windows Phone -->
+    <meta name="msapplication-navbutton-color" content="#4285f4" class="mm-theme-color">
+    <!-- iOS Safari -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 
     <script src="/resources/js/angular.min.js"></script>
     <script src="/resources/js/mm-box.js"></script>
@@ -31,20 +37,23 @@
     <link rel="stylesheet" type="text/css" href="/resources/css/mm-box.css">
     <link rel="stylesheet" type="text/css" href="/resources/css/mm-audio-popup.css">
 
+    <style>
+
+    </style>
 </head>
 <body class="mdl-color--blue-grey-50" ng-app="mainApp" ng-cloak>
 <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header" ng-controller="CDVDController">
 
     <!-- Header -->
-    <div class="mdl-layout__header mdl-color--white mdl-color-text--black">
+    <div class="mdl-layout__header mdl-color-text--black">
 
         <div class="mdl-layout__drawer-button" id="back-button">
-            <i class="material-icons mdl-color-text--black">arrow_back</i>
+            <i class="material-icons">arrow_back</i>
         </div>
 
         <div class="mdl-layout__header-row">
 
-            <span class="mdl-layout-title"> {{ data.title }} </span>
+            <span class="mdl-layout-title mdl-color-text--white"> {{ data.title }} </span>
         </div>
     </div>
 
@@ -52,19 +61,14 @@
 
         <div class="mdl-grid mm--main-grid">
             <div class="mdl-cell mdl-cell--10-col mdl-cell--8-col-tablet mm-padding mm-cell-center">
-                <span class="mdl-typography--headline"> {{ data.title }} </span>
+                <span class="mdl-typography--subhead"> <b>編號:</b> {{
+                        data.label }} </span>
                 <br/>
-                    <span class="mdl-typography--subhead"> <b>內容:</b> {{
-                        data.contents }} </span>
+                <span class="mdl-typography--subhead"> <b>內容:</b> {{
+                        data.contentsWeb }} </span>
                 <br/>
-                    <span class="mdl-typography--subhead"> <b>時間、地點:</b> {{
+                <span class="mdl-typography--subhead"> <b>時間、地點:</b> {{
                         data.dateLocation }} </span>
-            </div>
-
-            <div class="mdl-cell mdl-cell--10-col mdl-cell--8-col-tablet mm-padding mm-cell-center">
-                <span class="mdl-typography--headline"> 簡介 </span>
-                <br/>
-                <span class="mdl-typography--subhead" ng-bind-html="thisCanBeusedInsideNgBindHtml"> {{ data.introduction }}</span>
             </div>
 
             <div class="mdl-cell mdl-cell--12-col">
@@ -74,7 +78,7 @@
                             <div class="itc--img material-icons mdl-color-text--grey-700">video_library</div>
                             <div class="itc--text">
                                     <span class="mdl-typography--headline mdl-color-text--grey-700"
-                                          style="line-height: 48px;">視頻線上收看／下載</span>
+                                          style="line-height: 48px; font-size: 20px;">視頻線上收看／下載</span>
                             </div>
                         </div>
                     </div>
@@ -95,7 +99,7 @@
                             <div class="itc--img material-icons mdl-color-text--grey-700">library_music</div>
                             <div class="itc--text">
                                     <span class="mdl-typography--headline mdl-color-text--grey-700"
-                                          style="line-height: 48px;">
+                                          style="line-height: 48px; font-size: 20px;">
                                         音頻線上收聽／下載</span>
                             </div>
                         </div>
@@ -109,6 +113,12 @@
                         <div class="mm-list--icon-right material-icons">keyboard_arrow_right</div>
                     </a>
                 </div>
+            </div>
+
+            <div class="mdl-cell mdl-cell--10-col mdl-cell--8-col-tablet mm-padding mm-cell-center">
+                <span class="mdl-typography--headline"> 簡介 </span>
+                <br/>
+                <span class="mdl-typography--subhead" ng-bind-html="thisCanBeusedInsideNgBindHtml"> {{ data.introduction }}</span>
             </div>
         </div>
     </main>
@@ -133,6 +143,8 @@
         </div>
     </div>
 </div>
+
+<footer mobile-footer></footer>
 
 <img src="http://img.youtube.com/vi/79IXjbns7JU/mqdefault.jpg" style="display: none;" id="hidden-img">
 
