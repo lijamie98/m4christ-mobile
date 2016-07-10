@@ -368,6 +368,31 @@ $(function () {
         else
             window.location.href = '/mobile/praise/songs.html'
     });
+
+    // create a toast to alert to click the button
+    if (mobile) { // make sure it's from a mobile device, as desktops work perfectly fine
+        function hideSnackbar() {
+            plzclick.classList.remove("mdl-snackbar--active");
+            pp.classList.remove("highlighted");
+        }
+
+        var plzclick = document.querySelector('.mdl-js-snackbar');
+        var data = {
+            message: '請按按鈕高亮',
+            actionHandler: hideSnackbar,
+            actionText: '解雇',
+            timeout: 10000
+        };
+
+        setTimeout(function() {
+            plzclick.MaterialSnackbar.showSnackbar(data);
+        }, 400);
+
+        pp.classList.add("highlighted");
+
+        // if pp is clicked, be sure to hide the snackbar if it hasn't timed out
+        pp.on('click', hideSnackbar);
+    }
 });
 
 HTMLElement.prototype._s = function (s) {

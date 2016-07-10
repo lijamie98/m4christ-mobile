@@ -30,7 +30,7 @@ will contain main-controls and secondary-controls
 
 /* adds padding for main-controls and secondary-controls */
 .m4christ-audio .ma-controls .ma-icon-controls > div {
-    flex: 1;
+    flex-shrink: 1;
     padding: 8px 6px;
     text-align: center;
 
@@ -40,7 +40,84 @@ will contain main-controls and secondary-controls
 /* styles for main-controls:
  will contain rewind, play-pause, and fast-forward*/
 .m4christ-audio .ma-controls .ma-icon-controls .ma-icon-controls--main-controls {
-    align-self: flex-start;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.m4christ-audio .ma-controls .ma-icon-controls .ma-icon-controls--play-pause {
+    height: 40px;
+    width: 40px;
+}
+
+.m4christ-audio .ma-controls .ma-icon-controls .ma-icon-controls--play-pause.highlighted .highlight {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 1;
+    border-radius: 50%;
+
+    /* animation properties */
+    -webkit-animation-name: highlight-bounce;
+    -moz-animation-name: highlight-bounce;
+    -o-animation-name: highlight-bounce;
+    animation-name: highlight-bounce;
+
+    -webkit-animation-duration: 1s;
+    -moz-animation-duration: 1s;
+    -o-animation-duration: 1s;
+    animation-duration: 1s;
+
+    -webkit-animation-iteration-count: infinite;
+    -moz-animation-iteration-count: infinite;
+    -o-animation-iteration-count: infinite;
+    animation-iteration-count: infinite;
+
+    /*
+    -webkit-animation-timing-function: cubic-bezier(0.075, 0.820, 0.165, 1.000);
+    -moz-animation-timing-function: cubic-bezier(0.075, 0.820, 0.165, 1.000);
+    -o-animation-timing-function: cubic-bezier(0.075, 0.820, 0.165, 1.000);
+    animation-timing-function: cubic-bezier(0.075, 0.820, 0.165, 1.000);  /* easeOutCirc */
+}
+
+@keyframes highlight-bounce {
+    0% {
+        top: calc(50% - 17px);
+        left: calc(50% - 17px);
+        height: 34px;
+        width: 34px;
+        background: rgba(255, 230, 0, 0.6);
+    }
+    50% {
+        top: calc(50% - 20px);
+        left: calc(50% - 20px);
+        height: 40px;
+        width: 40px;
+        background: rgba(255, 200, 0, 0.6);
+    }
+    100% {
+        top: calc(50% - 17px);
+        left: calc(50% - 17px);
+        height: 34px;
+        width: 34px;
+        background: rgba(255, 230, 0, 0.6);
+    }
+}
+
+/* make sure icon is on top of highlight */
+.m4christ-audio .ma-controls .ma-icon-controls .ma-icon-controls--play-pause > .material-icons {
+    font-size: 32px;
+    -webkit-transform: translate(-16px,-16px);
+    transform: translate(-16px,-16px);
+    line-height: 32px;
+    width: 32px;
+    z-index: 5;
+}
+
+/* make sure ripple is on top of icon */
+.m4christ-audio .ma-controls .ma-icon-controls .ma-icon-controls--play-pause > .mdl-button__ripple-container {
+    z-index: 10;
 }
 
 /*.m4christ-audio .ma-controls .ma-icon-controls .ma-controls*/
