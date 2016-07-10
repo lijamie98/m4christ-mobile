@@ -105,6 +105,30 @@ will contain main-controls and secondary-controls
     }
 }
 
+@-webkit-keyframes highlight-bounce {
+    0% {
+        top: calc(50% - 17px);
+        left: calc(50% - 17px);
+        height: 34px;
+        width: 34px;
+        background: rgba(255, 230, 0, 0.6);
+    }
+    50% {
+        top: calc(50% - 20px);
+        left: calc(50% - 20px);
+        height: 40px;
+        width: 40px;
+        background: rgba(255, 200, 0, 0.6);
+    }
+    100% {
+        top: calc(50% - 17px);
+        left: calc(50% - 17px);
+        height: 34px;
+        width: 34px;
+        background: rgba(255, 230, 0, 0.6);
+    }
+}
+
 /* make sure icon is on top of highlight */
 .m4christ-audio .ma-controls .ma-icon-controls .ma-icon-controls--play-pause > .material-icons {
     font-size: 32px;
@@ -200,4 +224,7 @@ contains 3 components:
 
 .mm-list > .mm-list--item.selected {
     background-color: #FFCA28; /* amber-400 */
+}
+
+#neveragainbutton { /* :D */
 }

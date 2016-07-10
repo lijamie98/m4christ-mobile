@@ -340,6 +340,7 @@ $(function () {
                 var oldIcon = oldElement.querySelector(".mm-list--icon-right");
                 oldIcon.innerText = "keyboard_arrow_right";
                 oldIcon.classList.remove("mdl-color-text--green-700");
+                oldElement.blur();
 
                 currentIndex = index;
 
@@ -370,7 +371,8 @@ $(function () {
     });
 
     // create a toast to alert to click the button
-    if (mobile) { // make sure it's from a mobile device, as desktops work perfectly fine
+    if (mobile && localStorage.getItem("plzremindme") != "false") { // make sure it's from a mobile device, as desktops
+        // work perfectly fine
         function hideSnackbar() {
             plzclick.classList.remove("mdl-snackbar--active");
             pp.classList.remove("highlighted");
@@ -393,6 +395,13 @@ $(function () {
         // if pp is clicked, be sure to hide the snackbar if it hasn't timed out
         pp.on('click', hideSnackbar);
     }
+
+    _s("#neveragainbutton").on("click", function() {
+        if (localStorage.getItem("plzremindme") != "false")
+            localStorage.setItem("plzremindme", "false"); // i'm so sorry
+        else
+            localStorage.setItem("plzremindme", "true");
+    });
 });
 
 HTMLElement.prototype._s = function (s) {
