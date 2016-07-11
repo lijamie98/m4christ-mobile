@@ -139,9 +139,11 @@ $(function () {
 
     /* Independent Events */
 
+    var mainObj = this;
     // when playing, change pp's icon to pause
     audio.on('play playing', function () {
         pp.children[0].innerText = iconText.pause;
+        mainObj.removeArrow();
     });
 
     // when paused, change pp's icon to play
@@ -158,15 +160,12 @@ $(function () {
     // when audio can play, update several things
     audio.on('canplay', canplay);
 
-    var mainObj = this;
-
     function canplay() {
         $dt[0].innerText = formatSeconds(audio.duration);
         $pb[0].style.width = '0%';
 
         setTimeout(function () {
             audio.play();
-            mainObj.removeArrow();
         }, 500);
     }
 
@@ -374,24 +373,15 @@ $(function () {
     });
 
     // arrow work
-    var arrow = document.querySelector(".ma-arrow-container").querySelector(".arrow");
+    var arrowContainer = document.querySelector(".ma-arrow-container");
 
     this.removeArrow = function () {
-        arrow.parentElement.removeChild(arrow);
-    }
-
-    // if pp is clicked, be sure to hide the arrow
-    pp.on('click', removeArrow);
+        var arrow = arrowContainer.querySelector(".arrow");
+        if (arrow != null)
+            arrowContainer.removeChild(arrow);
+    };
     //end
-
-_s("#neveragainbutton").on("click", function () {
-    if (localStorage.getItem("plzremindme") != "false")
-        localStorage.setItem("plzremindme", "false"); // i'm so sorry
-    else
-        localStorage.setItem("plzremindme", "true");
 });
-})
-;
 
 HTMLElement.prototype._s = function (s) {
     return this.querySelector(s);
