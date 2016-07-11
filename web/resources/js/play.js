@@ -158,12 +158,15 @@ $(function () {
     // when audio can play, update several things
     audio.on('canplay', canplay);
 
+    var mainObj = this;
+
     function canplay() {
         $dt[0].innerText = formatSeconds(audio.duration);
         $pb[0].style.width = '0%';
 
         setTimeout(function () {
             audio.play();
+            mainObj.removeArrow();
         }, 500);
     }
 
@@ -370,39 +373,25 @@ $(function () {
             window.location.href = '/mobile/praise/songs.html'
     });
 
-    // create a toast to alert to click the button
-    if (mobile && localStorage.getItem("plzremindme") != "false") { // make sure it's from a mobile device, as desktops
-        // work perfectly fine
-        function hideSnackbar() {
-            plzclick.classList.remove("mdl-snackbar--active");
-            pp.classList.remove("highlighted");
-        }
+    // arrow work
+    var arrow = document.querySelector(".ma-arrow-container").querySelector(".arrow");
 
-        var plzclick = document.querySelector('.mdl-js-snackbar');
-        var data = {
-            message: '請按按鈕高亮',
-            actionHandler: hideSnackbar,
-            actionText: '解雇',
-            timeout: 10000
-        };
-
-        setTimeout(function() {
-            plzclick.MaterialSnackbar.showSnackbar(data);
-        }, 400);
-
-        pp.classList.add("highlighted");
-
-        // if pp is clicked, be sure to hide the snackbar if it hasn't timed out
-        pp.on('click', hideSnackbar);
+    this.removeArrow = function () {
+        arrow.parentElement.removeChild(arrow);
     }
 
-    _s("#neveragainbutton").on("click", function() {
-        if (localStorage.getItem("plzremindme") != "false")
-            localStorage.setItem("plzremindme", "false"); // i'm so sorry
-        else
-            localStorage.setItem("plzremindme", "true");
-    });
+    // if pp is clicked, be sure to hide the arrow
+    pp.on('click', removeArrow);
+    //end
+
+_s("#neveragainbutton").on("click", function () {
+    if (localStorage.getItem("plzremindme") != "false")
+        localStorage.setItem("plzremindme", "false"); // i'm so sorry
+    else
+        localStorage.setItem("plzremindme", "true");
 });
+})
+;
 
 HTMLElement.prototype._s = function (s) {
     return this.querySelector(s);

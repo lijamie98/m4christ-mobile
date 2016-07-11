@@ -40,6 +40,7 @@ will contain main-controls and secondary-controls
 /* styles for main-controls:
  will contain rewind, play-pause, and fast-forward*/
 .m4christ-audio .ma-controls .ma-icon-controls .ma-icon-controls--main-controls {
+    position: relative;
     margin: 0 auto;
     width: 100%;
 }
@@ -49,20 +50,35 @@ will contain main-controls and secondary-controls
     width: 40px;
 }
 
-.m4christ-audio .ma-controls .ma-icon-controls .ma-icon-controls--play-pause.highlighted .highlight {
+.ma-arrow-container {
     position: absolute;
     top: 0;
     left: 0;
+
     height: 100%;
     width: 100%;
+
+    pointer-events: none;
+}
+
+.ma-arrow-container .arrow {
+    display: block;
+    position: relative;
+    top: 0;
+    left: -18px;
+    transform: translateY(6px);
+    -webkit-transform: translateY(6px);
+    margin: 0 auto;
+
+    height: 16px;
+    width: 16px;
     z-index: 1;
-    border-radius: 50%;
 
     /* animation properties */
-    -webkit-animation-name: highlight-bounce;
-    -moz-animation-name: highlight-bounce;
-    -o-animation-name: highlight-bounce;
-    animation-name: highlight-bounce;
+    -webkit-animation-name: arrow-bounce;
+    -moz-animation-name: arrow-bounce;
+    -o-animation-name: arrow-bounce;
+    animation-name: arrow-bounce;
 
     -webkit-animation-duration: 1s;
     -moz-animation-duration: 1s;
@@ -81,51 +97,27 @@ will contain main-controls and secondary-controls
     animation-timing-function: cubic-bezier(0.075, 0.820, 0.165, 1.000);  /* easeOutCirc */
 }
 
-@keyframes highlight-bounce {
+@keyframes arrow-bounce {
     0% {
-        top: calc(50% - 17px);
-        left: calc(50% - 17px);
-        height: 34px;
-        width: 34px;
-        background: rgba(255, 230, 0, 0.6);
+        transform: translateY(6px);
     }
     50% {
-        top: calc(50% - 20px);
-        left: calc(50% - 20px);
-        height: 40px;
-        width: 40px;
-        background: rgba(255, 200, 0, 0.6);
+        transform: translateY(-6px);
     }
     100% {
-        top: calc(50% - 17px);
-        left: calc(50% - 17px);
-        height: 34px;
-        width: 34px;
-        background: rgba(255, 230, 0, 0.6);
+        transform: translateY(6px);
     }
 }
 
-@-webkit-keyframes highlight-bounce {
+@-webkit-keyframes arrow-bounce {
     0% {
-        top: calc(50% - 17px);
-        left: calc(50% - 17px);
-        height: 34px;
-        width: 34px;
-        background: rgba(255, 230, 0, 0.6);
+        -webkit-transform: translateY(6px);
     }
     50% {
-        top: calc(50% - 20px);
-        left: calc(50% - 20px);
-        height: 40px;
-        width: 40px;
-        background: rgba(255, 200, 0, 0.6);
+        -webkit-transform: translateY(-6px);
     }
     100% {
-        top: calc(50% - 17px);
-        left: calc(50% - 17px);
-        height: 34px;
-        width: 34px;
-        background: rgba(255, 230, 0, 0.6);
+        -webkit-transform: translateY(6px);
     }
 }
 
