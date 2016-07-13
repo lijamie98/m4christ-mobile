@@ -2,6 +2,10 @@
     box-sizing: border-box;
 }
 
+.m4christ-audio > .mdl-grid {
+    padding-top: 218px;
+}
+
 .m4christ-audio * {
     box-sizing: border-box;
 }
@@ -11,10 +15,12 @@ a .mdl-cell that wraps all of the controls.
 will contain a icon-controls wrapper and a slider-controls
 */
 .m4christ-audio .ma-controls {
+    position: fixed;
+    top: 72px;
     padding: 16px;
     background: #fff;
-
-    transition: box-shadow 256ms ease-in-out;
+    width: calc(100% - 32px);
+    z-index: 100000000;
 }
 
 /* The icons controls wrapper:
