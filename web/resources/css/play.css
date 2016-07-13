@@ -268,9 +268,9 @@ contains 3 components:
     -o-animation-fill-mode: forwards;
     animation-fill-mode: forwards;
 
-    -webkit-animation-duration: 1s;
-    -moz-animation-duration: 1s;
-    -o-animation-duration: 1s;
+    -webkit-animation-duration: 300ms;
+    -moz-animation-duration: 300ms;
+    -o-animation-duration: 300ms;
     animation-duration: 300ms;
 
     -webkit-animation-timing-function: linear;
