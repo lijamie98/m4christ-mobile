@@ -125,8 +125,8 @@ will contain main-controls and secondary-controls
 /* make sure icon is on top of highlight */
 .m4christ-audio .ma-controls .ma-icon-controls .ma-icon-controls--play-pause > .material-icons {
     font-size: 32px;
-    -webkit-transform: translate(-16px,-16px);
-    transform: translate(-16px,-16px);
+    -webkit-transform: translate(-16px, -16px);
+    transform: translate(-16px, -16px);
     line-height: 32px;
     width: 32px;
     z-index: 5;
@@ -174,11 +174,12 @@ contains 3 components:
 
     /* http://stackoverflow.com/questions/826782/css-rule-to-disable-text-selection-highlighting */
     -webkit-touch-callout: none; /* iOS Safari */
-    -webkit-user-select: none;   /* Chrome/Safari/Opera */
-    -moz-user-select: none;      /* Firefox */
-    -ms-user-select: none;       /* IE/Edge */
-    user-select: none;           /* non-prefixed version, currently
-                                  not supported by any browser */
+    -webkit-user-select: none; /* Chrome/Safari/Opera */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* IE/Edge */
+    user-select: none;
+    /* non-prefixed version, currently
+                           not supported by any browser */
 }
 
 .ma-controls-slider > div {
@@ -217,4 +218,99 @@ contains 3 components:
 
 .mm-list > .mm-list--item.selected {
     background-color: #FFCA28; /* amber-400 */
+}
+
+/* lyric work starts here */
+
+.ma-lyrics {
+    padding: 0;
+}
+
+.ma-lyrics > .mdl-cell {
+    margin: 0;
+}
+
+.ma-lyrics .ma-lyrics--title {
+    position: relative;
+    height: 56px;
+    width: 100%;
+
+    cursor: pointer;
+}
+
+.ma-lyrics .ma-lyrics--title-text {
+    position: absolute;
+    left: 16px;
+
+    line-height: 56px;
+    font-size: 14.5pt;
+}
+
+.ma-lyrics .ma-lyrics--icons {
+    position: absolute;
+    top: calc(50% - 12px);
+    right: 16px;
+
+    font-size: 24px;
+    font-family: 'Material Icons', serif;
+}
+
+.ma-lyrics--text {
+    max-height: 0;
+    width: 100%;
+    overflow: hidden;
+
+    -webkit-animation-fill-mode: forwards;
+    -moz-animation-fill-mode: forwards;
+    -o-animation-fill-mode: forwards;
+    animation-fill-mode: forwards;
+
+    -webkit-animation-duration: 1s;
+    -moz-animation-duration: 1s;
+    -o-animation-duration: 1s;
+    animation-duration: 1s;
+}
+
+.ma-lyrics.show .ma-lyrics--text {
+    -webkit-animation-name: text-show;
+    -moz-animation-name: text-show;
+    -o-animation-name: text-show;
+    animation-name: text-show;
+}
+
+.ma-lyrics.hide .ma-lyrics--text {
+    -webkit-animation-name: text-hide;
+    -moz-animation-name: text-hide;
+    -o-animation-name: text-hide;
+    animation-name: text-hide;
+}
+
+@keyframes text-show {
+    0% {
+        max-height: 0;
+        overflow: hidden;
+    }
+    99.9% {
+        max-height: 200px;
+        overflow: hidden;
+    }
+    100% {
+        max-height: 200px;
+        overflow: auto;
+    }
+}
+
+@keyframes text-hide {
+    0% {
+        max-height: 200px;
+        overflow: auto;
+    }
+    0.1% {
+        max-height: 70px;
+        overflow: hidden;
+    }
+    100% {
+        max-height: 0;
+        overflow: hidden;
+    }
 }
