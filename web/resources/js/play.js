@@ -10,14 +10,17 @@ $(function () {
 
     var getPositionX;
     (function () {
-        if (mobile)
+        if (mobile) {
             getPositionX = function (e) {
                 return e.originalEvent.touches[0].clientX;
             };
+            document.querySelector(".ma-controls").style.top = "56px";
+        }
         else
             getPositionX = function (e) {
                 return e.clientX;
             };
+
     }());
 
     var $maSlide = $('.ma-controls-slider');
@@ -331,6 +334,7 @@ $(function () {
                     currentIndex = 0;
 
                 songTitle.innerText = song.songName;
+                player.changeLyrics(song.songLyrics);
                 audio.setAttribute('src', mp3Template.format(song.songAudioMp3));
 
                 $(mainContent).animate({scrollTop: "0px"}, '600', 'swing');
@@ -381,6 +385,24 @@ $(function () {
             arrowContainer.removeChild(arrow);
     };
     //end
+
+    var lyrics = document.querySelector(".ma-lyrics");
+    var lyricsTitle = lyrics.querySelector(".ma-lyrics--title");
+
+    lyricsTitle.on("click", function () {
+        if (!lyrics.classList.contains("show")) {
+            lyrics.classList.remove("hide");
+            lyrics.classList.add("show");
+        } else {
+            lyrics.classList.remove("show");
+            lyrics.classList.add("hide");
+        }
+    });
+
+    player.changeLyrics = function (input) {
+        var lyricsText = lyrics.querySelector(".ma-lyrics--text").children[0];
+        lyricsText.innerText = input;
+    }
 });
 
 HTMLElement.prototype._s = function (s) {

@@ -3,7 +3,7 @@
 }
 
 .m4christ-audio > .mdl-grid {
-    padding-top: 218px;
+    padding-top: 202px;
 }
 
 .m4christ-audio * {
@@ -16,11 +16,13 @@ will contain a icon-controls wrapper and a slider-controls
 */
 .m4christ-audio .ma-controls {
     position: fixed;
-    top: 72px;
+    top: 64px;
+    left: 0;
     padding: 16px;
     background: #fff;
-    width: calc(100% - 32px);
+    width: 100%;
     z-index: 100000000;
+    margin: 0;
 }
 
 /* The icons controls wrapper:
@@ -259,6 +261,7 @@ contains 3 components:
     max-height: 0;
     width: 100%;
     overflow: hidden;
+    font-size: 12pt;
 
     -webkit-animation-fill-mode: forwards;
     -moz-animation-fill-mode: forwards;
@@ -268,7 +271,12 @@ contains 3 components:
     -webkit-animation-duration: 1s;
     -moz-animation-duration: 1s;
     -o-animation-duration: 1s;
-    animation-duration: 1s;
+    animation-duration: 300ms;
+
+    -webkit-animation-timing-function: linear;
+    -moz-animation-timing-function: linear;
+    -o-animation-timing-function: linear;
+    animation-timing-function: linear;
 }
 
 .ma-lyrics.show .ma-lyrics--text {
@@ -306,7 +314,7 @@ contains 3 components:
         overflow: auto;
     }
     0.1% {
-        max-height: 70px;
+        max-height: 200px;
         overflow: hidden;
     }
     100% {
