@@ -14,7 +14,6 @@ $(function () {
             getPositionX = function (e) {
                 return e.originalEvent.touches[0].clientX;
             };
-            document.querySelector(".ma-controls").style.top = "56px";
         }
         else
             getPositionX = function (e) {
@@ -94,13 +93,8 @@ $(function () {
     // mc AKA. mainControls
     var mc = _s('.ma-icon-controls--main-controls');
 
-    var rewind = mc._s('.ma-icon-controls--rewind');
-
     // pp AKA. playPause
     var pp = mc._s('.ma-icon-controls--play-pause');
-
-    // ff AKA. fastForward
-    var ff = mc._s('.ma-icon-controls--fast-forward');
 
     var prev = mc._s('.ma-icon-controls--prev');
 
@@ -110,22 +104,12 @@ $(function () {
 
     /* Icon click events */
 
-    // when rewind is clicked, rewind by 10 seconds
-    rewind.on('click', function () {
-        audio.rewind(10);
-    });
-
     // when pp is clicked, play or pause respective to audio.paused status
     pp.on('click', function () {
         if (audio.paused)
             audio.play();
         else
             audio.pause();
-    });
-
-    // when ff is clicked, rewind by 10 seconds
-    ff.on('click', function () {
-        audio.fastForward(10);
     });
 
     // when prev is clicked, go back a song
@@ -181,16 +165,6 @@ $(function () {
     });
 
     /* Audio methods */
-
-    // rewind by n number of seconds
-    HTMLAudioElement.prototype.rewind = function (n) {
-        this.currentTime = this.currentTime - n;
-    };
-
-    // fast forward by n number of seconds
-    HTMLAudioElement.prototype.fastForward = function (n) {
-        this.currentTime = this.currentTime + n;
-    };
 
     /* DOM and misc. methods */
     function formatSeconds(s) {
