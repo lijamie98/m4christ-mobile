@@ -317,6 +317,7 @@ $(function () {
                     playlistItems[i] = songElement;
                 }
 
+                document.querySelector(".ma-load-cover").classList.add("hide");
                 player.changeSong(0);
             },
             dataType: 'JSON'

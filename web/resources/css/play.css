@@ -264,8 +264,6 @@ contains 3 components:
     font-size: 12pt;
 
     -webkit-animation-fill-mode: forwards;
-    -moz-animation-fill-mode: forwards;
-    -o-animation-fill-mode: forwards;
     animation-fill-mode: forwards;
 
     -webkit-animation-duration: 1s;
@@ -273,23 +271,19 @@ contains 3 components:
     -o-animation-duration: 1s;
     animation-duration: 300ms;
 
-    -webkit-animation-timing-function: linear;
-    -moz-animation-timing-function: linear;
-    -o-animation-timing-function: linear;
-    animation-timing-function: linear;
+    -webkit-animation-timing-function: ease-out;
+    -moz-animation-timing-function: ease-out;
+    -o-animation-timing-function: ease-out;
+    animation-timing-function: ease-out;
 }
 
 .ma-lyrics.show .ma-lyrics--text {
     -webkit-animation-name: text-show;
-    -moz-animation-name: text-show;
-    -o-animation-name: text-show;
     animation-name: text-show;
 }
 
 .ma-lyrics.hide .ma-lyrics--text {
     -webkit-animation-name: text-hide;
-    -moz-animation-name: text-hide;
-    -o-animation-name: text-hide;
     animation-name: text-hide;
 }
 
@@ -351,4 +345,97 @@ contains 3 components:
         max-height: 0;
         overflow: hidden;
     }
+}
+
+.ma-load-cover {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2147483647;
+
+    height: 100%;
+    width: 100%;
+
+    background: #fff;
+    opacity: 1;
+}
+
+.ma-load-cover.hide {
+    pointer-events: none;
+
+    -webkit-animation-name: load-cover-hide;
+    animation-name: load-cover-hide;
+
+    -webkit-animation-duration: 760ms;
+    -moz-animation-duration: 760ms;
+    -o-animation-duration: 760ms;
+    animation-duration: 760ms;
+
+    -webkit-animation-fill-mode: forwards;
+    animation-fill-mode: forwards;
+
+    -webkit-animation-timing-function: ease-out;
+    animation-timing-function: ease-out;
+}
+
+@keyframes load-cover-hide {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
+
+.ma-load-cover--content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 47px;
+    margin: auto;
+    height: 51px;
+    width: 80%;
+    max-width: 500px;
+    opacity: 0;
+
+    -webkit-animation-name: cover-content-fade-in;
+    animation-name: cover-content-fade-in;
+
+    -webkit-animation-duration: 400ms;
+    animation-duration: 400ms;
+
+    -webkit-animation-delay: 400ms;
+    animation-delay: 400ms;
+
+    -webkit-animation-fill-mode: forwards;
+    animation-fill-mode: forwards;
+}
+
+@keyframes cover-content-fade-in {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@-webkit-keyframes cover-content-fade-in {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.ma-load-cover--text {
+    font-size: 24pt;
+    line-height: normal;
+}
+
+.ma-load-cover--loading .mdl-progress > .bar1 {
+    -webkit-animation-duration: 1s;
+    animation-duration: 1s;
 }
