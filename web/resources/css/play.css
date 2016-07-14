@@ -394,6 +394,15 @@ contains 3 components:
     }
 }
 
+@-webkit-keyframes load-cover-hide {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
+
 .ma-load-cover--content {
     position: absolute;
     top: 0;
@@ -412,8 +421,8 @@ contains 3 components:
     -webkit-animation-duration: 400ms;
     animation-duration: 400ms;
 
-    -webkit-animation-delay: 400ms;
-    animation-delay: 400ms;
+    -webkit-animation-delay: 200ms;
+    animation-delay: 200ms;
 
     -webkit-animation-fill-mode: forwards;
     animation-fill-mode: forwards;
