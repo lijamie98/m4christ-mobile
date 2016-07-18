@@ -2,10 +2,6 @@
     box-sizing: border-box;
 }
 
-.m4christ-audio > .mdl-grid {
-    padding-top: 156px;
-}
-
 .m4christ-audio * {
     box-sizing: border-box;
 }
@@ -15,14 +11,9 @@ a .mdl-cell that wraps all of the controls.
 will contain a icon-controls wrapper and a slider-controls
 */
 .m4christ-audio .ma-controls {
-    position: fixed;
-    top: 64px;
-    left: 0;
     padding: 16px;
     background: #fff;
     width: 100%;
-    z-index: 100000000;
-    margin: 0;
 }
 
 @media (max-width:1024px) {
@@ -62,11 +53,7 @@ will contain main-controls and secondary-controls
     position: relative;
     margin: 0 auto;
     width: 100%;
-    text-align: left;
-}
-
-.m4christ-audio .ma-controls span {
-    margin-right: 0;
+    text-align: center;
 }
 
 .m4christ-audio .ma-controls .ma-icon-controls .ma-icon-controls--play-pause {
@@ -166,12 +153,9 @@ will contain main-controls and secondary-controls
 /* the time wrapper:
  will contain current time and duration*/
 .ma-controls-time {
-    position: absolute;
-    top: 0;
-    right: 16px;
-    height: 56px;
-    display: inline-block;
-    line-height: 56px;
+    margin-top: 8px;
+    padding: 8px;
+    text-align: center;
 }
 
 /* Slider Component

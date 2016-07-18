@@ -67,8 +67,8 @@
                                 <i class=material-icons>skip_previous</i>
                             </button>
 
-                            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-button--raised mdl-button--colored ma-icon-controls--play-pause">
-                                <i class="material-icons mdl-color-text--white">play_arrow</i>
+                            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--blue-grey-100 mdl-button--raised ma-icon-controls--play-pause">
+                                <i class="material-icons">play_arrow</i>
                             </button>
 
                             <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon ma-icon-controls--stop">
@@ -85,17 +85,22 @@
                                 </svg>
                             </div>
 
-                            <div class="mdl-layout--small-screen-only"></div>
-
-                            <div class="ma-controls-time">
-                                <span class="ma-controls-time--current-time">00:00</span> / <span
-                                    class="ma-controls-time--duration">00:00</span>
-                            </div>
                         </div>
+                    </div>
+
+                    <div class="mdl-shadow--4dp ma-controls-time">
+                        <span class="ma-controls-time--current-time">00:00</span> / <span
+                            class="ma-controls-time--duration">00:00</span>
                     </div>
 
                     <hr/>
 
+                    <div class="ma-controls-slider">
+                        <div class="ma-slider--background mdl-color--blue-grey-100"></div>
+                        <div class="ma-slider--progress mdl-color--primary">
+                            <div class="ma-slider--progress-circle mdl-color--accent mdl-shadow--3dp"></div>
+                        </div>
+                    </div>
                     <div class="ma-controls-slider">
                         <div class="ma-slider--background mdl-color--blue-grey-100"></div>
                         <div class="ma-slider--progress mdl-color--primary">
@@ -117,10 +122,8 @@
 
                 <div class="mdl-cell mdl-cell--12-col mdl-color--white mdl-shadow--4dp">
                     <div class="mdl-grid mdl-grid--no-spacing mm-list ma-playlist">
-
                     </div>
                 </div>
-
             </div>
         </div>
 
