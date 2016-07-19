@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <meta name="theme-color" content="#283593" class="mm-theme-color">
+    <!-- Windows Phone -->
+    <meta name="msapplication-navbutton-color" content="#4285f4" class="mm-theme-color">
+    <!-- iOS Safari -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+    <title id="title">[PLACEHOLDER]</title>
+
+    <script src="/resources/js/msg.js"></script>
+    <script src="/resources/js/jquery-2.2.0.min.js"></script>
+
+    <!-- MDL Resources -->
+
+    <link rel="stylesheet" href="/material-design-lite/dist/material.min.css">
+    <link rel="stylesheet" href="/material-design-lite/dist/material-grid.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Roboto">
+
+    <script src="/material-design-lite/dist/material.min.js"></script>
+    <script src="/resources/js/controllers/book/individual.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="/resources/css/mobile.css">
+    <link rel="stylesheet" type="text/css" href="/resources/css/praise.css">
+
+    <style>
+        #book-iframe {
+            position: absolute;
+            top: 16px;
+            left: 16px;
+
+            height: calc(100% - 32px);
+            width: calc(100% - 32px);
+            border: none;
+
+            overflow-y: auto;
+            overflow-x: hidden;
+        }
+    </style>
+</head>
+<body class="mdl-color--blue-grey-50">
+
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+
+    <!-- ==================
+          Toolbar
+    =================== -->
+
+    <div class="mdl-layout__header">
+
+        <a href="/mobile/book.html" class="mdl-layout__drawer-button">
+            <i class="material-icons">arrow_back</i>
+        </a>
+
+        <div class="mdl-layout__header-row">
+
+            <span class="mdl-layout-title mdl-color-text--white"> INDIVIDUAL BOOK </span>
+        </div>
+    </div>
+
+    <!-- ==================
+            Content
+    =================== -->
+
+    <main class="mdl-layout__content mdl-color--blue-grey-50">
+
+        <iframe class="mdl-color--white mdl-shadow--4dp" id="book-iframe"></iframe>
+
+        <div class="ma-load-cover">
+            <div class="ma-load-cover--content">
+                <div class="ma-load-cover--text">請稍候</div>
+                <div class="ma-load-cover--loading">
+                    <div class="mdl-progress mdl-js-progress mdl-progress__indeterminate"></div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+</div>
+
+</body>
+</html>

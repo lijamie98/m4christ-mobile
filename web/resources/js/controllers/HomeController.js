@@ -21,5 +21,10 @@ mainApp.controller("HomeController", ["$scope", function($scope) {
         "imgSrc": "praise-th.jpg",
         "title": "風中傳愛歌曲",
         "subtitle": "線上播放與下載"
+    }, {
+        "url": "/mobile/book.html",
+        "imgSrc": "placeholder-th.jpg",
+        "title": "Book",
+        "subtitle": "56 BOOKS!"
     }];
 }]);

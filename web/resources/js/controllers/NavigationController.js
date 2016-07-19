@@ -19,6 +19,9 @@ mainApp.controller('NavigationController', ['$scope', function ($scope) {
         {
             "name": "風中傳愛歌曲",
             "src": "/mobile/praise.html"
+        },{
+            "name": "BOOK",
+            "src": "/mobile/book.html"
         }
     ];
 
