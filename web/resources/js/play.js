@@ -95,6 +95,7 @@ $(function () {
 
     // pp AKA. playPause
     var pp = mc._s('.ma-icon-controls--play-pause');
+    var ppFab = _s('.ma-pp-fab');
 
     var prev = mc._s('.ma-icon-controls--prev');
 
@@ -105,12 +106,15 @@ $(function () {
     /* Icon click events */
 
     // when pp is clicked, play or pause respective to audio.paused status
-    pp.on('click', function () {
+    pp.on('click', ppListener);
+    ppFab.on('click', ppListener);
+
+    function ppListener() {
         if (audio.paused)
             audio.play();
         else
             audio.pause();
-    });
+    }
 
     // when prev is clicked, go back a song
     prev.on('click', function () {
@@ -130,12 +134,14 @@ $(function () {
     // when playing, change pp's icon to pause
     audio.on('play playing', function () {
         pp.children[0].innerText = iconText.pause;
+        ppFab.children[0].innerText = iconText.pause;
         mainObj.removeArrow();
     });
 
     // when paused, change pp's icon to play
     audio.on('pause waiting', function () {
         pp.children[0].innerText = iconText.play;
+        ppFab.children[0].innerText = iconText.play;
     });
 
     // when audio progress changes, change slider position
@@ -377,7 +383,23 @@ $(function () {
     player.changeLyrics = function (input) {
         var lyricsText = lyrics.querySelector(".ma-lyrics--text").children[0];
         lyricsText.innerText = input;
-    }
+    };
+
+    // pp fab behavior
+    var mainLayout = _s(".mdl-layout__content");
+    var showed = false;
+    mainLayout.on('scroll', function () {
+        if (mainLayout.scrollTop >= 280) {
+            ppFab.classList.remove("hide");
+            ppFab.classList.add("show");
+            showed = true;
+        }
+        else if (showed) {
+            ppFab.classList.remove("show");
+            ppFab.classList.add("hide");
+        }
+    });
+
 });
 
 HTMLElement.prototype._s = function (s) {
@@ -403,3 +425,7 @@ HTMLElement.prototype.off = function (events, method) {
         element.removeEventListener(event, method);
     });
 };
+
+function debug() {
+    document.querySelector(".ma-load-cover").classList.add("hide");
+}
