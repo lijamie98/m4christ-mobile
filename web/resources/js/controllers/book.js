@@ -34,7 +34,7 @@ window.addEventListener("load", function () {
     booksXhttp.open("GET", "http://m.m4christ.net/mobile/json/products/_filter/B", true);
     booksXhttp.send();
 
-    var imgTemplateUrl = 'http://static.m4christ.net/products/{0}/{1}-ths.jpg';
+    var imgTemplateUrl = 'http://static.m4christ.net/products/{0}/{1}-th.jpg';
     var mainGrid = document.getElementById("main-grid");
 
     var individualTemplate = "/mobile/book/individual.html?label={0}&title={1}";

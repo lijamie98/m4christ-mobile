@@ -20,3 +20,8 @@
     height: 24px;
     width: 6px;
 }
+
+.ma-book-image {
+    height: 300px !important;
+    width: 219px !important;
+}
