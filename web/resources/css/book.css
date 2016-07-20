@@ -1,0 +1,22 @@
+.ma-scroll {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+
+    height: calc(100% - 88px);
+    width: 16px;
+}
+
+@media(max-width: 1024px) {
+    .ma-scroll {
+        height: calc(100% - 80px);
+    }
+}
+
+.ma-scroll-bar {
+    position: absolute;
+    top: 0;
+    right: 2px;
+    height: 24px;
+    width: 6px;
+}
