@@ -23,7 +23,7 @@ mainApp.controller("HomeController", ["$scope", function($scope) {
         "subtitle": "線上播放與下載"
     }, {
         "url": "/mobile/book.html",
-        "imgSrc": "placeholder-th.jpg",
+        "imgSrc": "book-th.jpg",
         "title": "屬靈書籍",
         "subtitle": "免費線上閱讀"
     }];
