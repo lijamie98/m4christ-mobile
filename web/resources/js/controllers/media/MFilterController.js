@@ -55,6 +55,7 @@ mainApp.controller('MFilterController', ['$scope', '$http', function ($scope, $h
         }
 
         $scope.items = data;
+        document.querySelector(".ma-load-cover").classList.add("hide");
     }, function (response) {
     });
 

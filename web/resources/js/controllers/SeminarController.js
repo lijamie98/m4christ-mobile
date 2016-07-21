@@ -49,7 +49,7 @@ mainApp.controller("SeminarController", ["$scope", "$http", function ($scope, $h
                 $scope[scope] = response.data;
 
                 console.info('[ ' + name + ' ]', response.data);
-
+                document.querySelector(".ma-load-cover").classList.add("hide");
             }, function (response) {
 
                 console.log(response);

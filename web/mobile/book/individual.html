@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"/>
     <meta name="theme-color" content="#283593" class="mm-theme-color">
     <!-- Windows Phone -->
     <meta name="msapplication-navbutton-color" content="#4285f4" class="mm-theme-color">
@@ -29,21 +29,24 @@
     <link rel="stylesheet" type="text/css" href="/resources/css/praise.css">
 
     <style>
-        #book-iframe {
+        .iframe-wrapper {
             position: absolute;
-            top: 16px;
-            left: 16px;
+            top: 0;
+            left: 0;
 
-            height: calc(100% - 32px);
-            width: calc(100% - 32px);
+            height: 100%;
+            width: 100%;
+            overflow: auto;
+        }
+
+        #book-iframe {
+            height: 100%;
+            width: 100%;
             border: none;
-
-            overflow-y: auto;
-            overflow-x: hidden;
         }
     </style>
 </head>
-<body class="mdl-color--blue-grey-50">
+<body>
 
 <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
 
@@ -67,11 +70,13 @@
             Content
     =================== -->
 
-    <main class="mdl-layout__content mdl-color--blue-grey-50">
+    <main class="mdl-layout__content">
 
-        <iframe class="mdl-color--white mdl-shadow--4dp" id="book-iframe"></iframe>
+        <div class="iframe-wrapper">
+            <iframe id="book-iframe"></iframe>
+        </div>
 
-        <div class="ma-load-cover">
+        <div class="ma-load-cover"s>
             <div class="ma-load-cover--content">
                 <div class="ma-load-cover--text">請稍候</div>
                 <div class="ma-load-cover--loading">
