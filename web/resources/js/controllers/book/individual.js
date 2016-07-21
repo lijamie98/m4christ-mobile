@@ -18,7 +18,8 @@ window.addEventListener("load", function () {
         return formatted;
     };
 
-    document.querySelector(".mdl-layout-title").innerText = decodeURIComponent(queryObject.title);
+    document.querySelector(".mdl-layout-title").innerText = decodeURIComponent(queryObject.title) + " ({0})".format(queryObject.label);
+    document.querySelector("title").innerText = decodeURIComponent(queryObject.title);
 
     var bookHtmlTemplate = "http://www.m4christ.net/web/products/{0}/{1}.htm";
 

@@ -20,7 +20,7 @@ mainApp.controller('NavigationController', ['$scope', function ($scope) {
             "name": "風中傳愛歌曲",
             "src": "/mobile/praise.html"
         },{
-            "name": "BOOK",
+            "name": "屬靈書籍",
             "src": "/mobile/book.html"
         }
     ];

@@ -24,7 +24,7 @@ mainApp.controller("HomeController", ["$scope", function($scope) {
     }, {
         "url": "/mobile/book.html",
         "imgSrc": "placeholder-th.jpg",
-        "title": "Book",
-        "subtitle": "56 BOOKS!"
+        "title": "屬靈書籍",
+        "subtitle": "免費線上閱讀"
     }];
 }]);
