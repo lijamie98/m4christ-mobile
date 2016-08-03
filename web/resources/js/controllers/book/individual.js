@@ -21,9 +21,7 @@ window.addEventListener("load", function () {
     };
 
     var rootUrl = '/mobile/json/products/';
-
-    document.querySelector(".mdl-layout-title").innerText = queryObject.label;
-    document.querySelector("title").innerText = queryObject.label;
+    var titleTemplate = "{0} ({1})";
 
     var bookRequest = new XMLHttpRequest();
     bookRequest.responseType = "json";
@@ -33,18 +31,28 @@ window.addEventListener("load", function () {
             var response = bookRequest.response;
             console.log("[Response]", response);
 
-            document.querySelector(".mdl-layout-title").innerText = response.name;
-            document.querySelector("title").innerText = response.name;
+            document.querySelector(".mdl-layout-title").innerText = titleTemplate.format(response.name, response.labelWeb);
+            document.querySelector("title").innerText = titleTemplate.format(response.name, response.labelWeb);
 
             var img = document.querySelector("#img");
             img.src = response.imageURL;
 
-            addText(document.querySelector("#name"), response.name);
             addText(document.querySelector("#introduction"), response.introduction, true);
 
             img.addEventListener("load", function() {
                 document.querySelector(".ma-load-cover").classList.add("hide");
             });
+
+            var epub = document.querySelector("#epub");
+            var pdf = document.querySelector("#pdf");
+            var html = document.querySelector("#html");
+            if (response.bookEpubURL.length == 0) {
+                epub.style.display = "none";
+            }
+
+            epub.setAttribute("href", response.bookEpubURL);
+            pdf.setAttribute("href", response.bookPDFURL);
+            html.setAttribute("href", response.bookHtmlURL);
         }
     };
 

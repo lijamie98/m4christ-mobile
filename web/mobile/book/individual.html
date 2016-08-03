@@ -47,7 +47,7 @@
 
         <div class="mdl-layout__header-row">
 
-            <span class="mdl-layout-title mdl-color-text--white"> INDIVIDUAL BOOK </span>
+            <span class="mdl-layout-title mdl-color-text--white"></span>
         </div>
     </div>
 
@@ -59,34 +59,33 @@
 
         <div class="mdl-grid mm--main-grid">
 
-            <div class="mdl-cell mdl-cell--10-col mdl-cell--8-col-tablet mm-padding mm-center" style="box-shadow: none; text-align: center;">
-                <span class="mdl-typography--headline" id="name" style="font-weight: bold;"></span>
-            </div>
-
             <div class="mdl-cell mdl-cell--12-col" style="box-shadow: none;">
-                <img class="mm-center mdl-shadow--4dp" src="" alt="YAY! BOOK!" id="img" style="display: block; margin: 0 auto;">
+                <img class="mm-center mdl-shadow--4dp" src="" alt="YAY! BOOK!" id="img" style="display: block; margin: 0 auto; max-width: 100%;">
             </div>
 
             <div class="mdl-cell mdl-cell--10-col mdl-cell--8-col-tablet mm-center">
                 <div class="mdl-grid mdl-grid--no-spacing mm-list">
-                    <div class="mdl-cell mm-list--item">
+                    <a class="mdl-cell mm-list--item mdl-js-ripple-effect" id="epub" target="_blank">
                         <div class="itc">
                             <div class="itc--image material-icons mdl-color-text--green-500">file_download</div>
                             <div class="itc--text">EPUB</div>
                         </div>
-                    </div>
-                    <div class="mdl-cell mm-list--item">
+                        <span class="mdl-ripple"></span>
+                    </a>
+                    <a class="mdl-cell mm-list--item mdl-js-ripple-effect" id="pdf" target="_blank">
                         <div class="itc">
                             <div class="itc--image material-icons mdl-color-text--red-500">picture_as_pdf</div>
                             <div class="itc--text">PDF</div>
                         </div>
-                    </div>
-                    <div class="mdl-cell mm-list--item">
+                        <span class="mdl-ripple"></span>
+                    </a>
+                    <a class="mdl-cell mm-list--item mdl-js-ripple-effect" id="html" target="_blank">
                         <div class="itc">
                             <div class="itc--image material-icons mdl-color-text--blue-500">code</div>
                             <div class="itc--text">HTML</div>
                         </div>
-                    </div>
+                        <span class="mdl-ripple"></span>
+                    </a>
                 </div>
             </div>
 
