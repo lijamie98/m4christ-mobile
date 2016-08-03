@@ -64,7 +64,7 @@ html, body, .mdl-layout {
 
 .mm-list {
     padding: 0;
-    margin-bottom: 8px;
+    /*margin-bottom: 8px;*/
 }
 
 .mm-list > .mdl-cell {
@@ -89,7 +89,7 @@ html, body, .mdl-layout {
     padding: 0;
 }
 
-.mm-list > .mm-list--header > .itc > .itc--img {
+.mm-list > .mm-list--header > .itc > .itc--image {
     line-height: 48px;
     font-size: 32px;
 }

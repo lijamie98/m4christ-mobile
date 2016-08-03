@@ -26,25 +26,10 @@
     <script src="/resources/js/controllers/book/individual.js"></script>
 
     <link rel="stylesheet" type="text/css" href="/resources/css/mobile.css">
-    <link rel="stylesheet" type="text/css" href="/resources/css/praise.css">
+    <link rel="stylesheet" type="text/css" href="/resources/css/media.css">
+    <link rel="stylesheet" type="text/css" href="/resources/css/mm-box.css">
+    <link rel="stylesheet" type="text/css" href="/resources/css/mm-audio-popup.css">
 
-    <style>
-        .iframe-wrapper {
-            position: absolute;
-            top: 0;
-            left: 0;
-
-            height: 100%;
-            width: 100%;
-            overflow: auto;
-        }
-
-        #book-iframe {
-            height: 100%;
-            width: 100%;
-            border: none;
-        }
-    </style>
 </head>
 <body>
 
@@ -72,11 +57,47 @@
 
     <main class="mdl-layout__content">
 
-        <div class="iframe-wrapper">
-            <iframe id="book-iframe"></iframe>
+        <div class="mdl-grid mm--main-grid">
+
+            <div class="mdl-cell mdl-cell--10-col mdl-cell--8-col-tablet mm-padding mm-center" style="box-shadow: none; text-align: center;">
+                <span class="mdl-typography--headline" id="name" style="font-weight: bold;"></span>
+            </div>
+
+            <div class="mdl-cell mdl-cell--12-col" style="box-shadow: none;">
+                <img class="mm-center mdl-shadow--4dp" src="" alt="YAY! BOOK!" id="img" style="display: block; margin: 0 auto;">
+            </div>
+
+            <div class="mdl-cell mdl-cell--10-col mdl-cell--8-col-tablet mm-center">
+                <div class="mdl-grid mdl-grid--no-spacing mm-list">
+                    <div class="mdl-cell mm-list--item">
+                        <div class="itc">
+                            <div class="itc--image material-icons mdl-color-text--green-500">file_download</div>
+                            <div class="itc--text">EPUB</div>
+                        </div>
+                    </div>
+                    <div class="mdl-cell mm-list--item">
+                        <div class="itc">
+                            <div class="itc--image material-icons mdl-color-text--red-500">picture_as_pdf</div>
+                            <div class="itc--text">PDF</div>
+                        </div>
+                    </div>
+                    <div class="mdl-cell mm-list--item">
+                        <div class="itc">
+                            <div class="itc--image material-icons mdl-color-text--blue-500">code</div>
+                            <div class="itc--text">HTML</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mdl-cell mdl-cell--10-col mdl-cell--8-col-tablet mm-padding mm-center">
+                <span class="mdl-typography--headline"> 簡介 </span>
+                <br/>
+                <span class="mdl-typography--subhead" id="introduction"></span>
+            </div>
         </div>
 
-        <div class="ma-load-cover"s>
+        <div class="ma-load-cover">
             <div class="ma-load-cover--content">
                 <div class="ma-load-cover--text">請稍候</div>
                 <div class="ma-load-cover--loading">
