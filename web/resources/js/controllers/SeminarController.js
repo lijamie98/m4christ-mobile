@@ -4,6 +4,8 @@
 
 mainApp.controller("SeminarController", ["$scope", "$http", function ($scope, $http) {
 
+    document.getElementById("header-title").innerText = " 講習會事奉 ";
+
     $scope.imgsRoot = "/resources/imgs/";
 
     $scope.infoTitle = "主僕疏效平簡介";

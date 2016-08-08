@@ -12,7 +12,7 @@ mainApp.controller('InfoController', ['$scope', '$sce', function ($scope, $sce) 
         }.bind({}))[0];
     }());
 
-    $scope.foSrc = "/web/seminars/" + queryObject.path;
+    $scope.foSrc = "http://www.m4christ.net/web/seminars/" + queryObject.path;
     $scope.src = $sce.trustAsResourceUrl($scope.foSrc);
 
     $scope.title = "Loading...";
