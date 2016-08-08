@@ -4,7 +4,7 @@
 
 mainApp.controller('ProductController', ['$scope', '$http', '$sce', function ($scope, $http, $sce) {
 
-    var rootUrl = 'http://m.m4christ.net/mobile/json/products/';
+    var rootUrl = 'http://m.m4christ.net/web-rest/json/products/';
 
     $scope.staticRootURL = 'http://static.m4christ.net/products/P008CD/';
 

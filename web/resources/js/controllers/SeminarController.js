@@ -69,9 +69,9 @@ mainApp.controller("SeminarController", ["$scope", "$http", function ($scope, $h
         actualMethod();
     }
 
-    getData('Past Seminars', '/mobile/json/seminars/past', 'pastSeminars');
+    getData('Past Seminars', '/web-rest/json/seminars/past', 'pastSeminars');
 
-    getData('Future Seminars', '/mobile/json/seminars/coming', 'comingSeminars');
+    getData('Future Seminars', '/web-rest/json/seminars/coming', 'comingSeminars');
 
 }]).directive('seminarInfoText', function () {
     return {

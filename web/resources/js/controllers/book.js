@@ -31,7 +31,7 @@ window.addEventListener("load", function () {
             useData();
         }
     };
-    booksXhttp.open("GET", "http://m.m4christ.net/mobile/json/products/_filter/B", true);
+    booksXhttp.open("GET", "http://m.m4christ.net/web-rest/json/products/_filter/B", true);
     booksXhttp.send();
 
     var imgTemplateUrl = 'http://static.m4christ.net/products/{0}/{1}-th.jpg';

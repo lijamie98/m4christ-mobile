@@ -12,7 +12,7 @@ mainApp.controller('CDVDController', ['$scope', '$http', '$sce', function ($scop
         });
     }());
 
-    var rootUrl = '/mobile/json/products/';
+    var rootUrl = '/web-rest/json/products/';
 
     // https://css-tricks.com/snippets/jquery/get-query-params-object/
     var queryObject = (function () {

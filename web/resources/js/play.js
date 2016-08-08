@@ -247,10 +247,10 @@ $(function () {
 
         var url = (function () {
             if (queryObject.label == undefined && queryObject.end == undefined)
-                return '/mobile/json/songs?start=1&end=49';
+                return '/web-rest/json/songs?start=1&end=49';
 
-            var songsTemplate = '/mobile/json/songs?start={0}&end={1}';
-            var labelTemplate = '/mobile/json/products/{0}/_songs';
+            var songsTemplate = '/web-rest/json/songs?start={0}&end={1}';
+            var labelTemplate = '/web-rest/json/products/{0}/_songs';
 
             if (queryObject.label != undefined)
                 return labelTemplate.format(queryObject.label);

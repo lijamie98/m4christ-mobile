@@ -23,7 +23,7 @@ mainApp.controller('PlaylistsController', ['$scope', '$http', function ($scope, 
         }.bind({}))[0];
     }());
 
-    var rootUrlTemplate = "http://m.m4christ.net/mobile/json/products/_filter/{0}";
+    var rootUrlTemplate = "http://m.m4christ.net/web-rest/json/products/_filter/{0}";
 
     var url = rootUrlTemplate.format(queryObject.filter);
 

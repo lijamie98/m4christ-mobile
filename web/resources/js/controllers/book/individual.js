@@ -20,7 +20,7 @@ window.addEventListener("load", function () {
         return formatted;
     };
 
-    var rootUrl = '/mobile/json/products/';
+    var rootUrl = '/web-rest/json/products/';
     var titleTemplate = "{0} ({1})";
 
     var bookRequest = new XMLHttpRequest();

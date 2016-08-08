@@ -4,7 +4,7 @@
 
 mainApp.controller('MFilterController', ['$scope', '$http', function ($scope, $http) {
 
-    var rootUrl = '/mobile/json/products/_filter/';
+    var rootUrl = '/web-rest/json/products/_filter/';
 
     // https://css-tricks.com/snippets/jquery/get-query-params-object/
     var queryObject = (function () {
