@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="38f023fd-e079-4971-a287-fd6054bc2e64" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/resources/templates/seminar-list.html" afterPath="$PROJECT_DIR$/web/resources/templates/seminar-list.html" />
-    </list>
+    <list default="true" id="38f023fd-e079-4971-a287-fd6054bc2e64" name="Default" comment="" />
     <ignored path="m4christ-mobile.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -35,8 +33,8 @@
       <file leaf-file-name="seminar-list.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/web/resources/templates/seminar-list.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="162">
-              <caret line="9" column="66" selection-start-line="9" selection-start-column="66" selection-end-line="9" selection-end-column="66" />
+            <state relative-caret-position="72">
+              <caret line="4" column="10" selection-start-line="4" selection-start-column="10" selection-end-line="4" selection-end-column="10" />
               <folding />
             </state>
           </provider>
@@ -286,12 +284,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1476335285493</updated>
-      <workItem from="1476335287242" duration="173000" />
+      <workItem from="1476335287242" duration="251000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="173000" />
+    <option name="totallyTimeSpent" value="251000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="24" width="1920" height="1056" extended-state="6" />
@@ -349,8 +347,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/web/resources/templates/seminar-list.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="162">
-          <caret line="9" column="66" selection-start-line="9" selection-start-column="66" selection-end-line="9" selection-end-column="66" />
+        <state relative-caret-position="72">
+          <caret line="4" column="10" selection-start-line="4" selection-start-column="10" selection-end-line="4" selection-end-column="10" />
           <folding />
         </state>
       </provider>
