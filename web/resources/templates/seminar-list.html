@@ -6,7 +6,8 @@
 
     <div class="mdl-cell mdl-cell--12-col mdl-shadow--3dp">
         <div class="mdl-grid mdl-grid--no-spacing mm-list">
-            <a ng-href="" class="mdl-cell mm-list--item" ng-repeat="seminar in item.seminars" ng-click="open(item.year, seminar.number);">
+            <a ng-href='http://www.m4christ.net/web/seminars/{{year}}/{{number}}/"' class="mdl-cell mm-list--item"
+               ng-repeat="seminar in item.seminars" target="_blank">
                 <div class="mm-list--item-text">
                     <span class="mm-list--item-text-title"> {{ seminar.title }} </span>
                     <span class="mm-list--item-text-subtitle"> {{ seminar.startDate | date }} - {{ seminar.location }} </span>
